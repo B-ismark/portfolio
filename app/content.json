@@ -1,0 +1,699 @@
+{
+  "site": {
+    "brand": "Bismark Gyau",
+    "nav": [
+      {
+        "label": "Work",
+        "href": "/"
+      },
+      {
+        "label": "Explorations",
+        "href": "/explorations"
+      },
+      {
+        "label": "About",
+        "href": "/about"
+      }
+    ],
+    "home": {
+      "leadHeadline": "I'm Bismark, a",
+      "leadHeadlineEm": "product designer",
+      "leadHeadlineTail": "who'd rather solve the problem than decorate the screen.",
+      "currentStatus": "Currently UI/UX designer at AmaliTech",
+      "workedWithLabel": "Worked with",
+      "workedWith": [
+        "AmaliTech",
+        "Deutsche Telekom",
+        "Brock"
+      ],
+      "selectedWorkLabel": "Selected work",
+      "selectedWorkCount": "01",
+      "clientWorkLabel": "Client work",
+      "clientWorkCount": "Under wraps",
+      "clientNote": "Real clients, real work. The pixels just aren't mine to share.",
+      "shippedLabel": "Shipped products",
+      "shippedCount": "04–05"
+    },
+    "explorations": {
+      "eyebrow": "Explorations",
+      "lead": "PERSONAL TOOLS, SIDE QUESTS, AND HALF-FORMED IDEAS",
+      "leadEm": "made to answer my own questions.",
+      "projectsLabel": "Built for myself",
+      "projectsCount": "01–02",
+      "ideasLabel": "Also exploring",
+      "ideasCount": "03"
+    },
+    "cta": {
+      "eyebrow": "Contact",
+      "heading": "So — what are we solving?",
+      "sub": "Freelance, a partnership, or a build that needs a designer who ships. Tell me what you're working on.",
+      "email": "bismarkgyau@gmail.com",
+      "linkedinLabel": "LinkedIn",
+      "linkedinHref": "https://www.linkedin.com/in/bismark-gyau"
+    },
+    "footer": {
+      "name": "Bismark Gyau",
+      "colophon": "Product designer · Ghana",
+      "elsewhereLabel": "Elsewhere",
+      "elsewhere": [
+        {
+          "label": "Email",
+          "href": "mailto:bismarkgyau@gmail.com",
+          "ext": false
+        },
+        {
+          "label": "LinkedIn",
+          "href": "https://www.linkedin.com/in/bismark-gyau",
+          "ext": true
+        },
+        {
+          "label": "Behance",
+          "href": "https://www.behance.net/b_ismark",
+          "ext": true
+        },
+        {
+          "label": "Résumé",
+          "href": "/bismark-gyau-resume.pdf",
+          "ext": true
+        }
+      ],
+      "copyright": "© 2026 Bismark Gyau",
+      "setIn": ":)"
+    }
+  },
+  "hero": {
+    "index": "01",
+    "category": "Web platform",
+    "status": "Live",
+    "title": "Rebuilding the AmaliTech website from the ground up",
+    "description": "A WordPress template had outgrown the company. I led the move to a CMS-backed site, building the design system, tone, and editorial guidelines from scratch so the team could publish without a designer in the loop.",
+    "meta": [
+      {
+        "label": "Role",
+        "value": "Lead designer"
+      },
+      {
+        "label": "Scope",
+        "value": "System, tone, docs"
+      },
+      {
+        "label": "Impact",
+        "value": "+15% time on site"
+      }
+    ],
+    "plateWord": "AmaliTech",
+    "image": "/work/amalitech/hero.png",
+    "href": "https://www.amalitech.com",
+    "slug": "amalitech"
+  },
+  "clients": [
+    {
+      "index": "02",
+      "client": "Deutsche Telekom",
+      "category": "Enterprise",
+      "status": "Ongoing",
+      "description": "I'm redesigning several of their platforms onto the OneDesign system, tightening the UX as I go. An ongoing partner engagement I'm quietly proud of.",
+      "role": "UX / UI designer, partner",
+      "mark": "DT"
+    },
+    {
+      "index": "03",
+      "client": "Brock",
+      "category": "Platform",
+      "status": "2024",
+      "description": "I modernised their platform's UI in a short, focused engagement. Small team, tight scope, real dent.",
+      "role": "UX / UI designer",
+      "mark": "B"
+    }
+  ],
+  "products": [
+    {
+      "index": "04",
+      "category": "Platform",
+      "status": "Shipped",
+      "title": "A video conferencing platform",
+      "description": "Designed the calling experience end to end: joining, presence, and the small moments between calls that most tools ignore.",
+      "role": "Product designer",
+      "plateWord": "Calls",
+      "slug": "video-conferencing",
+      "image": "/work/video-conferencing/landing.png"
+    },
+    {
+      "index": "05",
+      "category": "Web",
+      "status": "Live",
+      "title": "Meeting room booking",
+      "description": "A booking system that makes finding and holding a room take seconds, not clicks.",
+      "role": "Design & build",
+      "plateWord": "Rooms",
+      "slug": "booking-room",
+      "image": "/work/booking-room/dashboard.png"
+    }
+  ],
+  "explorationProjects": [
+    {
+      "index": "01",
+      "category": "Mobile",
+      "status": "Shipped",
+      "title": "Your phone as a trackpad",
+      "description": "Controlling a laptop from across the room shouldn't need a manual. I designed the gestures to feel obvious on first touch.",
+      "role": "Product designer",
+      "plateWord": "Trackpad",
+      "slug": "trackpad",
+      "image": "/work/trackpad/app.png"
+    },
+    {
+      "index": "02",
+      "category": "Web",
+      "status": "Live",
+      "title": "Media that learns your taste",
+      "description": "Most feeds just replay what you've already saved. Weaver reads your taste from what you've engaged with, then goes looking for new work you haven't seen, ranked by how close it lands.",
+      "role": "Design & build",
+      "plateWord": "Weaver",
+      "slug": "weaver",
+      "image": "/work/weaver/home.jpg"
+    }
+  ],
+  "explorations": [
+    {
+      "index": "03",
+      "status": "Work in progress",
+      "title": "Learning a car, part by part",
+      "description": "New drivers pick a car, open the bonnet, and read up on each part: what it does, upkeep, cost."
+    }
+  ],
+  "about": {
+    "eyebrow": "About",
+    "metaDescription": "I work with teams at whatever stage they're in. What stays constant is where I start: the problem, before the pixels.",
+    "lead": "I work with teams at whatever stage they're in: an idea with no shape yet, a product due for a rethink, or one that works but needs to work harder. What stays constant is where I start:",
+    "leadEm": "the problem, before the pixels.",
+    "portrait": {
+      "src": "/bismark.jpg",
+      "alt": "Bismark Gyau"
+    },
+    "sections": [
+      {
+        "heading": "What I do",
+        "body": [
+          "Product design is what I do most, across web, mobile, and desktop. It comes with website design, design systems, prototyping, and often the build itself when a project calls for it. No two get the same answer, because no two start from the same place."
+        ]
+      },
+      {
+        "heading": "Right now",
+        "body": [
+          "I'm a UI/UX designer at AmaliTech, working out of Takoradi, Ghana. I design in Figma and build in the browser when it helps the idea land."
+        ]
+      },
+      {
+        "heading": "How I work",
+        "body": [
+          "I believe the best design takes time and requires room to sit with the problem before solving it, not a sprint to a deadline.",
+          "And I like to work in the open. I keep the people I'm building with close and ask questions early, rather than guess. The clearer we both are, the better the thing we end up making."
+        ]
+      },
+      {
+        "heading": "PARALLEL INTERESTS",
+        "body": [
+          "Behind a camera, or deep in a 3D scene modelling and sculpting, chasing the same thing I chase at work: how a thing is made, and how it makes you feel."
+        ]
+      }
+    ],
+    "elsewhereLabel": "Elsewhere",
+    "elsewhere": [
+      {
+        "label": "Email",
+        "href": "mailto:bismarkgyau@gmail.com",
+        "ext": false
+      },
+      {
+        "label": "LinkedIn",
+        "href": "https://www.linkedin.com/in/bismark-gyau",
+        "ext": true
+      },
+      {
+        "label": "Behance",
+        "href": "https://www.behance.net/b_ismark",
+        "ext": true
+      },
+      {
+        "label": "Résumé",
+        "href": "/bismark-gyau-resume.pdf",
+        "ext": true
+      }
+    ]
+  },
+  "work": {
+    "amalitech": {
+      "index": "01",
+      "category": "Web platform",
+      "status": "Live",
+      "title": "Rebuilding the AmaliTech website from the ground up",
+      "plateWord": "AmaliTech",
+      "summary": "A WordPress template had quietly started running the company. I led the move to a CMS-backed site — a design system, a tone of voice, and editorial guidelines built from scratch — so the team could publish on-brand without a designer in the loop.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Lead designer"
+        },
+        {
+          "label": "Type",
+          "value": "Company website + CMS"
+        },
+        {
+          "label": "Scope",
+          "value": "Design system, tone, editorial docs"
+        },
+        {
+          "label": "Impact",
+          "value": "+15% time on site"
+        }
+      ],
+      "links": [
+        {
+          "label": "Visit live site",
+          "href": "https://www.amalitech.com"
+        }
+      ],
+      "highlights": [
+        "Moved off an outgrown WordPress template onto a CMS the team owns.",
+        "A design system, tone of voice, and editorial guidelines, all built from scratch.",
+        "The team now publishes on-brand without a designer in the loop.",
+        "+15% time on site after launch."
+      ],
+      "hero": {
+        "src": "/work/amalitech/hero.png",
+        "alt": "The rebuilt AmaliTech website home page",
+        "width": 1264,
+        "height": 705,
+        "caption": "The rebuilt home page — one system, published by the team itself."
+      },
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "AmaliTech had outgrown its website. A WordPress template picked for speed early on had, over time, started shaping the company more than the company shaped it: new pages bent to what the template allowed, brand details drifted, and anything past a basic edit needed a designer. The site had become a bottleneck instead of a platform."
+        },
+        {
+          "heading": "The approach",
+          "body": "I treated it as a systems problem, not a reskin. Two goals sat under every decision: give the team a site they could actually run themselves, and make staying on-brand the path of least resistance. That meant a CMS the team owned, and the design language, voice, and rules to hold the site together long after launch."
+        },
+        {
+          "heading": "What I built",
+          "list": [
+            "A design system from scratch: type, colour, spacing, and a component set covering the pages the company actually publishes.",
+            "A tone of voice — how AmaliTech sounds in a headline, a caption, a call to action — so the copy reads as one company.",
+            "Editorial and content guidelines: what goes where, how to structure a page, and the do's and don'ts that keep new pages honest.",
+            "CMS templates and page patterns mapped to the system, so building a page means assembling blocks, not designing one."
+          ],
+          "media": {
+            "src": "/work/amalitech/services.png",
+            "alt": "The services page: a six-card capability grid built from one card component",
+            "width": 1440,
+            "height": 900,
+            "caption": "One card component, six services, zero one-off layouts — the grid, icons, links and CTA all come from the system."
+          }
+        },
+        {
+          "heading": "Publishing without a designer",
+          "body": "The real deliverable wasn't the launch — it was the team's ability to keep going. With the components, the voice, and the guidelines in place, the team publishes new pages on its own and going off-brand is hard to do by accident. The design work is baked into the tools, so it doesn't leave when I do.",
+          "media": {
+            "src": "/work/amalitech/insights.png",
+            "alt": "The CMS-backed insights index: search, tags, and a card grid of dated articles",
+            "width": 1440,
+            "height": 900,
+            "caption": "The team publishes here every week — same article template, filters and category system, no designer in the loop."
+          }
+        },
+        {
+          "heading": "The outcome",
+          "body": "The rebuilt site launched on the new system, and time on site rose around 15% after the change — a site people stayed with rather than bounced off. More quietly, the publishing bottleneck went away: the team ships pages at its own pace.",
+          "media": {
+            "src": "/work/amalitech/clients.png",
+            "alt": "An engagement-model accordion flowing into a client and partner logo wall",
+            "width": 1440,
+            "height": 900,
+            "caption": "One expandable component carries three engagement models — and the client wall shows the system ships real business."
+          }
+        },
+        {
+          "heading": "What I'd do differently",
+          "body": "A system is only as strong as the discipline around it. Running it again, I'd stand up a light governance rhythm from day one — a clear owner for the component set and a short review cadence — so the system keeps its edges as the site grows, instead of leaving that to catch up later."
+        }
+      ]
+    },
+    "trackpad": {
+      "index": "01",
+      "category": "Mobile",
+      "status": "Shipped",
+      "title": "Your phone as a trackpad",
+      "plateWord": "Trackpad",
+      "summary": "Your phone as a trackpad, and a remote for the whole laptop. Point, scroll, type, and nudge the volume from across the room, with none of it needing a manual.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Design & build"
+        },
+        {
+          "label": "Type",
+          "value": "Android app + desktop server"
+        },
+        {
+          "label": "Stack",
+          "value": "Kotlin · Jetpack Compose · Python"
+        },
+        {
+          "label": "Status",
+          "value": "Shipped"
+        }
+      ],
+      "links": [],
+      "highlights": [
+        "Your phone becomes a full trackpad: move, click, scroll, cycle apps.",
+        "Pairing is a QR scan; direct and low-latency on your own Wi-Fi.",
+        "Off-network relay that never sees your keys."
+      ],
+      "hero": {
+        "src": "/work/trackpad/app.png",
+        "alt": "The LazeR Android control screen and its settings sheet, recreated from the app",
+        "width": 1600,
+        "height": 1000,
+        "caption": "The control surface: trackpad and scroll strip, media transport, and the settings that tune the feel."
+      },
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Controlling a laptop from the sofa usually means a flaky app, a fiddly setup, or a menu you have to learn. Every option asked me to learn a new remote when the best pointer I own was already in my hand."
+        },
+        {
+          "heading": "The approach",
+          "body": "I wanted the phone to feel like an extension of the trackpad you already know: obvious on first touch, nothing to read. Every gesture maps to something your thumb already does, so the learning curve is the one you climbed years ago."
+        },
+        {
+          "heading": "The gestures",
+          "list": [
+            "Drag to move, tap to click, with optional pointer acceleration so it tracks like a real trackpad.",
+            "Two fingers to scroll; swipe them sideways for browser back and forward.",
+            "Three fingers to cycle apps, the way a laptop touchpad does.",
+            "Sliders for system volume and brightness, synced both ways.",
+            "A keyboard panel and one-shot clipboard paste, the typing a phone is actually good at."
+          ],
+          "media": {
+            "src": "/work/trackpad/gestures.png",
+            "alt": "The full-bleed trackpad expanded, and the keyboard panel for typing on the laptop",
+            "width": 1600,
+            "height": 1000,
+            "caption": "The pad goes full-bleed when you want room; a keyboard panel handles the typing a phone is actually good at."
+          }
+        },
+        {
+          "heading": "Getting out of the way",
+          "body": "Pairing is a QR scan, not a config screen. On the same Wi-Fi it stays direct and low-latency; off your network it still connects through a coordinator that never sees your keys. Haptics confirm every tap, and the phone eases off polling when you are idle to spare the battery.",
+          "media": {
+            "src": "/work/trackpad/pairing.png",
+            "alt": "The desktop server's pairing screen — a device card and a QR code to scan",
+            "width": 453,
+            "height": 648,
+            "caption": "The desktop side of pairing: one QR scan, no config screen."
+          }
+        },
+        {
+          "heading": "What I'd do differently",
+          "body": "The off-network rendezvous coordinator is the part I would rethink. Powerful, but heavy for what most people actually want, which is the sofa. I would ship the same-network path first and treat remote access as an opt-in, not a reason to stand up infrastructure."
+        }
+      ]
+    },
+    "video-conferencing": {
+      "index": "04",
+      "category": "Platform",
+      "status": "Shipped",
+      "title": "A video conferencing platform",
+      "plateWord": "Calls",
+      "summary": "A calling app built end to end. Not the grid of faces, but everything around it: how you arrive, how presence reads at a glance, and the small moments most tools drop on the floor.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Design & build"
+        },
+        {
+          "label": "Type",
+          "value": "Real-time web app"
+        },
+        {
+          "label": "Stack",
+          "value": "React · TypeScript · LiveKit · Radix"
+        },
+        {
+          "label": "Status",
+          "value": "Shipped"
+        }
+      ],
+      "links": [],
+      "highlights": [
+        "The whole call considered: arriving, presence, and leaving, not just the video grid.",
+        "Built from a small set of primitives, so every surface behaves the same way.",
+        "Accessibility wired into CI, not bolted on at the end."
+      ],
+      "hero": {
+        "src": "/work/video-conferencing/lobby.png",
+        "alt": "The pre-call lobby: a camera preview, device toggles, and a mic level meter",
+        "width": 1440,
+        "height": 900,
+        "caption": "The pre-call lobby — a device check and a live mic meter before you commit to joining."
+      },
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Most video tools nail the call and forget the edges. Joining is anxious, you can't tell who's really present, and the moments between talking (a reaction, stepping away, leaving quietly) feel clumsy. I wanted the whole experience considered, not just the video feed.",
+          "media": {
+            "src": "/work/video-conferencing/landing.png",
+            "alt": "The landing screen: start a new meeting or join one by name or code",
+            "width": 1440,
+            "height": 900,
+            "caption": "The front door — one screen to start or join. The anxious part (am I in the right place? who's here?) is where most tools drop you cold."
+          }
+        },
+        {
+          "heading": "The approach",
+          "body": "I built the interface from a small set of primitives (dialog, sheet, popover, tooltip, a stage) so every surface behaves the same way. The call sits at the center, but the design work lives in the edges: arriving, reading the room, and leaving without a fuss.",
+          "media": {
+            "src": "/work/video-conferencing/signin.png",
+            "alt": "The passwordless sign-in dialog: continue with Google, or an email sign-in link",
+            "width": 1440,
+            "height": 900,
+            "caption": "Sign-in is a dialog like every other surface — same primitive, passwordless, so arriving is one tap, not a form."
+          }
+        },
+        {
+          "heading": "The small moments",
+          "list": [
+            "Presence you can read at a glance: who is here, muted, speaking, or away.",
+            "Reactions and call sounds that add warmth without hijacking the call.",
+            "Picture-in-picture and media-session controls, so a call survives switching tabs.",
+            "Background blur and noise suppression for focus, one toggle away.",
+            "Moderation built in: blocks and mutes that actually stick."
+          ]
+        },
+        {
+          "heading": "Craft",
+          "body": "Accessibility was a foundation, not a final pass: keyboard paths, a live announcer for state changes, and automated a11y checks in CI. Mobile got its own UX pass, and end-to-end and capacity tests keep it honest under a full room.",
+          "media": {
+            "src": "/work/video-conferencing/theme.png",
+            "alt": "Appearance settings: theme colour tokens, high-contrast, and vision-assistive colours",
+            "width": 1440,
+            "height": 900,
+            "caption": "The whole app retints from a couple of named tokens — high-contrast and vision-assistive modes included. Theming that bends without breaking."
+          }
+        },
+        {
+          "heading": "What I'd do differently",
+          "body": "It's built for a room, not an auditorium. The next real problem is scale: capacity and a grid that stays legible past a dozen faces. I'd design the large-call view as its own mode rather than stretching the small-call one."
+        }
+      ]
+    },
+    "weaver": {
+      "index": "02",
+      "category": "Web",
+      "status": "Live",
+      "title": "Media that learns your taste",
+      "plateWord": "Weaver",
+      "summary": "A single-person discovery engine. It learns your taste from what you've already liked, then goes looking for new images you haven't seen, ranked to that taste.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Design & build"
+        },
+        {
+          "label": "Type",
+          "value": "Taste-driven PWA"
+        },
+        {
+          "label": "Stack",
+          "value": "Next.js · Supabase · pgvector · OpenCLIP"
+        },
+        {
+          "label": "Status",
+          "value": "Live"
+        }
+      ],
+      "links": [
+        {
+          "label": "Live",
+          "href": "https://weaver-blush.vercel.app"
+        }
+      ],
+      "highlights": [
+        "Turns everything you've saved into taste signal, then finds work you haven't seen.",
+        "OpenCLIP embeddings in pgvector, ranked by distance with room kept for exploration.",
+        "Shipped as a PWA on a $0 infrastructure budget."
+      ],
+      "hero": {
+        "src": "/work/weaver/home.jpg",
+        "alt": "Weaver, the woven-for-you discovery feed",
+        "width": 1800,
+        "height": 1125,
+        "caption": "The feed: new work pulled from open sources, ranked to your taste."
+      },
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Saving things is easy; the apps are already full of your taste. But every feed just shows more of what you've seen, or what's popular. I wanted the opposite: use everything I've saved as a signal, and spend it on finding new work I'd never have surfaced myself."
+        },
+        {
+          "heading": "The pivot",
+          "body": "The first version consolidated your own saves into one feed. It worked, and it was pointless; re-showing pins you already have isn't discovery. So I split every image into two roles: your saves became taste signal, never shown; the feed became new candidates pulled from open sources, ranked against that taste. Same machinery, opposite purpose.",
+          "media": {
+            "src": "/work/weaver/taste.png",
+            "alt": "The tune-your-taste panel: add an interest, and more/less-like-this concept chips",
+            "width": 1440,
+            "height": 900,
+            "caption": "When the feed gets it wrong you don't wait it out — you tell it, in words: more of this, less of that."
+          }
+        },
+        {
+          "heading": "How it works",
+          "body": "Images are embedded with OpenCLIP; your taste is a handful of centroids clustered from your saves; new candidates are scored by how closely they land, with room kept for exploration so the feed never collapses into one look. Save something new and it tightens the profile.",
+          "media": {
+            "src": "/work/weaver/detail.png",
+            "alt": "An expanded image with like / not-my-taste controls and a 'threads from this' grid of similar work",
+            "width": 1440,
+            "height": 900,
+            "caption": "Every image is a thread you can pull. 'Threads from this' is the similarity model itself, made visible."
+          }
+        },
+        {
+          "heading": "Constraints & craft",
+          "body": "Built as a PWA to feel native on a phone, on a $0 infrastructure budget: Supabase and pgvector for storage and search, a daily job to refresh the pool. Motion is layered but every layer is gated on reduced-motion, and accessibility (semantic markup, focus management, alt text, AA contrast) was a starting point, not a finish.",
+          "media": {
+            "src": "/work/weaver/mobile-feed.png",
+            "alt": "The Weaver feed on a phone: a two-column masonry with some cards tilted like pinned scraps",
+            "width": 780,
+            "height": 1688,
+            "caption": "Built to live on a phone — a hand-pinned feel, not a stamped-out grid."
+          }
+        },
+        {
+          "heading": "What I'd do differently",
+          "body": "I cut the scheduled aggregation and a learned ranker to ship. Taste refreshes manually and ranks by distance to the centroids, which is honest but blunt. A lightweight learned re-ranker on top of the CLIP similarity is the upgrade I would make next."
+        }
+      ]
+    },
+    "booking-room": {
+      "index": "05",
+      "category": "Web",
+      "status": "Live",
+      "title": "Meeting room booking",
+      "plateWord": "Rooms",
+      "summary": "A meeting-room booking system built to make finding and holding a room take seconds. Search by time, capacity, and amenities; drag to create; and never double-book.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Design & build"
+        },
+        {
+          "label": "Type",
+          "value": "Web app"
+        },
+        {
+          "label": "Stack",
+          "value": "Next.js · React · PostgreSQL · Supabase"
+        },
+        {
+          "label": "Impact",
+          "value": "~30% faster to book"
+        }
+      ],
+      "links": [
+        {
+          "label": "Live",
+          "href": "https://booking-room-six.vercel.app"
+        }
+      ],
+      "highlights": [
+        "Find, hold, and never double-book a room in seconds.",
+        "Server-side conflict detection, recurring bookings, and ICS export.",
+        "Per-room utilisation reports that roll up across a building or the whole org.",
+        "~30% faster to book."
+      ],
+      "hero": {
+        "src": "/work/booking-room/dashboard.png",
+        "alt": "The Booking-Room dashboard",
+        "width": 1440,
+        "height": 900,
+        "caption": "The dashboard: your day, your rooms, and quick actions in one place."
+      },
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Booking a room is usually more clicks than the meeting deserves: hunt a calendar, guess a free slot, hope no one grabbed it first. I wanted the whole thing to take seconds: find a room that fits, hold it, move on."
+        },
+        {
+          "heading": "What I designed",
+          "body": "Day, week, and month calendars you can drag on to create a booking. A room finder that filters by date, time, capacity, and amenities. Keyboard shortcuts for the two things people do most: book a room, find a room. And a booking drawer that keeps the details and the conversation in one place.",
+          "media": {
+            "src": "/work/booking-room/bookings.png",
+            "alt": "Calendar with drag-to-create bookings",
+            "width": 1440,
+            "height": 900,
+            "caption": "Day, week, and month views, drag to create."
+          }
+        },
+        {
+          "heading": "Holding the room, not fighting for it",
+          "list": [
+            "Conflict detection in the database, not just the UI: overlaps are blocked server-side, and a meeting ending at 11:00 doesn't block an 11:00 start.",
+            "Recurring bookings, past-slot guards, and ICS export so it lives in your real calendar.",
+            "Counter-propose: an approver can offer a different time instead of a flat no.",
+            "A comment thread per booking, scoped to the people actually involved."
+          ]
+        },
+        {
+          "heading": "Built for an organisation",
+          "body": "Locations, buildings, floors, and rooms in one hierarchy, each with its own timezone. Three roles (admin, booking user, view-only) and an approval queue for rooms that need it. Every change is written to an audit log.",
+          "media": {
+            "src": "/work/booking-room/rooms.png",
+            "alt": "Rooms grid with search and filters",
+            "width": 1440,
+            "height": 900,
+            "caption": "Rooms by capacity, amenities, and status."
+          }
+        },
+        {
+          "heading": "Reports & analytics",
+          "body": "Bookings are only worth capturing if someone can learn from them. Each room reports its own utilisation — how often it's booked, when demand peaks, and how much of its capacity actually gets used — and the numbers roll up across a building or the whole organisation. Facilities can see which rooms earn their space and which sit empty, and plan from real usage instead of a hunch.",
+          "media": {
+            "src": "/work/booking-room/room-detail.png",
+            "alt": "Room detail with utilisation analytics",
+            "width": 1440,
+            "height": 900,
+            "focus": "top",
+            "zoom": 1.14,
+            "caption": "Each room carries its own detail and utilisation — what gets used, when, and how hard."
+          }
+        },
+        {
+          "heading": "What I'd do differently",
+          "body": "The four-level location hierarchy is the right model for a big organisation and overkill for a single office. I would add a fast path (one room, one calendar) so a small team never has to meet the admin panel."
+        }
+      ]
+    }
+  }
+}

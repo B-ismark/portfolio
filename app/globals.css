@@ -1,0 +1,2254 @@
+/* ============================================================
+   Portfolio — design system
+   Risograph / print-editorial. Big Shoulders (poster display) + Archivo.
+   Surgical white, two spot inks (Federal Blue + Fluoro Pink), heavy rules,
+   misregistration, paper grain, one orchestrated page-load.
+   Ink rule: blue is text-safe on white (8:1); pink is FILLS-ONLY (fails as
+   text on white) — use --accent for anything readable, --accent-2 for blocks.
+   ============================================================ */
+
+/* ---- tokens ---------------------------------------------- */
+:root {
+  /* surface — surgical white; the spot inks pop hardest on it */
+  --paper: #fcfcfc;
+  --paper-2: #eeeeee; /* recessed panels / placeholder plates */
+
+  /* ink — near-black + neutral greys */
+  --ink: #141414;
+  --ink-2: #2c2b28; /* body text (14:1 on white) */
+  --muted: #67645b; /* meta / eyebrows (5.8:1) */
+
+  /* structure */
+  --line: #dcdcda;
+  --line-strong: #c3c2bd;
+
+  /* spot ink 1 — federal blue: emphasis, labels, links, structure (8:1 text) */
+  --accent: #2540c0;
+  /* spot ink 2 — fluoro pink: FILLS / marks / offsets only, never body text */
+  --accent-2: #ff4d9a;
+  --accent-2-ink: #141414; /* dark text that sits on a pink fill (5.3:1) */
+  /* filled CTA panel — a blue block; cream text sits on it. Constant across
+     themes, so it is never listed in the dark override below. */
+  --accent-deep: #2540c0;
+
+  /* surfaces & atmosphere that flip with the theme */
+  --card: #fff; /* browser-chrome mockups */
+  --shadow-color: 20, 20, 20; /* r,g,b for elevation shadows */
+  --grain-blend: multiply; /* paper grain darkens on white */
+  --grain-opacity: 0.05; /* a fine tooth so the white isn't sterile */
+
+  /* theme-invariant constants — the CTA is a blue block in both themes, so its
+     cream text/surface must NOT follow --paper (which flips to black) */
+  --cream: #f4f1ea;
+  --cream-ink: #141414;
+
+  /* let the UA style form controls / scrollbars to match */
+  color-scheme: light;
+
+  /* layout */
+  --max: 1080px;
+  --gutter: clamp(18px, 4.5vw, 56px);
+
+  /* fluid type scale — deliberately restrained */
+  --fs-eyebrow: 0.68rem;
+  --fs-body: 1rem;
+  --fs-lead: clamp(1rem, 0.94rem + 0.3vw, 1.14rem);
+  --fs-title-sm: clamp(1.1rem, 1rem + 0.5vw, 1.32rem);
+  --fs-title: clamp(1.4rem, 1.15rem + 1.25vw, 2rem);
+  --fs-display: clamp(1.95rem, 1.35rem + 2.7vw, 3.15rem);
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  /* signature-interaction tokens */
+  --reg-drift: 0px; /* live plate slip — written by SmoothScroll from scroll velocity */
+  --halftone: rgba(20, 20, 20, 0.9); /* ink dots for the "developing plate" overlay */
+}
+
+/* ---- dark theme ------------------------------------------
+   Warm dark — a near-black paper with warm off-white ink, not a cold grey
+   flip. Every value chosen to clear WCAG AA on the dark surface: body 10.6:1,
+   muted meta 5.5:1, accent 7.0:1, headings 16:1.
+
+   Two selectors carry the SAME palette and MUST stay in sync:
+     1. [data-theme="dark"]      — the explicit choice (toggle / stored pref),
+        set before paint by the theme-init script in layout.js.
+     2. prefers-color-scheme     — the no-JS fallback: with scripting off no
+        attribute is ever written, so honour the OS setting instead.
+   Plain CSS can't share one declaration block across a bare selector and a
+   media query, hence the deliberate duplication. Edit both. --accent-deep,
+   --cream and --cream-ink are intentionally absent (constant across themes).  */
+:root[data-theme='dark'] {
+  --paper: #000000; /* true black stock — the inks glow on it like screenprint */
+  --paper-2: #141414; /* neutral recessed panels / plates */
+
+  --ink: #f2ede0;
+  --ink-2: #cbc3b3;
+  --muted: #8f8676;
+
+  --line: #262626;
+  --line-strong: #383838;
+
+  --accent: #7d90ff; /* federal blue, lightened so it reads on black */
+  --accent-2: #ff6fb0; /* fluoro pink, brighter on black */
+  --accent-deep: #3550e0; /* CTA block — brightened so it lifts off black */
+
+  --card: #121212;
+  --shadow-color: 0, 0, 0; /* warm-ink shadows vanish on dark; use true black */
+  --grain-blend: screen; /* grain now lifts (lightens) instead of darkening */
+  --grain-opacity: 0.05;
+  --halftone: rgba(242, 237, 224, 0.55); /* light dots — ink lifts on black */
+
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: dark) {
+  /* :not([data-theme='light']) so an explicit light choice still wins with JS,
+     while no-JS visitors (no attribute at all) fall through to dark here.
+     KEEP IN SYNC with the block above. */
+  :root:not([data-theme='light']) {
+    --paper: #000000;
+    --paper-2: #141414;
+
+    --ink: #f2ede0;
+    --ink-2: #cbc3b3;
+    --muted: #8f8676;
+
+    --line: #262626;
+    --line-strong: #383838;
+
+    --accent: #7d90ff;
+    --accent-2: #ff6fb0;
+    --accent-deep: #3550e0;
+
+    --card: #121212;
+    --shadow-color: 0, 0, 0;
+    --grain-blend: screen;
+    --grain-opacity: 0.05;
+    --halftone: rgba(242, 237, 224, 0.55); /* light dots — ink lifts on black */
+
+    color-scheme: dark;
+  }
+}
+
+/* ---- reset ----------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html {
+  -webkit-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink-2);
+  font-family: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  letter-spacing: 0.005em;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* barely-there paper grain — atmosphere, not effect */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---- type primitives ------------------------------------- */
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.005em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  font-family: var(--font-archivo), sans-serif;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent); /* federal blue label */
+}
+
+/* Balance ragged multi-line titles so a single word never orphans on the last
+   line (e.g. "…FROM THE GROUND / UP"). The .work-title misregister pseudo shares
+   the same text + width, so it re-wraps identically and stays in register. */
+.p-title--hero,
+.p-title--sm,
+.nda-title,
+.work-title,
+.work-sec-title,
+.lead-headline {
+  text-wrap: balance;
+}
+
+a {
+  color: inherit;
+}
+
+::selection {
+  background: var(--accent-2); /* fluoro pink */
+  color: var(--accent-2-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 10px 16px;
+  z-index: 10;
+  text-decoration: none;
+}
+.skip-link:focus {
+  left: 12px;
+  top: 12px;
+}
+
+/* ---- layout ---------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  margin-top: clamp(52px, 8vh, 100px);
+}
+/* first work section sits tighter under the headline so the featured card
+   reaches into the first screen instead of a quiet band of paper */
+.section--lead-work {
+  margin-top: clamp(22px, 4vh, 52px);
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 2px solid var(--ink); /* heavy poster rule, not a hairline */
+  padding-bottom: 12px;
+  margin-bottom: clamp(20px, 3vw, 34px);
+}
+.section-head .s-count {
+  font-variant-numeric: tabular-nums;
+}
+
+/* status: category · status, with a quiet dot when "live" */
+.status {
+  color: var(--ink-2);
+}
+.status .dot {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--muted);
+  margin-right: 7px;
+  vertical-align: middle;
+  transform: translateY(-1px);
+}
+.status.is-live .dot {
+  background: var(--accent-2); /* fluoro pink — "in motion" pop */
+}
+.mid {
+  color: var(--line-strong);
+  margin: 0 0.5ch;
+}
+
+/* index number shared across cards */
+.idx {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--accent); /* poster index numeral, federal blue */
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- header / nav ---------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 9;
+  background: var(--paper);
+  padding-block: clamp(16px, 3vh, 28px);
+  transition: transform 0.32s var(--ease), border-color 0.3s var(--ease);
+  will-change: transform;
+}
+/* a hairline appears once the header is off the very top */
+.site-header.is-pinned {
+  border-bottom: 1px solid var(--line);
+}
+/* slid away on scroll-down… */
+.site-header.is-hidden {
+  transform: translateY(-100%);
+}
+/* …but a keyboard user tabbing into it always brings it back */
+.site-header:focus-within {
+  transform: none;
+}
+.site-header .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+}
+.brand {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 3vw, 34px);
+}
+.nav a {
+  position: relative;
+  text-decoration: none;
+  font-size: 0.92rem;
+  color: var(--ink-2);
+  padding-bottom: 3px;
+  transition: color 0.3s var(--ease);
+}
+.nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 100%;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s var(--ease);
+}
+.nav a:hover {
+  color: var(--ink);
+}
+.nav a:hover::after,
+.nav a[aria-current='page']::after {
+  transform: scaleX(1);
+}
+.nav a[aria-current='page'] {
+  color: var(--ink);
+}
+
+/* ---- theme toggle ---------------------------------------- */
+.theme-toggle {
+  appearance: none;
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin: -6px -6px -6px 0; /* absorb the padding so it aligns with the links */
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color 0.3s var(--ease), background 0.3s var(--ease);
+}
+.theme-toggle:hover {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--paper-2) 60%, transparent);
+}
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+/* one icon per theme, driven purely by the <html> attribute so there is no
+   hydration flip: moon while light (→ go dark), sun while dark (→ go light) */
+.theme-toggle .icon-sun {
+  display: none;
+}
+:root[data-theme='dark'] .theme-toggle .icon-sun {
+  display: block;
+}
+:root[data-theme='dark'] .theme-toggle .icon-moon {
+  display: none;
+}
+/* no-JS fallback: no attribute is written, so mirror the OS preference */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .theme-toggle .icon-sun {
+    display: block;
+  }
+  :root:not([data-theme='light']) .theme-toggle .icon-moon {
+    display: none;
+  }
+}
+
+/* ---- home: headline -------------------------------------- */
+.lead {
+  padding-top: clamp(16px, 4vh, 48px);
+  padding-bottom: clamp(10px, 3vh, 26px);
+}
+/* masthead: poster headline, then a single spec strip beneath it — presence
+   (role + live clock) on the left, a worked-with wordmark row on the right,
+   split off by a heavy poster rule. Stacks on narrow screens. */
+.lead-spec {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: clamp(18px, 3vw, 40px);
+  margin-top: clamp(26px, 4vw, 44px);
+}
+.lead-headline {
+  position: relative;
+  isolation: isolate; /* own stacking context so the ghost plate sits behind */
+  font-size: clamp(2.4rem, 1.3rem + 5.4vw, 5.4rem);
+  line-height: 0.92;
+  max-width: 15ch;
+  letter-spacing: 0.005em;
+  font-weight: 800;
+  text-transform: uppercase;
+  /* misregistration offset for the pink ghost. Defaults = the static rest state
+     (also the no-JS / reduced-motion state); HeadlineReveal drifts --reg-ghost in
+     from far off-register on load and nudges --reg-px with the cursor. */
+  --reg-ghost: 0.05em;
+  --reg-ghost-y: -0.028em;
+  --reg-px: 0;
+  --reg-ghost-o: 0.5; /* faint pink echo — a quiet print artifact, not a layer */
+}
+/* the poster line itself — black plate, sits above the ghost. Only this gets
+   split into rising masked lines. */
+.lead-lines {
+  position: relative;
+  z-index: 1;
+  display: block;
+}
+/* the pink plate, off register — reads as a two-colour print that never quite
+   registered. Live --reg-drift (scroll velocity) keeps it lagging like paper
+   mis-feeding a press; --reg-px is the pointer parallax. */
+.lead-ghost {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+  color: var(--accent-2);
+  opacity: var(--reg-ghost-o);
+  transform: translate(
+    calc(var(--reg-ghost) + (var(--reg-px) * 1px) + var(--reg-drift, 0px)),
+    var(--reg-ghost-y)
+  );
+  mix-blend-mode: var(--grain-blend); /* multiply on white, screen on black */
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+/* the one pop: the emphasised phrase is swiped with a fluoro-pink marker.
+   Painted as a background (not background-color) so it can swipe in on load. */
+.lead-headline em {
+  font-style: normal;
+  color: var(--accent-2-ink);
+  padding: 0 0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(var(--accent-2), var(--accent-2));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% 100%; /* default: full highlight (no-JS / reduced-motion) */
+}
+/* the ghost's em carries no marker — the whole plate is one flat pink, but keeps
+   the same padding so it wraps identically to the real line. */
+.lead-ghost em {
+  background-image: none;
+  color: var(--accent-2);
+}
+/* the POV — a warm, mixed-case Archivo line under the poster, not more caps */
+.lead-tail {
+  display: block;
+  margin-top: clamp(14px, 1.6vw, 22px);
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: clamp(1.05rem, 0.9rem + 0.9vw, 1.5rem);
+  line-height: 1.28;
+  color: var(--ink-2);
+  max-width: 62ch; /* one line on desktop; wraps naturally on narrow screens */
+}
+/* the pink marker swipes left→right across the em a beat after the lines land;
+   JS adds .is-marked at that point in the load timeline (see HeadlineReveal). */
+@media (prefers-reduced-motion: no-preference) {
+  html.gsap-lead .lead-lines em {
+    background-size: 0% 100%;
+  }
+  html.gsap-lead .lead-headline.is-marked .lead-lines em {
+    animation: leadMarkerSwipe 0.62s var(--ease) forwards;
+  }
+}
+
+/* presence block in the spec column — current role, then a live local clock,
+   stacked (the column is narrow, so the old inline row would wrap badly). */
+.lead-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+}
+.lead-now {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--ink);
+}
+.lead-now .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-2); /* fluoro pink presence pulse */
+  margin: 0;
+  transform: none;
+  animation: nowpulse 2.6s var(--ease) infinite;
+}
+@keyframes nowpulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.localtime {
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.localtime-time {
+  color: var(--ink-2);
+}
+/* worked-with — a wordmark credibility list in the spec column (the logo-strip
+   idea, typographic: display-face wordmarks in ink, each led by a fluoro-pink
+   dot). Sits under a fine rule so the spec reads like a masthead spec sheet. */
+.worked-with {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.worked-with-list {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px 18px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.worked-with-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.08rem;
+  line-height: 1;
+  color: var(--ink);
+}
+.worked-with-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-2); /* fluoro pink dot marker */
+  flex: none;
+  transform: translateY(-1px);
+}
+
+/* witty caption under a section head (e.g. the NDA client work) */
+.section-note {
+  margin: -6px 0 clamp(20px, 3vw, 30px);
+  max-width: 52ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* ---- hero (AmaliTech) ------------------------------------ */
+.hero {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: clamp(26px, 4vw, 56px);
+  align-items: end;
+}
+.hero--link {
+  display: grid;
+  text-decoration: none;
+  color: inherit;
+}
+.hero--link:hover .plate--image img {
+  transform: scale(1.02);
+}
+.hero--link:hover .product-more {
+  color: var(--accent);
+  gap: 10px;
+}
+.hero .plate {
+  max-height: 430px;
+}
+.hero .plate--image {
+  aspect-ratio: 4 / 3;
+  max-height: 460px;
+}
+.hero-top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.p-title--hero {
+  font-size: var(--fs-title);
+  max-width: 30ch;
+  margin-bottom: 16px;
+}
+.p-desc {
+  font-size: var(--fs-lead);
+  color: var(--ink-2);
+  max-width: 46ch;
+}
+
+/* role / scope definition list */
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  margin-top: 20px;
+}
+.meta > div {
+  min-width: 0;
+}
+.meta dt {
+  font-family: var(--font-archivo), sans-serif;
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.meta dd {
+  color: var(--ink);
+  font-size: 0.98rem;
+}
+
+/* placeholder plate — a typographic plate, not an empty image slot */
+.plate {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--paper-2);
+  border: 2px solid var(--ink);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.plate--wide {
+  aspect-ratio: 16 / 10;
+}
+/* Typographic poster cover for projects with no screenshot yet — a confident
+   two-ink wordmark (blue impression + fluoro-pink misregistered offset), NOT a
+   faint ghost that reads as a missing image. */
+.plate-word {
+  font-family: var(--font-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  line-height: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  color: var(--accent);
+  text-shadow: 0.055em 0.05em 0 var(--accent-2); /* pink plate, off-register */
+  user-select: none;
+}
+.plate-cap {
+  position: absolute;
+  left: 16px;
+  bottom: 13px;
+}
+
+/* ---- client work (NDA) ----------------------------------- */
+.clients {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-block: 1px solid var(--line);
+}
+.nda-card {
+  position: relative;
+  padding: clamp(20px, 2.4vw, 32px);
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  /* baseline per brief — static SVG shush cursor with a `, default` fallback.
+     A JS follower (components/ShushCursor) progressively enhances this. */
+  cursor: url('/cursor-shush.svg') 20 20, default;
+  transition: background 0.4s var(--ease);
+}
+.nda-card + .nda-card {
+  border-left: 1px solid var(--line);
+}
+.nda-card:hover {
+  background: color-mix(in srgb, var(--paper-2) 55%, var(--paper));
+}
+/* while the JS cursor is active, suppress the native shush so they don't stack */
+.nda-card.js-cursor {
+  cursor: none;
+}
+.nda-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.nda-title {
+  font-size: var(--fs-title-sm);
+  margin-bottom: 14px;
+}
+.nda-desc {
+  color: var(--ink-2);
+  max-width: 40ch;
+}
+.nda-role {
+  margin-top: auto;
+  padding-top: 26px;
+}
+.nda-role dt {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+.nda-role dd {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+/* logo stand-in — quiet monogram, bottom-right; lifts slightly on hover */
+.nda-mark {
+  position: absolute;
+  right: clamp(18px, 2.5vw, 34px);
+  bottom: clamp(18px, 2.5vw, 34px);
+  font-family: var(--font-display), serif;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  opacity: 0.28;
+  transition: opacity 0.4s var(--ease);
+}
+.nda-card:hover .nda-mark {
+  opacity: 0.5;
+}
+
+/* JS-enhanced shush cursor — the real 🤫 emoji (native SVG emoji is the fallback) */
+.shush-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  width: 40px;
+  height: 40px;
+  /* centered on the pointer, matching the native 20,20 hotspot */
+  margin: -20px 0 0 -20px;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.22s var(--ease);
+  will-change: transform;
+}
+.shush-cursor.is-active {
+  opacity: 1;
+}
+.shush-emoji {
+  font-size: 30px;
+  line-height: 1;
+  transform: scale(0.7);
+  transition: transform 0.32s var(--ease);
+  filter: drop-shadow(0 1px 1.5px rgba(27, 26, 22, 0.2));
+}
+.shush-cursor.is-active .shush-emoji {
+  transform: scale(1);
+}
+
+/* ---- shipped products ------------------------------------ */
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: clamp(28px, 4vw, 60px);
+}
+.product-top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin: 20px 0 12px;
+}
+.product .p-title--sm {
+  font-size: var(--fs-title-sm);
+  margin-bottom: 12px;
+}
+.product .p-desc {
+  max-width: 42ch;
+}
+.product .meta {
+  margin-top: 22px;
+}
+
+/* ---- explorations ---------------------------------------- */
+.expl {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.expl-tile {
+  padding: clamp(26px, 3vw, 40px) clamp(22px, 2.5vw, 34px);
+  border-bottom: 1px solid var(--line);
+}
+.expl-tile + .expl-tile {
+  border-left: 1px solid var(--line);
+}
+.expl-num {
+  margin-bottom: 18px;
+}
+.expl-title {
+  font-size: 1.08rem;
+  margin-bottom: 9px;
+}
+.expl-desc {
+  color: var(--ink-2);
+  font-size: 0.98rem;
+}
+.exploring {
+  border-top: 1px solid var(--line);
+  padding-top: 18px;
+  max-width: 64ch;
+  color: var(--ink-2);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.exploring .eyebrow {
+  display: block;
+  margin-bottom: 12px;
+}
+.exploring-title {
+  color: var(--ink);
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+/* ---- footer ---------------------------------------------- */
+.site-footer {
+  margin-top: clamp(64px, 10vh, 120px);
+  padding-block: clamp(24px, 4vh, 40px);
+  border-top: 2px solid var(--ink);
+}
+.site-footer .wrap {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.colophon {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---- about ----------------------------------------------- */
+.about {
+  padding-top: clamp(16px, 4vh, 48px);
+}
+.about-eyebrow {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 14px;
+  margin-bottom: clamp(32px, 5vw, 56px);
+}
+/* The lead is a two-part unit, not one caps slab: a readable mixed-case setup
+   sentence that hands off to a big uppercase pink-marked punch line. All-caps
+   over ~45 words measurably slows reading, so caps are reserved for the short
+   phrase that earns the poster treatment. */
+.about-lead {
+  color: var(--ink);
+  max-width: none;
+}
+.about-lead-setup {
+  display: block;
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.12rem, 0.98rem + 0.7vw, 1.5rem);
+  line-height: 1.42;
+  letter-spacing: normal;
+  text-transform: none;
+  color: var(--ink-2);
+  max-width: 48ch;
+  margin-bottom: 0.6em;
+}
+/* The punch is the statement — it fills its column (measured in rem, not ch:
+   Big Shoulders is ultra-condensed) and runs big, so it anchors the intro
+   instead of tucking into a narrow block with dead space beside it. */
+/* same type size as before — just wide enough to wrap to two even lines
+   (text-wrap: balance), not a tall narrow tower. */
+.about-lead-punch {
+  display: block;
+  max-width: 30rem;
+  margin-top: 0.18em;
+  text-wrap: balance;
+}
+.about-lead-punch em {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.9rem, 1.2rem + 2.6vw, 3.3rem);
+  line-height: 0.96;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+/* the fluoro highlighter marker (shared by both lead pages' punch line). Painted
+   as a sizable background (not background-color) so it can swipe in on load. */
+.about-lead em {
+  font-style: normal;
+  color: var(--accent-2-ink);
+  padding: 0 0.06em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  background-image: linear-gradient(var(--accent-2), var(--accent-2));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% 100%; /* default: full highlight (no-JS / reduced-motion) */
+}
+/* On load the highlighter swipes left→right across the punch phrase, a beat after
+   the lead fades in — the pink "writes" the line. JS-gated so no-JS keeps the
+   static full highlight; the media query drops it under reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .about-lead-punch em {
+    background-size: 0% 100%;
+    animation: leadMarkerSwipe 0.62s var(--ease) forwards;
+    animation-delay: calc(var(--d, 0ms) + 0.35s);
+  }
+}
+@keyframes leadMarkerSwipe {
+  from {
+    background-size: 0% 100%;
+  }
+  to {
+    background-size: 100% 100%;
+  }
+}
+.about-body {
+  font-size: var(--fs-lead);
+  color: var(--ink-2);
+  max-width: 58ch;
+  margin-top: 28px;
+}
+/* Standalone résumé link under the intro — an editorial link on the pink
+   print rule, distinct from the contact banner's own résumé action. */
+.about-resume {
+  /* inline-block, not inline-flex: a flex container trims the whitespace-only
+     text node between "Download" and the label, gluing the words together. */
+  display: inline-block;
+  margin-top: 24px;
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 2px solid var(--accent-2);
+  padding-bottom: 3px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.about-resume:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.about-rule {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: clamp(44px, 7vw, 84px) 0 clamp(30px, 4vw, 48px);
+}
+.about-how {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 60px);
+}
+.about-how p {
+  font-size: var(--fs-lead);
+  color: var(--ink-2);
+  max-width: 40ch;
+}
+
+/* about — headed, numbered sections below the intro (reuses .work-section /
+   .work-sec-num poster styling so About and case studies read as one system) */
+.about-sections {
+  margin-top: clamp(40px, 6vw, 76px);
+  border-top: 2px solid var(--ink); /* heavy poster rule */
+  padding-top: clamp(30px, 4vw, 50px);
+}
+
+/* explorations page ---------------------------------------- */
+/* intro carries no portrait, so it's a single text column */
+.explorations-intro {
+  grid-template-columns: 1fr;
+}
+.explorations-intro .about-lead-setup {
+  max-width: 52ch;
+}
+/* "also exploring" — ideas with no case study yet: numbered rows */
+.ideas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: clamp(18px, 2.6vw, 28px);
+}
+.idea {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(14px, 2.4vw, 26px);
+  align-items: baseline;
+  border-top: 1px solid var(--line);
+  padding-top: clamp(16px, 2vw, 22px);
+}
+.idea:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+.idea .idx {
+  font-size: clamp(1.5rem, 1rem + 1.6vw, 2.4rem);
+  line-height: 0.85;
+}
+.idea-copy {
+  min-width: 0;
+}
+.idea-copy .p-desc {
+  margin-top: 6px;
+  max-width: 60ch;
+}
+/* per-idea status flag (e.g. the 03 card is still a work in progress) */
+.idea-tag {
+  display: inline-block;
+  vertical-align: 0.18em;
+  margin-left: 12px;
+  background: var(--accent-2); /* fluoro pink fill, dark text (5.3:1) */
+  color: var(--accent-2-ink);
+  font-family: var(--font-archivo), sans-serif;
+  font-weight: 700;
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 4px 7px;
+}
+
+/* ---- product cards that link to a case study ------------- */
+.product--link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+.product--link .plate {
+  transition: background 0.4s var(--ease);
+}
+.product--link:hover .plate {
+  background: color-mix(in srgb, var(--paper-2) 60%, var(--paper));
+}
+.plate--image {
+  background: var(--paper-2);
+}
+.plate--image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* anchor top-left so the AmaliTech wordmark isn't cropped off the left edge */
+  object-position: top left;
+  display: block;
+  transition: transform 0.5s var(--ease);
+}
+.product--link:hover .plate--image img {
+  transform: scale(1.02);
+}
+
+/* homepage shipped cards — browser-chrome mockup */
+.card-mock {
+  border: 2px solid var(--ink);
+  border-radius: 0; /* square print frame, not a soft app card */
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: 0 14px 30px -20px rgba(var(--shadow-color), 0.34);
+  transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.product--link:hover .card-mock {
+  box-shadow: 0 22px 42px -22px rgba(var(--shadow-color), 0.46);
+  transform: translateY(-2px);
+}
+.card-mock .mock-shot {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--paper-2);
+}
+.card-mock .mock-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.5s var(--ease);
+}
+.product--link:hover .card-mock .mock-shot img {
+  transform: scale(1.03);
+}
+.card-mock-empty {
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  background: var(--paper-2);
+}
+.product-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s var(--ease), gap 0.3s var(--ease);
+}
+.product--link:hover .product-more {
+  color: var(--accent);
+  gap: 10px;
+}
+
+/* ---- case-study detail page ------------------------------ */
+/* Inherits the sitewide column (--max) from .wrap — no narrower override, so
+   the case-study content, its contact banner, and the nav/footer that frame it
+   all share one left/right edge. Long-form readability is carried by the
+   per-block `ch` measures below (summary 52ch, body copy 60ch), not the shell. */
+.work {
+  padding-top: clamp(6px, 3vh, 26px);
+}
+.work-back {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  padding: 4px 0;
+}
+.work-back::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 4px;
+  background: var(--accent-2);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s var(--ease);
+}
+.work-back:hover::after {
+  transform: scaleX(1);
+}
+.work-head {
+  margin-top: clamp(20px, 4vw, 36px);
+}
+.work-top {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.work-title {
+  position: relative;
+  font-size: clamp(2.6rem, 1.4rem + 4.6vw, 5.6rem);
+  font-weight: 800;
+  line-height: 0.9;
+  max-width: 24ch;
+  margin-bottom: 16px;
+  color: var(--accent); /* blue impression */
+}
+/* misregistration — a pink plate slips behind the blue */
+.work-title::before {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-2);
+  /* base offset + live plate slip: SmoothScroll widens --reg-drift with scroll
+     velocity, so the pink plate lags the blue like paper mis-feeding a press. */
+  transform: translate(calc(0.05em + var(--reg-drift, 0px)), -0.028em);
+  mix-blend-mode: var(--grain-blend); /* multiply on white, screen on black */
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+}
+.work-summary {
+  font-size: var(--fs-lead);
+  color: var(--ink-2);
+  max-width: 52ch;
+}
+.work-meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 20px 32px;
+  margin-top: clamp(24px, 3vw, 36px);
+  padding-block: 22px;
+  border-block: 2px solid var(--ink);
+}
+.work-meta dt {
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.work-meta dd {
+  color: var(--ink);
+  font-size: 0.95rem;
+}
+.work-meta .is-impact dd {
+  color: var(--accent);
+  font-family: var(--font-display), serif;
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+.work-plate {
+  margin-top: clamp(26px, 4vw, 40px);
+  aspect-ratio: 16 / 9;
+}
+.work-body {
+  margin-top: clamp(30px, 5vw, 52px);
+}
+.work-section {
+  margin-top: clamp(26px, 4vw, 42px);
+}
+.work-section:first-child {
+  margin-top: 0;
+}
+.work-sec-head {
+  display: flex;
+  align-items: center;
+  gap: clamp(14px, 2.4vw, 26px);
+  margin-bottom: 12px;
+}
+.work-sec-num {
+  position: relative;
+  font-family: var(--font-display), sans-serif;
+  font-size: clamp(2rem, 1.2rem + 3vw, 3.8rem);
+  font-weight: 800;
+  line-height: 0.8;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  flex: none;
+}
+.work-sec-num::after {
+  content: attr(data-n);
+  position: absolute;
+  inset: 0;
+  color: var(--accent-2);
+  transform: translate(calc(3px + var(--reg-drift, 0px)), 3px);
+  mix-blend-mode: var(--grain-blend);
+  z-index: -1;
+  pointer-events: none;
+  will-change: transform;
+}
+.work-sec-title {
+  font-family: var(--font-display), serif;
+  font-weight: 400;
+  font-size: var(--fs-title-sm);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+/* "What I'd do differently" — a marginalia postscript, not a callout box */
+.work-section--note {
+  border-top: 3px double var(--ink);
+  padding-top: clamp(22px, 3.5vw, 40px);
+  margin-top: clamp(34px, 6vw, 64px);
+}
+.work-section--note p {
+  font-size: clamp(1.3rem, 1.05rem + 1.2vw, 2rem);
+  font-style: italic;
+  line-height: 1.24;
+  color: var(--ink);
+  max-width: 34ch;
+}
+.work-section p {
+  font-size: var(--fs-lead);
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+.work-section ul {
+  list-style: none;
+  margin-top: 8px;
+  max-width: 58ch;
+}
+.work-section li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--ink-2);
+  margin-top: 11px;
+}
+.work-section li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 9px;
+  height: 1px;
+  background: var(--line-strong);
+}
+.work-back--bottom {
+  margin-top: clamp(40px, 6vw, 72px);
+}
+
+/* case-study skim path — "At a glance" highlights strip */
+/* "At a glance" — a numbered brief, not a tinted left-border callout */
+.work-highlights {
+  margin-top: clamp(22px, 3vw, 30px);
+  counter-reset: brief;
+}
+.work-highlights .eyebrow {
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.work-highlights ul {
+  list-style: none;
+}
+.work-highlights li {
+  counter-increment: brief;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 18px;
+  align-items: baseline;
+  padding: 14px 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 1rem;
+}
+.work-highlights li:last-child {
+  border-bottom: 1px solid var(--line);
+}
+.work-highlights li::before {
+  content: counter(brief, decimal-leading-zero);
+  font-family: var(--font-display), sans-serif;
+  font-weight: 800;
+  font-size: 1.25rem;
+  line-height: 1;
+  color: var(--accent);
+}
+
+/* ---- linked exploration tiles ---------------------------- */
+.expl-tile--link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.4s var(--ease);
+}
+.expl-tile--link:hover {
+  background: color-mix(in srgb, var(--paper-2) 55%, var(--paper));
+}
+.expl-more {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+}
+.expl-tile--link:hover .expl-more {
+  color: var(--accent);
+}
+
+/* ---- case-study: outbound links + screenshot gallery ----- */
+.work-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-top: 22px;
+}
+.work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.9rem;
+  color: var(--ink-2);
+  text-decoration: none;
+  border: 1px solid var(--line-strong);
+  padding: 8px 15px;
+  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+.work-link:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.work-gallery {
+  margin-top: clamp(26px, 4vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.shot {
+  margin: 0;
+}
+.shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border: 1px solid var(--line);
+  background: var(--paper-2);
+}
+
+/* ---- case-study: browser mockups + intertwined media ----- */
+.work-lead {
+  margin: clamp(26px, 4vw, 40px) 0 0;
+}
+.mock {
+  border: 2px solid var(--ink);
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--card);
+  box-shadow: 0 16px 36px -22px rgba(var(--shadow-color), 0.42);
+}
+.mock-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 28px;
+  padding: 0 12px;
+  background: var(--paper-2);
+  border-bottom: 2px solid var(--ink);
+}
+/* one fluoro dot, not mac traffic-lights */
+.mock-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+.mock-dot:nth-child(2),
+.mock-dot:nth-child(3) {
+  display: none;
+}
+.mock-shot {
+  display: block;
+  line-height: 0;
+}
+.mock-shot img {
+  width: 100%;
+  height: auto; /* with the intrinsic width/height attrs, this reserves space */
+  display: block;
+}
+.mock-cap {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+/* the framed screenshot is clickable → opens the full-size lightbox. The hint
+   fades in on hover/focus, and is always shown on touch (no hover to reveal it). */
+.mock-zoom {
+  position: relative;
+  display: block;
+  cursor: zoom-in;
+}
+.mock-zoom-hint {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  color: var(--accent-2-ink);
+  background: var(--accent-2); /* fluoro pink chip, our one signature mark */
+  opacity: 0;
+  transform: translateY(5px);
+  transition: opacity 0.2s var(--ease), transform 0.2s var(--ease);
+  pointer-events: none;
+}
+.mock-zoom:hover .mock-zoom-hint,
+.mock-zoom:focus-visible .mock-zoom-hint {
+  opacity: 1;
+  transform: none;
+}
+@media (hover: none) {
+  .mock-zoom-hint {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* full-size viewer — a native <dialog>, so Esc, focus handling and an inert
+   background are the platform's job. Controls stay light so they read on the
+   dark backdrop in either theme. */
+.lightbox {
+  width: 100vw;
+  height: 100dvh;
+  max-width: 100vw;
+  max-height: 100dvh;
+  margin: 0;
+  padding: clamp(16px, 4vw, 48px);
+  border: 0;
+  background: transparent;
+  place-items: center;
+}
+.lightbox[open] {
+  display: grid;
+}
+.lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.86);
+}
+.lightbox-inner {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+/* the viewer is a "print": a paper card wearing the site's browser-chrome bar,
+   floating on the dark backdrop. Chrome is fixed-light so it reads in either
+   theme (the backdrop is always dark). */
+.lightbox-frame {
+  display: flex;
+  flex-direction: column;
+  max-width: min(1400px, 94vw);
+  max-height: 90dvh;
+  background: #fcfcfc;
+  border: 2px solid #141414;
+  box-shadow: 0 34px 90px -34px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+}
+.lightbox-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+  height: 36px;
+  padding: 0 15px;
+  border-bottom: 2px solid #141414;
+}
+.lightbox-dot {
+  flex: none;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: #ff4d9a; /* the one fluoro dot, as on the site's mocks */
+}
+.lightbox-barlabel {
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #67645b;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.lightbox-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 78dvh;
+  object-fit: contain;
+  background: #fcfcfc;
+}
+.lightbox-cap {
+  flex: none;
+  padding: 11px 15px;
+  border-top: 1px solid #dcdcda;
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #67645b;
+}
+/* close sits half-outside the top-right corner, like a poster sticker */
+.lightbox-close {
+  position: absolute;
+  top: -14px;
+  right: -14px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #141414;
+  color: #141414;
+  background: #fcfcfc;
+  cursor: pointer;
+  transition: transform 0.15s var(--ease), background 0.15s var(--ease);
+}
+.lightbox-close:hover {
+  transform: scale(1.06);
+  background: #ff4d9a;
+}
+.lightbox-close:focus-visible {
+  outline: 2px solid #2540c0;
+  outline-offset: 2px;
+}
+/* lock the page behind the open viewer */
+html:has(.lightbox[open]) {
+  overflow: hidden;
+}
+
+/* back-to-top — a square poster block (no rounding), ink by default, blue on
+   hover, matching the site's print idiom. Fades in a screen or so down. */
+.scroll-top {
+  position: fixed;
+  right: clamp(16px, 3vw, 30px);
+  bottom: clamp(16px, 3vw, 30px);
+  z-index: 8;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease),
+    background 0.2s var(--ease), border-color 0.2s var(--ease);
+}
+.scroll-top.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+}
+.scroll-top:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--cream);
+}
+.scroll-top:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+.work-media {
+  margin: 0;
+}
+.work-media figcaption {
+  margin-top: 10px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.work-section--media {
+  display: grid;
+  gap: clamp(24px, 3.5vw, 48px);
+  /* copy + shot start on the same line so each pair reads as one unit — a claim
+     and the evidence for it — instead of the shorter side floating mid-row. */
+  align-items: start;
+}
+/* the product gets a touch more room than the prose beside it, on whichever
+   side it sits, so the UI stays legible instead of shrinking to a thumbnail */
+.work-section--media.media-right {
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+}
+.work-section--media.media-left {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+}
+.work-section--media.media-left .work-sec-copy {
+  order: 2;
+}
+.work-section--media.media-left .work-media {
+  order: 1;
+}
+/* Portrait / phone shots: a tall screenshot in a half-row column balloons and
+   dwarfs the copy. Pin it to a slim device-width column beside the text, drop
+   the browser bar, and let the prose take the rest of the row. Placed after the
+   landscape rules so it wins at equal specificity. */
+.work-section--is-portrait.media-right {
+  grid-template-columns: minmax(0, 1fr) clamp(220px, 26vw, 300px);
+}
+.work-section--is-portrait.media-left {
+  grid-template-columns: clamp(220px, 26vw, 300px) minmax(0, 1fr);
+}
+.work-section--is-portrait .mock-bar {
+  display: none;
+}
+.work-section--is-portrait .work-media {
+  max-width: 340px;
+}
+/* Stack copy + media below tablet-portrait: side-by-side under ~900px squeezes
+   the screenshot to a thumbnail. Stacked, the media runs full measure and the
+   copy keeps a readable line length. */
+@media (max-width: 900px) {
+  .work-section--media,
+  .work-section--media.media-left,
+  .work-section--media.media-right,
+  .work-section--is-portrait.media-left,
+  .work-section--is-portrait.media-right {
+    grid-template-columns: 1fr;
+  }
+  .work-section--media.media-left .work-sec-copy,
+  .work-section--media.media-left .work-media {
+    order: 0;
+  }
+  .work-section--is-portrait .work-media {
+    margin-inline: auto; /* center the capped phone shot in the stacked column */
+  }
+}
+
+/* ---- contact CTA banner ---------------------------------- */
+.cta {
+  position: relative;
+  overflow: hidden; /* clips the misregistered echo to the block */
+  margin-top: clamp(56px, 9vh, 100px);
+  background: var(--accent-deep);
+  color: var(--cream);
+  padding: clamp(32px, 6vw, 72px);
+  display: grid;
+  gap: clamp(24px, 4vw, 40px);
+}
+/* Two columns on wider viewports so the banner uses its width instead of
+   stacking tall: the heading sits left, the invitation + actions right. */
+@media (min-width: 820px) {
+  .cta {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(44px, 6vw, 96px);
+    align-items: center;
+  }
+}
+.cta-body {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 3vw, 28px);
+  min-width: 0;
+}
+.cta .eyebrow {
+  color: rgba(244, 241, 234, 0.62);
+}
+/* Heading + its second ink. The wrap owns the size and box so the cream
+   heading and its pink echo wrap identically; the echo overlays it, a few px
+   off-register, and the scroll-in drift is layered on top by GSAP. */
+.cta-head-wrap {
+  position: relative;
+  z-index: 1;
+  /* px, not ch: Big Shoulders' '0' is ultra-condensed, so ch wildly
+     under-measures real glyph width. ~22rem holds "SO — WHAT ARE WE" on line
+     one and drops "SOLVING?" to line two — two lines, no per-word stack. */
+  max-width: 22rem;
+  margin: 12px 0 0;
+  --cta-head-size: clamp(1.85rem, 1rem + 2.7vw, 2.85rem);
+}
+.cta-head {
+  position: relative;
+  z-index: 1;
+  color: var(--cream);
+  font-size: var(--cta-head-size);
+  letter-spacing: -0.02em;
+}
+/* Fluoro-pink second ink — a misregistered echo of the heading, sitting a few
+   px off-register at rest (the riso print edge). aria-hidden, decorative; it
+   mirrors the heading's display metrics so the glyphs line up under it. */
+.cta-head-echo {
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  z-index: 0;
+  width: 100%;
+  margin: 0;
+  color: var(--accent-2);
+  font-family: var(--font-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-size: var(--cta-head-size);
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+/* Tighter resting offset on small screens so the echo reads as a print edge,
+   not doubled text, at the smaller heading size. */
+@media (max-width: 600px) {
+  .cta-head-echo {
+    top: 2px;
+    left: 3px;
+  }
+}
+.cta-sub {
+  position: relative;
+  z-index: 1;
+  font-size: var(--fs-lead);
+  color: rgba(244, 241, 234, 0.82);
+  max-width: 46ch;
+}
+.cta-actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+/* Primary row: email button + the résumé's own action. Social links sit below
+   in .cta-elsewhere, so the résumé reads as a document action, not a profile. */
+.cta-primary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+/* Email button — cream face over a fluoro-pink plate. The plate hides exactly
+   behind the face at rest; the scroll-in pass drops it into that lockup, and
+   hover drifts it back out for a riso misregistration edge. */
+.cta-btn {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.cta-btn-offset {
+  position: absolute;
+  inset: 0;
+  background: var(--accent-2);
+  will-change: transform;
+}
+.cta-btn-face {
+  position: relative;
+  display: block;
+  background: var(--cream);
+  color: var(--cream-ink);
+  padding: 13px 22px;
+  font-size: 0.95rem;
+  transition: background 0.3s var(--ease);
+}
+.cta-btn:hover .cta-btn-face {
+  background: #fff;
+}
+/* Hover drifts the plate back out of register — the print edge re-separates.
+   Gated on no-preference so it stays put for reduced motion. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .cta-btn:hover .cta-btn-offset {
+    transform: translate(4px, 4px);
+    transition: transform 0.3s var(--ease);
+  }
+}
+/* Résumé — a secondary, outlined action beside email (a document, not a
+   profile). Fills to a cream chip on hover. */
+.cta-resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em; /* flex trims the arrow span's leading space; restore it here */
+  padding: 12px 20px;
+  border: 1px solid rgba(244, 241, 234, 0.5);
+  color: var(--cream);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease),
+    border-color 0.3s var(--ease);
+}
+.cta-resume:hover {
+  background: var(--cream);
+  color: var(--cream-ink);
+  border-color: var(--cream);
+}
+.cta-elsewhere {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 12px 20px;
+}
+.cta-link {
+  font-size: 0.95rem;
+  color: var(--cream);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.4);
+  padding-bottom: 2px;
+  transition: border-color 0.3s var(--ease);
+}
+.cta-link:hover {
+  border-color: var(--cream);
+}
+
+/* ---- about: intro grid, photo ---------------------------- */
+.about-intro {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: clamp(24px, 4vw, 48px);
+  align-items: start;
+}
+/* Lead + body share the left column so the text runs down beside the
+   portrait, instead of dropping below it and leaving a gap. */
+.about-intro-text {
+  min-width: 0;
+}
+.about-intro-text .about-body {
+  max-width: 52ch;
+}
+.about-photo {
+  margin: 0;
+}
+.about-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  display: block;
+  border: 2px solid var(--ink);
+  background: var(--paper-2);
+}
+/* ---- footer (updated) ------------------------------------ */
+.foot-grid {
+  align-items: flex-start;
+}
+.foot-name {
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.foot-base {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---- route transition (riso slab pass) ------------------- */
+/* Two full-bleed slabs sweep bottom→top over the viewport with the destination
+   name stamped across them; the pink slab trails the blue for a misregistered
+   second-ink edge. Driven by GSAP (yPercent). Inert and offscreen at rest, so
+   no-JS / reduced-motion navigations are untouched. */
+.pt {
+  position: fixed;
+  inset: 0;
+  z-index: 100; /* above the sticky header (60) */
+  overflow: hidden;
+  pointer-events: none;
+}
+.pt.is-active {
+  pointer-events: auto; /* block input while a pass is mid-flight */
+}
+.pt-slab {
+  position: absolute;
+  inset: 0;
+  transform: translateY(100%);
+  will-change: transform;
+}
+.pt-slab--a {
+  z-index: 1;
+  background: var(--accent-deep);
+}
+.pt-slab--b {
+  z-index: 0;
+  background: var(--accent-2); /* fluoro pink, trailing → misregistration */
+}
+/* Destination / project name, left-aligned to the page gutter (editorial, not
+   a centred splash). Cream over a fluoro-pink misregistered offset — the same
+   second-ink language as the contact heading and case-study titles, so the
+   pass reads as one system. The offset is a text-shadow (not a second element)
+   so it tracks multi-line project names exactly. */
+.pt-label {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  padding: 0 clamp(24px, 7vw, 100px);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+.pt-label-text {
+  max-width: 16ch;
+  font-family: var(--font-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  font-size: clamp(2.6rem, 9vw, 7.5rem);
+  color: var(--cream);
+  text-shadow: 6px 7px 0 var(--accent-2);
+}
+
+/* ---- page-load motion (one orchestrated reveal) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  animation: reveal 0.85s var(--ease) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Load orchestration. `gsap-lead` is set on <html> before paint (beforeInteractive
+   script), so GSAP runs ONE top-down sequence on load — headline first, then the
+   presence line, then the featured work section. The near-fold blocks are staged
+   hidden and their own CSS `.reveal` is switched off here so nothing fades in
+   ahead of the headline on its own clock. Failsafe keyframes reveal everything by
+   2.5s if JS/fonts stall, so content can never stay hidden. */
+html.gsap-lead .lead.reveal,
+html.gsap-lead .section--lead-work.reveal {
+  animation: none;
+  transform: none;
+}
+html.gsap-lead .lead.reveal {
+  opacity: 1;
+}
+html.gsap-lead .lead-headline {
+  visibility: hidden;
+  animation: leadFailsafeVis 0.01s linear 2.5s forwards;
+}
+html.gsap-lead .lead-tail,
+html.gsap-lead .lead-meta,
+html.gsap-lead .worked-with,
+html.gsap-lead .section--lead-work {
+  opacity: 0;
+  animation: leadFailsafeFade 0.01s linear 2.5s forwards;
+}
+@keyframes leadFailsafeVis {
+  to {
+    visibility: visible;
+  }
+}
+@keyframes leadFailsafeFade {
+  to {
+    opacity: 1;
+  }
+}
+/* Padding + matching negative margin gives descenders and the italic accent
+   room inside each masked line box before the mask clips them. */
+html.gsap-lead .lead-headline .split-line {
+  padding-block: 0.12em;
+  margin-block: -0.12em;
+  will-change: transform;
+}
+
+/* on-scroll reveal for below-the-fold blocks. Gated on html.js so that, with
+   JS off, nothing is hidden (content is server-rendered and stays visible).
+   The js class is set before paint by a beforeInteractive script in layout. */
+html.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+  will-change: opacity, transform;
+}
+html.js [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---- signature interactions ------------------------------
+   Print-press gestures layered on the static base. ALL gated so they only
+   engage with JS on and motion allowed — no-JS and reduced-motion fall back to
+   the flat print look defined above (nothing is ever left hidden or muddy).
+   (1) plate slip     — see --reg-drift on the .work-title / .work-sec-num
+                        misregistration pseudos; driven by SmoothScroll.
+   (2) plate develop  — image wrappers resolve from a coarse ink halftone.
+   (3) rule draws     — the heavy section rule wipes in left→right on enter.
+   (4) marker swipe   — card titles get the headline em's pink highlighter.
+   ------------------------------------------------------------ */
+
+/* (4) marker swipe — the headline's fluoro highlighter, wiped under a card
+   title on hover. It wraps the title text as an INLINE span so, with
+   box-decoration-break: clone, the stroke repeats on every wrapped line and
+   hugs each line's text width (not the block width — no bar trailing off past a
+   short last line). Painted on the text's own background layer so the words
+   stay fully legible. Instant (not animated) under reduced motion via the
+   global transition clamp below. */
+.title-mark {
+  /* a hair more line room than the display default (1) so the stroke has
+     somewhere to sit under each line without colliding with the line below */
+  line-height: 1.16;
+  background-image: linear-gradient(var(--accent-2), var(--accent-2));
+  background-repeat: no-repeat;
+  background-position: 0 100%; /* bottom of each line box, per fragment */
+  background-size: 0% 0.14em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 0.42s var(--ease);
+}
+.hero--link:hover .title-mark,
+.product--link:hover .title-mark,
+.nda-card:hover .title-mark,
+.expl-tile--link:hover .title-mark {
+  background-size: 100% 0.14em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* (3) the heavy poster rule under a section head draws left→right as the
+     head scrolls in. Swap the static border for a scaling bar so it reads as
+     ink being laid down; the border space is preserved (transparent) so
+     nothing shifts. ScrollReveal adds .is-in when the head enters. */
+  html.js .section-head {
+    position: relative;
+    border-bottom-color: transparent;
+  }
+  html.js .section-head::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: var(--ink);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.7s var(--ease);
+  }
+  html.js .section-head.is-in::after {
+    transform: scaleX(1);
+  }
+
+  /* (2) plate develop — an image resolves from a coarse ink halftone to full
+     tone as it enters, like a plate coming up in the tray. The dots dissolve
+     and the image lifts from a flat, punchy plate. ScrollReveal adds .is-in. */
+  html.js [data-develop] {
+    position: relative;
+  }
+  html.js [data-develop] > img {
+    filter: contrast(1.22) brightness(1.05) saturate(0.72);
+    transition: filter 0.85s var(--ease);
+  }
+  html.js [data-develop]::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+    background-image: radial-gradient(
+      circle,
+      var(--halftone) 0 32%,
+      transparent 34%
+    );
+    background-size: 4px 4px;
+    opacity: 0.92;
+    transition: opacity 0.8s var(--ease);
+  }
+  html.js [data-develop].is-in > img {
+    filter: none;
+  }
+  html.js [data-develop].is-in::after {
+    opacity: 0;
+  }
+}
+
+/* ---- responsive ------------------------------------------ */
+@media (max-width: 860px) {
+  .hero {
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 40px;
+  }
+  .hero .plate {
+    order: -1;
+    aspect-ratio: 16 / 10;
+  }
+  .about-intro {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .about-photo {
+    order: -1;
+  }
+}
+@media (max-width: 720px) {
+  .clients,
+  .products,
+  .expl {
+    grid-template-columns: 1fr;
+  }
+  .nda-card + .nda-card {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+  .expl-tile + .expl-tile {
+    border-left: 0;
+  }
+  .about-how {
+    grid-template-columns: 1fr;
+  }
+  .lead-headline {
+    max-width: 100%;
+  }
+}
+@media (max-width: 560px) {
+  .lead-spec {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+}
+
+/* ---- reduced motion -------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  html.js [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
