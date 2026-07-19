@@ -1,4 +1,5 @@
 import ContactCTA from '../components/ContactCTA';
+import Bookshelf from '../components/Bookshelf';
 import { about, site } from '../content';
 import { ed, edImg, edAlt, edHref } from '../lib/edit';
 
@@ -79,6 +80,29 @@ export default function About() {
           </section>
         ))}
       </div>
+
+      {about.reading && (
+        <section
+          className="reading section"
+          data-reveal
+          aria-labelledby="reading-head"
+        >
+          <div className="section-head">
+            <h2 id="reading-head" {...ed('about.reading.title')}>
+              {about.reading.title}
+            </h2>
+            <span className="s-count idx">
+              {String(about.reading.books.length).padStart(2, '0')}
+            </span>
+          </div>
+          {about.reading.note && (
+            <p className="reading-note" {...ed('about.reading.note')}>
+              {about.reading.note}
+            </p>
+          )}
+          <Bookshelf books={about.reading.books} editBase="about.reading.books" />
+        </section>
+      )}
 
       <ContactCTA />
     </div>

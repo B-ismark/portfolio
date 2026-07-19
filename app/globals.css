@@ -1034,6 +1034,327 @@ a {
   padding-top: clamp(30px, 4vw, 50px);
 }
 
+/* ---- about: reading / bookshelf --------------------------
+   A shelf of favourite books. Each is a typographic cover — blue impression +
+   misregistered pink plate — that OPENS like a hardcover (see Bookshelf): the
+   cover swings back on its spine, a run of pages riffles past, and it settles on
+   the page holding the favourite line. How deep it opens is REAL: `--pos` (the
+   quote's folio ÷ the book's pages) sets the page-edge thickness on each side —
+   read pages stack left, remaining pages stack right — and drives how many pages
+   riffle. Sisyphus's last line opens right to the back, no right-hand pages left.
+
+   The page reads like real book text, but everything except the favourite line
+   is BLURRED greeked filler; the line alone is in focus, and the pink
+   highlighter swipes it as the book lands — the line that stuck.
+
+   Opening is a SIGNATURE interaction, gated like the rest: it lives entirely
+   under `.book.is-enhanced`, a class the Bookshelf component only adds when JS
+   is on AND motion is allowed. No-JS and reduced-motion never get it and fall
+   through to the flat printed card below — cover + page + highlighted line in
+   one frame, fully legible, nothing hidden. Two inks: pink is the spine, the
+   plate offset on the title, the quote mark, and the highlighter (all fills);
+   the quote body stays readable ink. */
+.reading-note {
+  margin: -4px 0 clamp(22px, 3vw, 32px);
+  max-width: 54ch;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+.shelf {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+  gap: clamp(20px, 3vw, 36px);
+}
+
+/* the interactive wrapper — a real <button> when enhanced, a plain box otherwise */
+.book-flip {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  background: transparent;
+  border: 0;
+}
+.book.is-enhanced .book-flip {
+  cursor: pointer;
+}
+
+/* the frame lives on the card so it holds steady while the cover opens inside it */
+.book-inner {
+  display: block;
+  position: relative;
+  border: 2px solid var(--ink);
+  background: var(--paper);
+}
+
+/* ---- the cover ---- */
+.book-coverface {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 22px;
+  padding: clamp(18px, 2.4vw, 26px);
+  background: var(--paper-2);
+}
+/* the binding — a fluoro-pink band down the spine edge (a fill, on-brand) */
+.book-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: var(--accent-2);
+}
+.book-cover-copy {
+  padding-left: 8px;
+}
+.book-title {
+  display: block;
+  font-family: var(--font-display), 'Arial Narrow', sans-serif;
+  font-weight: 700;
+  font-size: clamp(1.6rem, 1.1rem + 1.6vw, 2.25rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  color: var(--accent); /* blue impression */
+  text-shadow: 0.05em 0.045em 0 var(--accent-2); /* pink plate, off register */
+  text-wrap: balance;
+}
+.book-author {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+}
+.book-cue {
+  align-self: flex-start;
+  padding-left: 8px;
+  font-family: var(--font-archivo), sans-serif;
+  font-size: var(--fs-eyebrow);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+  white-space: nowrap;
+}
+.book.is-enhanced .book-flip:hover .book-cue,
+.book.is-enhanced .book-flip:focus-visible .book-cue {
+  color: var(--accent);
+}
+
+/* ---- the inside page ---- */
+.book-page {
+  position: relative; /* anchors the page-edge stacks in both flat + enhanced */
+  display: flex;
+  flex-direction: column;
+  padding: clamp(16px, 2.2vw, 24px);
+  background: var(--paper);
+}
+.book-runhead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 14px;
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.book-runhead-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.book-folio {
+  flex: none;
+  font-variant-numeric: tabular-nums;
+}
+.book-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 14px;
+}
+.book-fauxset {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+/* the rest of the page — blurred, unreadable, out of focus on purpose */
+.book-line {
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--muted);
+  opacity: 0.5;
+  filter: blur(1.4px);
+  white-space: nowrap;
+  overflow: hidden;
+  user-select: none;
+}
+/* the one line in focus */
+.book-pull {
+  position: relative;
+}
+.book-quote-mark {
+  display: block;
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 0.5;
+  margin-bottom: 8px;
+  color: var(--accent);
+  text-shadow: 0.04em 0.04em 0 var(--accent-2);
+}
+.book-quote {
+  display: block;
+  font-family: var(--font-archivo), sans-serif;
+  font-style: italic;
+  font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem);
+  line-height: 1.34;
+  color: var(--ink);
+  text-wrap: balance;
+}
+/* the fluoro highlighter, swiped under the line (background, not colour, so it
+   can wipe in). Full by default → no-JS / reduced-motion show it lit; GSAP
+   animates background-size 0→100% on open. */
+.book-mark {
+  color: var(--accent-2-ink); /* dark text sits ON the pink fill, legible both themes */
+  padding: 0 0.06em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  background-image: linear-gradient(var(--accent-2), var(--accent-2));
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 100% 100%; /* full marker; JS wipes it 0→100% on open */
+}
+.book-pull-author {
+  display: block;
+  margin-top: 14px;
+  font-family: var(--font-archivo), sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* page-edge stacks — read pages to the left, remaining pages to the right, each
+   as thick as its share of the volume (widths from --pos). The quote's position
+   in the book, shown as physical thickness. */
+.book-edge {
+  position: absolute;
+  top: 12%;
+  bottom: 12%;
+  z-index: 1;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--line-strong) 0 0.5px,
+    transparent 0.5px 2.5px
+  );
+}
+.book-edge--l {
+  left: 0;
+  width: calc(var(--pos, 0.5) * 13px);
+}
+.book-edge--r {
+  right: 0;
+  width: calc((1 - var(--pos, 0.5)) * 13px);
+}
+
+/* ---- flat fallback (no-JS / reduced-motion): cover then page, one frame ---- */
+.book:not(.is-enhanced) .book-coverface {
+  border-bottom: 2px solid var(--ink);
+}
+.book:not(.is-enhanced) .book-cue {
+  display: none; /* nothing to open */
+}
+
+/* ---- enhanced: the book opens ---- */
+.book.is-enhanced .book-inner {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  perspective: 1600px; /* the shared 3D field for the cover + every leaf */
+}
+/* page sits at the bottom, revealed once the cover and leaves have turned */
+.book.is-enhanced .book-page {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+/* a hard ink gutter shade that deepens as the cover lifts, then clears (GSAP).
+   Uses --shadow-color, so it vanishes on the black dark stock, like the rest. */
+.book-shadow {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--shadow-color), 0.22),
+    rgba(var(--shadow-color), 0.06) 24%,
+    transparent 44%
+  );
+}
+/* the riffling pages — a stack of leaves that turn on the spine, one after the
+   next. Faint horizontal rules read as body text; backface hidden so each leaf
+   vanishes as it passes vertical, like a real page flicking over. */
+.book-leaves {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.book-leaf {
+  position: absolute;
+  inset: 0;
+  transform-origin: left center;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+  /* a plain paper leaf, shaded toward the spine so a turning page reads as a
+     page (not ruled paper); a hairline on the fore edge for the turn */
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--muted) 12%, var(--paper)) 0%,
+    var(--paper) 14%
+  );
+  box-shadow: inset -1px 0 0 var(--line-strong);
+}
+/* the cover sits on top and opens first */
+.book.is-enhanced .book-covers {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+.book.is-enhanced .book-cover {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+}
+.book.is-enhanced .book-coverface {
+  height: 100%;
+}
+
 /* explorations page ---------------------------------------- */
 /* intro carries no portrait, so it's a single text column */
 .explorations-intro {

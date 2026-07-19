@@ -218,6 +218,33 @@
         ]
       }
     ],
+    "reading": {
+      "title": "Favorite books",
+      "note": "Books I keep coming back to. Hover or tap one for the line that stuck.",
+      "books": [
+        {
+          "title": "The Way of Kings",
+          "author": "Brandon Sanderson",
+          "quote": "Journey before destination.",
+          "folio": 126,
+          "pages": 1007
+        },
+        {
+          "title": "East of Eden",
+          "author": "John Steinbeck",
+          "quote": "And now that you don't have to be perfect, you can be good.",
+          "folio": 554,
+          "pages": 601
+        },
+        {
+          "title": "The Myth of Sisyphus",
+          "author": "Albert Camus",
+          "quote": "One must imagine Sisyphus happy.",
+          "folio": 119,
+          "pages": 119
+        }
+      ]
+    },
     "elsewhereLabel": "Elsewhere",
     "elsewhere": [
       {
