@@ -24,14 +24,17 @@ import { ed } from '../lib/edit';
 // only when JS is on AND motion is allowed. No-JS / reduced-motion get the flat
 // printed card — cover + page + highlighted line in one frame, nothing hidden.
 
+// Fallback greeked filler, only used if a book ships no real surrounding text.
+// The lines are BLURRED on the page, so believable English beats Latin here —
+// each book carries its own `contextTop` / `contextBottom` in the content.
 const FAUX_TOP = [
-  'sit amet consectetur adipiscing elit sed do',
-  'eiusmod tempor incididunt ut labore et dolore',
-  'magna aliqua ut enim ad minim veniam quis',
+  'and the room was quiet enough to hear the page turn,',
+  'the sentence waiting there the way true ones do,',
+  'plain on the paper and heavier than its length.',
 ];
 const FAUX_BOTTOM = [
-  'nostrud exercitation ullamco laboris nisi ut',
-  'aliquip ex ea commodo consequat duis aute irure',
+  'He read it twice, then let the book fall closed,',
+  'the line already lodged somewhere it would keep.',
 ];
 const MAX_LEAVES = 5;
 
@@ -204,7 +207,7 @@ export default function Bookshelf({ books, editBase }) {
               </span>
               <span className="book-body">
                 <span className="book-fauxset" aria-hidden="true">
-                  {FAUX_TOP.map((t, k) => (
+                  {(b.contextTop?.length ? b.contextTop : FAUX_TOP).map((t, k) => (
                     <span className="book-line" key={`t${k}`}>
                       {t}
                     </span>
@@ -219,13 +222,15 @@ export default function Bookshelf({ books, editBase }) {
                   </span>
                   <span className="book-pull-author">— {b.author}</span>
                 </span>
-                <span className="book-fauxset" aria-hidden="true">
-                  {FAUX_BOTTOM.map((t, k) => (
-                    <span className="book-line" key={`b${k}`}>
-                      {t}
-                    </span>
-                  ))}
-                </span>
+                {(b.contextBottom ?? FAUX_BOTTOM).length > 0 && (
+                  <span className="book-fauxset" aria-hidden="true">
+                    {(b.contextBottom ?? FAUX_BOTTOM).map((t, k) => (
+                      <span className="book-line" key={`b${k}`}>
+                        {t}
+                      </span>
+                    ))}
+                  </span>
+                )}
               </span>
             </span>
           </span>

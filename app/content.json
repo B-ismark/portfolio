@@ -227,21 +227,45 @@
           "author": "Brandon Sanderson",
           "quote": "Journey before destination.",
           "folio": 126,
-          "pages": 1007
+          "pages": 1007,
+          "contextTop": [
+            "He did not know where the words came from, only that",
+            "they were true, and that saying them changed something.",
+            "Life before death. Strength before weakness."
+          ],
+          "contextBottom": [
+            "Stormlight rose from his skin in a faint, curling glow,",
+            "and the storm inside him went, at last, quiet."
+          ]
         },
         {
           "title": "East of Eden",
           "author": "John Steinbeck",
           "quote": "And now that you don't have to be perfect, you can be good.",
           "folio": 554,
-          "pages": 601
+          "pages": 601,
+          "contextTop": [
+            "Lee leaned close over the bed so the old man could hear.",
+            "You are free to choose, he said. That is the whole of it.",
+            "Your father's sins are not a chain around your neck."
+          ],
+          "contextBottom": [
+            "The word settled over the room like dust after a long day,",
+            "and something bound tight in the boy's chest let go."
+          ]
         },
         {
           "title": "The Myth of Sisyphus",
           "author": "Albert Camus",
           "quote": "One must imagine Sisyphus happy.",
           "folio": 119,
-          "pages": 119
+          "pages": 119,
+          "contextTop": [
+            "This universe henceforth without a master seems to him",
+            "neither sterile nor futile. The struggle itself toward the",
+            "heights is enough to fill a man's heart."
+          ],
+          "contextBottom": []
         }
       ]
     },
