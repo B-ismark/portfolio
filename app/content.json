@@ -328,9 +328,9 @@
           "body": "As lead designer, I worked across the project on more than one front:",
           "list": [
             "Led the design hands-on — the system, the pages, and the details in between.",
-            "Ran the UX research end to end, then systemised scattered feedback into changes the team could act on.",
-            "Worked in the open with engineers, content, product, and marketing — designing with them, not handing work over a wall.",
-            "Started a design-critique rhythm with the other designers, so consistency held across everyone's work, not just mine."
+            "Ran the UX research end to end with my capable design team—myself and Gina :)—then systemised scattered feedback into changes the team could act on.",
+            "Worked in the open with engineers, content, product, and marketing — designing with them (involving countles wonderful alignment meetings), not handing work over a wall.",
+            "Started a design-critique rhythm with the other designer, so consistency held across everyone's work, not just mine."
           ]
         },
         {
@@ -688,12 +688,17 @@
           "list": [
             "Designed and built the whole thing — the calendar interactions, the room finder, and the conflict logic underneath.",
             "Ran UX research and feedback rounds, so the flows matched how people actually book a room, not how I assumed they would.",
-            "Owned every trade-off myself, from the data model down to which features to leave out."
+            "Owned every trade-off myself, from the data model down to which features to leave out. (Along with my AI buddies ofc)"
           ]
         },
         {
           "heading": "What I designed",
-          "body": "Day, week, and month calendars you can drag on to create a booking. A room finder that filters by date, time, capacity, and amenities. Keyboard shortcuts for the two things people do most: book a room, find a room. And a booking drawer that keeps the details and the conversation in one place.",
+          "list": [
+            "Day, week, and month calendars you can drag on to create a booking.",
+            "A room finder that filters by date, time, capacity, and amenities.",
+            "Keyboard shortcuts for the two things people do most: book a room, find a room.",
+            "A booking drawer that keeps the details and the conversation in one place."
+          ],
           "media": {
             "src": "/work/booking-room/bookings.png",
             "alt": "Calendar with drag-to-create bookings",
