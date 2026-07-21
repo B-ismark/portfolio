@@ -74,11 +74,11 @@ export default function Bookshelf({ books, editBase }) {
         if (shadow) gsap.set(shadow, { autoAlpha: 0 });
 
         const n = leaves.length;
-        const RIFFLE = 0.28; // when the pages start turning
-        const STAGGER = 0.1;
-        const FLIP = 0.4;
+        const RIFFLE = 0.14; // when the pages start turning
+        const STAGGER = 0.06;
+        const FLIP = 0.32;
         const lastLeaf = RIFFLE + Math.max(0, n - 1) * STAGGER;
-        const reveal = lastLeaf + FLIP * 0.45;
+        const reveal = lastLeaf + FLIP * 0.4;
 
         const tl = gsap.timeline({
           paused: true,
@@ -86,7 +86,7 @@ export default function Bookshelf({ books, editBase }) {
         });
 
         // cover swings open on the spine
-        tl.to(cover, { rotationY: -165, duration: 0.52 }, 0);
+        tl.to(cover, { rotationY: -165, duration: 0.44 }, 0);
 
         // hard ink gutter shade — peaks as things lift, clears for a flat page
         if (shadow)
@@ -120,17 +120,17 @@ export default function Bookshelf({ books, editBase }) {
         tl.to(
           pull,
           { autoAlpha: 1, y: 0, duration: 0.42, ease: 'power2.out' },
-          reveal + 0.18
+          reveal + 0.08
         );
         if (mark)
           tl.fromTo(
             mark,
             { backgroundSize: '0% 100%' },
             { backgroundSize: '100% 100%', duration: 0.5, ease: 'power2.out' },
-            reveal + 0.32
+            reveal + 0.2
           );
 
-        tlRefs.current[i] = tl.timeScale(1.1);
+        tlRefs.current[i] = tl.timeScale(1.4);
       });
     });
     return () => ctx.revert();
