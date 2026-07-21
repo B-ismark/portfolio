@@ -782,12 +782,14 @@ a {
   font-family: var(--font-display), serif;
   font-size: 15px;
   letter-spacing: 0.02em;
-  color: var(--ink);
-  opacity: 0.28;
-  transition: opacity 0.4s var(--ease);
+  /* the meta ink (5.8:1 light / 5.5:1 dark) rather than a faint 0.28 ink stamp
+     (1.87:1) — clears AA while staying a quiet monogram; darkens to full ink
+     on hover */
+  color: var(--muted);
+  transition: color 0.4s var(--ease);
 }
 .nda-card:hover .nda-mark {
-  opacity: 0.5;
+  color: var(--ink);
 }
 
 /* JS-enhanced shush cursor — the real 🤫 emoji (native SVG emoji is the fallback) */
