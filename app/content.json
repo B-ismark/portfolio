@@ -276,7 +276,7 @@
       "status": "Live",
       "title": "Rebuilding the AmaliTech website from the ground up",
       "plateWord": "AmaliTech",
-      "summary": "A WordPress template had quietly started running the company. I led the move to a CMS-backed site — a design system, a tone of voice, and editorial guidelines built from scratch — so the team could publish on-brand without a designer in the loop.",
+      "summary": "The WordPress template had outgrown its uses and it was time to create a full-fledged website from scratch. I led the design aspects in the move to a CMS-backed site, taking charge of the design system, tone of voice, and editorial guidelines — so the team could publish on-brand without a designer in the loop.",
       "meta": [
         {
           "label": "Role",
@@ -317,11 +317,11 @@
       "sections": [
         {
           "heading": "The problem",
-          "body": "AmaliTech had outgrown its website. A WordPress template picked for speed early on had, over time, started shaping the company more than the company shaped it: new pages bent to what the template allowed, brand details drifted, and anything past a basic edit needed a designer. The site had become a bottleneck instead of a platform."
+          "body": "AmaliTech had outgrown its website. A WordPress template picked for speed early on had, over time, started shaping the company more than the company shaped it: new pages bent to what the template allowed, brand details drifted, and anything past a basic edit needed developer intervention. The site had become a bottleneck instead of a platform."
         },
         {
           "heading": "The approach",
-          "body": "I treated it as a systems problem, not a reskin. Two goals sat under every decision: give the team a site they could actually run themselves, and make staying on-brand the path of least resistance. That meant a CMS the team owned, and the design language, voice, and rules to hold the site together long after launch."
+          "body": "I treated it as a systems problem, not a reskin. Two goals sat under every decision: give the team a site they could actually run themselves, and make staying on-brand the path of least resistance. That meant coming up with CMS modules the team owned, and the design language, voice, and rules to hold the site together long after launch."
         },
         {
           "heading": "What I built",
@@ -341,13 +341,13 @@
         },
         {
           "heading": "Publishing without a designer",
-          "body": "The real deliverable wasn't the launch — it was the team's ability to keep going. With the components, the voice, and the guidelines in place, the team publishes new pages on its own and going off-brand is hard to do by accident. The design work is baked into the tools, so it doesn't leave when I do.",
+          "body": "The real deliverable wasn't simply the launch — it was the team's ability to keep going. With the components, the voice, and the guidelines in place, the team publishes new pages on its own and going off-brand is hard to do by accident. The design work is baked into the tools, so it doesn't leave after the development team is done.",
           "media": {
             "src": "/work/amalitech/insights.png",
             "alt": "The CMS-backed insights index: search, tags, and a card grid of dated articles",
             "width": 1440,
             "height": 900,
-            "caption": "The team publishes here every week — same article template, filters and category system, no designer in the loop."
+            "caption": "The team publishes here whenever they want; same article template, filters and category system, no designer needed in the loop."
           }
         },
         {
@@ -582,7 +582,7 @@
       "sections": [
         {
           "heading": "The problem",
-          "body": "Saving things is easy; the apps are already full of your taste. But every feed just shows more of what you've seen, or what's popular. I wanted the opposite: use everything I've saved as a signal, and spend it on finding new work I'd never have surfaced myself."
+          "body": "Saving things is easy; the apps are already full of your taste. But every feed just shows more of what you've seen, or what's popular — this was my personal problem with my Pinterest feed. I wanted the opposite: use everything I've saved as a signal, and spend it on finding new work I'd never have surfaced myself."
         },
         {
           "heading": "The pivot",
@@ -608,7 +608,7 @@
         },
         {
           "heading": "Constraints & craft",
-          "body": "Built as a PWA to feel native on a phone, on a $0 infrastructure budget: Supabase and pgvector for storage and search, a daily job to refresh the pool. Motion is layered but every layer is gated on reduced-motion, and accessibility (semantic markup, focus management, alt text, AA contrast) was a starting point, not a finish.",
+          "body": "Built as a PWA to feel native on a phone, on a $0 infrastructure budget (a recurring theme across my exploratory projects): Supabase and pgvector for storage and search, a daily job to refresh the pool. Motion is layered but every layer is gated on reduced-motion, and accessibility (semantic markup, focus management, alt text, AA contrast) was a starting point, not a finish.",
           "media": {
             "src": "/work/weaver/mobile-feed.png",
             "alt": "The Weaver feed on a phone: a two-column masonry with some cards tilted like pinned scraps",
