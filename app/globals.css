@@ -330,7 +330,10 @@ a {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 20px;
+  gap: 12px 20px;
+  /* let the nav drop below the brand rather than overflow the viewport on very
+     narrow screens (WCAG 1.4.10 reflow — no horizontal scroll at 320px) */
+  flex-wrap: wrap;
 }
 .brand {
   font-family: var(--font-display), sans-serif;
@@ -1065,8 +1068,10 @@ a {
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-  gap: clamp(20px, 3vw, 36px);
+  /* smaller min so the three books sit 3-up from tablet down, keeping the
+     section short instead of a tall stack of full-width covers */
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
+  gap: clamp(16px, 2.4vw, 30px);
 }
 
 /* the interactive wrapper — a real <button> when enhanced, a plain box otherwise */
@@ -1289,7 +1294,8 @@ a {
 /* ---- enhanced: the book opens ---- */
 .book.is-enhanced .book-inner {
   width: 100%;
-  aspect-ratio: 2 / 3;
+  /* 3/4, not 2/3 — a shorter cover so it doesn't stand tall and half-empty */
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   perspective: 1600px; /* the shared 3D field for the cover + every leaf */
 }
@@ -2097,7 +2103,9 @@ html:has(.lightbox[open]) {
   min-width: 0;
 }
 .cta .eyebrow {
-  color: rgba(244, 241, 234, 0.62);
+  /* on the blue block in both themes (deep blue → brighter blue in dark); 0.62
+     failed AA on the lighter dark-mode blue, so lift it to clear 4.5:1 on both */
+  color: rgba(244, 241, 234, 0.92);
 }
 /* Heading + its second ink. The wrap owns the size and box so the cream
    heading and its pink echo wrap identically; the echo overlays it, a few px
@@ -2152,7 +2160,8 @@ html:has(.lightbox[open]) {
   position: relative;
   z-index: 1;
   font-size: var(--fs-lead);
-  color: rgba(244, 241, 234, 0.82);
+  /* 0.82 landed at 4.24:1 on the brighter dark-mode blue — nudge up to clear AA */
+  color: rgba(244, 241, 234, 0.92);
   max-width: 46ch;
 }
 .cta-actions {
@@ -2553,6 +2562,37 @@ html.js [data-reveal].is-in {
     flex-direction: column;
     align-items: flex-start;
     gap: 18px;
+  }
+}
+/* favourite books — on phones the shelf drops to one column; without a cap each
+   cover stretches full-width and stands ~530px tall. Centre a single readable
+   column at a sane width, shorten the cover, and tighten its inner spacing so
+   the section stays compact. */
+@media (max-width: 480px) {
+  .shelf {
+    grid-template-columns: min(260px, 100%);
+    justify-content: center;
+    gap: 20px;
+  }
+  .book.is-enhanced .book-inner {
+    aspect-ratio: 4 / 5;
+  }
+  .book-coverface {
+    gap: 14px;
+    padding: 18px;
+  }
+}
+/* header: shrink the brand + nav on small phones so the row holds together
+   (and, below that, wraps cleanly instead of overflowing) */
+@media (max-width: 420px) {
+  .brand {
+    font-size: 1.15rem;
+  }
+  .nav {
+    gap: 16px;
+  }
+  .nav a {
+    font-size: 0.86rem;
   }
 }
 
