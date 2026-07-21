@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import gsap from 'gsap';
 
 // Progressive enhancement for the home headline — a quiet fade-in, nothing more.
@@ -12,6 +13,12 @@ import gsap from 'gsap';
 // before paint (html.gsap-lead), gated on no-reduced-motion; the CSS `.reveal`
 // fade + 2.5s failsafe cover no-JS / reduced-motion / GSAP failure.
 export default function HeadlineReveal() {
+  // Re-run on every route change: the App Router reuses this layout across
+  // client-side navigations, so a plain [] effect fires only on the first load.
+  // Without the pathname dependency, navigating BACK to home never replays the
+  // entrance and the lead sits staged-hidden until the 2.5s CSS failsafe.
+  const pathname = usePathname();
+
   useEffect(() => {
     const headline = document.querySelector('.lead-headline');
     if (!headline) return; // home only
@@ -102,7 +109,7 @@ export default function HeadlineReveal() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }
