@@ -9,6 +9,7 @@ import SmoothScroll from './components/SmoothScroll';
 import HeadlineReveal from './components/HeadlineReveal';
 import ScrollTop from './components/ScrollTop';
 import PageTransition from './components/PageTransition';
+import ClarityAnalytics from './components/ClarityAnalytics';
 
 // DEV-ONLY in-browser content editor. Loaded lazily and only in development, so
 // its chunk is never fetched by the production/static-export site.
@@ -98,6 +99,7 @@ export default function RootLayout({ children }) {
         <ScrollReveal />
         <HeadlineReveal />
         <EditLayer />
+        <ClarityAnalytics />
       </body>
     </html>
   );
