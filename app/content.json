@@ -321,7 +321,17 @@
         },
         {
           "heading": "The approach",
-          "body": "I treated it as a systems problem, not a reskin. Two goals sat under every decision: give the team a site they could actually run themselves, and make staying on-brand the path of least resistance. That meant coming up with CMS modules the team owned, and the design language, voice, and rules to hold the site together long after launch."
+          "body": "I treated it as a systems problem, not a reskin. Two goals sat under every decision: give the team a site they could actually run themselves, and make staying on-brand the path of least resistance. That meant coming up with CMS modules the team owned, and the design language, voice, and rules to hold the site together long after launch. I conducted UX research, collected and improved the modules and pages based on user feedback."
+        },
+        {
+          "heading": "Team and my role",
+          "body": "As lead designer, I worked across the project on more than one front:",
+          "list": [
+            "Led the design hands-on — the system, the pages, and the details in between.",
+            "Ran the UX research end to end, then systemised scattered feedback into changes the team could act on.",
+            "Worked in the open with engineers, content, product, and marketing — designing with them, not handing work over a wall.",
+            "Started a design-critique rhythm with the other designers, so consistency held across everyone's work, not just mine."
+          ]
         },
         {
           "heading": "What I built",
@@ -671,6 +681,15 @@
         {
           "heading": "The problem",
           "body": "Booking a room is usually more clicks than the meeting deserves: hunt a calendar, guess a free slot, hope no one grabbed it first. I wanted the whole thing to take seconds: find a room that fits, hold it, move on."
+        },
+        {
+          "heading": "My role",
+          "body": "A solo design-and-build — but not a solo guess:",
+          "list": [
+            "Designed and built the whole thing — the calendar interactions, the room finder, and the conflict logic underneath.",
+            "Ran UX research and feedback rounds, so the flows matched how people actually book a room, not how I assumed they would.",
+            "Owned every trade-off myself, from the data model down to which features to leave out."
+          ]
         },
         {
           "heading": "What I designed",
