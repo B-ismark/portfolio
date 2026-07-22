@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import StatusLine from './StatusLine';
 import { ed, edImg } from '../lib/edit';
+import { imgProps } from '../lib/img';
+
+// Cards sit ~half-width on desktop, near full-width on mobile.
+const CARD_SIZES = '(max-width: 720px) 92vw, 45vw';
 
 export default function ProductCard({
   index,
@@ -25,7 +29,7 @@ export default function ProductCard({
         </div>
         {image ? (
           <div className="mock-shot" data-develop>
-            <img src={image} alt="" loading="lazy" {...edImg(`${editBase}.image`)} />
+            <img {...imgProps(image, CARD_SIZES)} alt="" loading="lazy" {...edImg(`${editBase}.image`)} />
           </div>
         ) : (
           <div className="card-mock-empty">

@@ -2,6 +2,7 @@ import ContactCTA from '../components/ContactCTA';
 import Bookshelf from '../components/Bookshelf';
 import { about, site } from '../content';
 import { ed, edImg, edAlt, edHref } from '../lib/edit';
+import { imgProps } from '../lib/img';
 
 const DESCRIPTION = about.metaDescription;
 
@@ -50,7 +51,7 @@ export default function About() {
         </div>
         <figure className="about-photo reveal" style={{ '--d': '150ms' }} data-develop>
           <img
-            src={about.portrait.src}
+            {...imgProps(about.portrait.src, '(max-width: 720px) 92vw, 380px')}
             alt={about.portrait.alt}
             {...edImg('about.portrait.src')}
             {...edAlt('about.portrait.alt')}

@@ -1,0 +1,462 @@
+{
+  "/bismark.jpg": {
+    "width": 800,
+    "height": 533,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/bismark-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/bismark-800.webp"
+      }
+    ]
+  },
+  "/work/amalitech/clients.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/amalitech/clients-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/amalitech/clients-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/amalitech/clients-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/amalitech/clients-1440.webp"
+      }
+    ]
+  },
+  "/work/amalitech/hero.png": {
+    "width": 1264,
+    "height": 705,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/amalitech/hero-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/amalitech/hero-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/amalitech/hero-1200.webp"
+      },
+      {
+        "w": 1264,
+        "path": "/work/amalitech/hero-1264.webp"
+      }
+    ]
+  },
+  "/work/amalitech/insights.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/amalitech/insights-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/amalitech/insights-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/amalitech/insights-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/amalitech/insights-1440.webp"
+      }
+    ]
+  },
+  "/work/amalitech/mobile.png": {
+    "width": 390,
+    "height": 844,
+    "variants": [
+      {
+        "w": 390,
+        "path": "/work/amalitech/mobile-390.webp"
+      }
+    ]
+  },
+  "/work/amalitech/services.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/amalitech/services-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/amalitech/services-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/amalitech/services-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/amalitech/services-1440.webp"
+      }
+    ]
+  },
+  "/work/booking-room/bookings.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/booking-room/bookings-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/booking-room/bookings-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/booking-room/bookings-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/booking-room/bookings-1440.webp"
+      }
+    ]
+  },
+  "/work/booking-room/dashboard.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/booking-room/dashboard-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/booking-room/dashboard-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/booking-room/dashboard-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/booking-room/dashboard-1440.webp"
+      }
+    ]
+  },
+  "/work/booking-room/room-detail.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/booking-room/room-detail-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/booking-room/room-detail-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/booking-room/room-detail-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/booking-room/room-detail-1440.webp"
+      }
+    ]
+  },
+  "/work/booking-room/rooms.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/booking-room/rooms-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/booking-room/rooms-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/booking-room/rooms-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/booking-room/rooms-1440.webp"
+      }
+    ]
+  },
+  "/work/trackpad/app.png": {
+    "width": 3200,
+    "height": 2000,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/trackpad/app-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/trackpad/app-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/trackpad/app-1200.webp"
+      },
+      {
+        "w": 1600,
+        "path": "/work/trackpad/app-1600.webp"
+      },
+      {
+        "w": 3200,
+        "path": "/work/trackpad/app-3200.webp"
+      }
+    ]
+  },
+  "/work/trackpad/gestures.png": {
+    "width": 3200,
+    "height": 2000,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/trackpad/gestures-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/trackpad/gestures-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/trackpad/gestures-1200.webp"
+      },
+      {
+        "w": 1600,
+        "path": "/work/trackpad/gestures-1600.webp"
+      },
+      {
+        "w": 3200,
+        "path": "/work/trackpad/gestures-3200.webp"
+      }
+    ]
+  },
+  "/work/trackpad/pairing.png": {
+    "width": 453,
+    "height": 648,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/trackpad/pairing-400.webp"
+      },
+      {
+        "w": 453,
+        "path": "/work/trackpad/pairing-453.webp"
+      }
+    ]
+  },
+  "/work/video-conferencing/landing.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/video-conferencing/landing-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/video-conferencing/landing-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/video-conferencing/landing-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/video-conferencing/landing-1440.webp"
+      }
+    ]
+  },
+  "/work/video-conferencing/lobby.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/video-conferencing/lobby-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/video-conferencing/lobby-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/video-conferencing/lobby-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/video-conferencing/lobby-1440.webp"
+      }
+    ]
+  },
+  "/work/video-conferencing/settings.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/video-conferencing/settings-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/video-conferencing/settings-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/video-conferencing/settings-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/video-conferencing/settings-1440.webp"
+      }
+    ]
+  },
+  "/work/video-conferencing/signin.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/video-conferencing/signin-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/video-conferencing/signin-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/video-conferencing/signin-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/video-conferencing/signin-1440.webp"
+      }
+    ]
+  },
+  "/work/video-conferencing/theme.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/video-conferencing/theme-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/video-conferencing/theme-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/video-conferencing/theme-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/video-conferencing/theme-1440.webp"
+      }
+    ]
+  },
+  "/work/weaver/detail.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/weaver/detail-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/weaver/detail-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/weaver/detail-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/weaver/detail-1440.webp"
+      }
+    ]
+  },
+  "/work/weaver/home.jpg": {
+    "width": 1800,
+    "height": 1125,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/weaver/home-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/weaver/home-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/weaver/home-1200.webp"
+      },
+      {
+        "w": 1600,
+        "path": "/work/weaver/home-1600.webp"
+      },
+      {
+        "w": 1800,
+        "path": "/work/weaver/home-1800.webp"
+      }
+    ]
+  },
+  "/work/weaver/mobile-feed.png": {
+    "width": 780,
+    "height": 1688,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/weaver/mobile-feed-400.webp"
+      },
+      {
+        "w": 780,
+        "path": "/work/weaver/mobile-feed-780.webp"
+      }
+    ]
+  },
+  "/work/weaver/taste.png": {
+    "width": 1440,
+    "height": 900,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/weaver/taste-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/weaver/taste-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/weaver/taste-1200.webp"
+      },
+      {
+        "w": 1440,
+        "path": "/work/weaver/taste-1440.webp"
+      }
+    ]
+  }
+}

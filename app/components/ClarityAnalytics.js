@@ -59,11 +59,30 @@ export default function ClarityAnalytics() {
   useEffect(() => {
     if (!CLARITY_ID) return;
     let cancelled = false;
-    import('@microsoft/clarity').then(({ default: clarity }) => {
-      if (cancelled) return;
-      clarity.init(CLARITY_ID);
-      clarityRef.current = clarity;
-    });
+
+    const boot = () => {
+      if (cancelled || clarityRef.current) return;
+      import('@microsoft/clarity').then(({ default: clarity }) => {
+        if (cancelled) return;
+        clarity.init(CLARITY_ID);
+        clarityRef.current = clarity;
+      });
+    };
+
+    // Keep analytics off the critical path: boot when the main thread is idle,
+    // or on the first user interaction — whichever comes first. A timeout caps
+    // the idle wait so a passive visitor is still recorded.
+    const hasIdle = typeof requestIdleCallback === 'function';
+    const idle = hasIdle
+      ? requestIdleCallback(boot, { timeout: 3000 })
+      : setTimeout(boot, 2000);
+    const kick = () => boot();
+    const opts = { once: true, passive: true, capture: true };
+    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach((t) =>
+      window.addEventListener(t, kick, opts),
+    );
+    const clearIdle = () =>
+      hasIdle ? cancelIdleCallback(idle) : clearTimeout(idle);
 
     const onClick = (e) => {
       const clarity = clarityRef.current;
@@ -79,6 +98,10 @@ export default function ClarityAnalytics() {
     document.addEventListener('click', onClick);
     return () => {
       cancelled = true;
+      clearIdle();
+      ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach((t) =>
+        window.removeEventListener(t, kick, opts),
+      );
       document.removeEventListener('click', onClick);
     };
   }, []);

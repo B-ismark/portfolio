@@ -1,6 +1,10 @@
 import Link from 'next/link';
 import StatusLine from './StatusLine';
 import { ed, edImg } from '../lib/edit';
+import { imgProps } from '../lib/img';
+
+// The hero plate sits ~half-width on desktop, near full-width on mobile.
+const HERO_SIZES = '(max-width: 720px) 92vw, 520px';
 
 export default function HeroCard({
   index,
@@ -68,14 +72,30 @@ export default function HeroCard({
       {image ? (
         <div className="plate plate--image" data-develop>
           {/* first/hero image on the home page — a likely LCP element, so it
-              loads eagerly at high priority rather than lazily. */}
-          <img
-            src={image}
-            alt="The AmaliTech website"
-            loading="eager"
-            fetchPriority="high"
-            {...edImg(`${editBase}.image`)}
-          />
+              loads eagerly at high priority rather than lazily, is preloaded in
+              <head> (React hoists the <link>), and serves resized WebP. */}
+          {(() => {
+            const p = imgProps(image, HERO_SIZES);
+            return (
+              <>
+                <link
+                  rel="preload"
+                  as="image"
+                  href={p.src}
+                  imageSrcSet={p.srcSet}
+                  imageSizes={HERO_SIZES}
+                  fetchPriority="high"
+                />
+                <img
+                  {...p}
+                  alt="The AmaliTech website"
+                  loading="eager"
+                  fetchPriority="high"
+                  {...edImg(`${editBase}.image`)}
+                />
+              </>
+            );
+          })()}
         </div>
       ) : (
         <div className="plate" aria-hidden="true">

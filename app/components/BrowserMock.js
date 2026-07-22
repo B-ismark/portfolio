@@ -2,6 +2,10 @@
 
 import { useRef } from 'react';
 import { edImg, edAlt } from '../lib/edit';
+import { imgProps, imgFull } from '../lib/img';
+
+// Case-study shots fill the content column on desktop, near full-width on mobile.
+const MOCK_SIZES = '(max-width: 800px) 92vw, 760px';
 
 // A lightweight browser-chrome frame to ground a screenshot as a real product.
 // `zoom` + `focus` crop into a region to drive a specific point home; `width` /
@@ -60,18 +64,18 @@ export default function BrowserMock({
 
       <a
         className="mock-shot mock-zoom"
-        href={src}
+        href={imgFull(src)}
         onClick={open}
         style={shotStyle}
         data-develop
         aria-label={`View larger: ${alt}`}
       >
         <img
-          src={src}
-          alt={alt}
-          loading="lazy"
           width={width}
           height={height}
+          {...imgProps(src, MOCK_SIZES)}
+          alt={alt}
+          loading="lazy"
           style={imgStyle}
           {...edImg(imgPath)}
           {...edAlt(altPath)}
@@ -95,7 +99,7 @@ export default function BrowserMock({
               <span className="lightbox-dot" />
               <span className="lightbox-barlabel">{alt}</span>
             </div>
-            <img className="lightbox-img" src={src} alt={alt} width={width} height={height} />
+            <img className="lightbox-img" src={imgFull(src)} alt={alt} width={width} height={height} />
             {caption && <figcaption className="lightbox-cap">{caption}</figcaption>}
           </figure>
         </div>
