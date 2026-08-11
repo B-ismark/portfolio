@@ -8,6 +8,7 @@
     "edit-server": "node tools/edit-server.mjs",
     "build": "next build",
     "optimize:images": "node tools/optimize-images.mjs",
+    "resume": "node tools/resume/build.mjs",
     "preview": "npx serve out"
   },
   "dependencies": {
