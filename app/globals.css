@@ -2271,6 +2271,11 @@ html:has(.lightbox[open]) {
 .about-photo {
   margin: 0;
 }
+/* The portrait plate. tools/optimize-images.mjs already pre-crops the served
+   variants to this exact aspect (see its OVERRIDES['/bismark.jpg']), so cover
+   is a no-op for the shipped photo and stays only as a guard for a swapped-in
+   image of another shape. CHANGE THIS RATIO AND YOU MUST CHANGE THAT ONE —
+   otherwise the browser resumes cropping at paint time and the plate goes soft. */
 .about-photo img {
   width: 100%;
   aspect-ratio: 4 / 5;

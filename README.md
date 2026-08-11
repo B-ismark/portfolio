@@ -34,29 +34,49 @@ npm run preview    # serves ./out via `npx serve`
 | `npm run preview` | Serve the built `./out` |
 | `npm run edit` | Dev server + content-edit server together (`tools/dev-all.mjs`) |
 | `npm run edit-server` | Content-edit server only (`tools/edit-server.mjs`) |
+| `npm run optimize:images` | Re-encode `public/` screenshots to resized WebP + rebuild the image manifest |
 
 ## Structure
 
 ```
 app/
+  layout.js               shell — fonts, metadata, pre-paint theme/JS flags, motion mounts
   page.js                 home — masthead, selected work, client work, shipped products
-  about/page.js           about
+  about/page.js           about — intro, portrait, numbered sections, bookshelf
   explorations/page.js    personal tools + side quests
   work/[slug]/page.js     case studies (amalitech, trackpad, video-conferencing, weaver, booking-room)
-  components/             ShushCursor, HeadlineReveal, SmoothScroll, BrowserMock, NdaCard, …
-  content.json            single source of truth for all copy + image dimensions
+  opengraph-image.js      generated OG image
+  components/             ShushCursor, HeadlineReveal, SmoothScroll, BrowserMock, NdaCard,
+                          Bookshelf, PageTransition, ClarityAnalytics, EditLayer, …
+  content.json            single source of truth for all copy (+ fallback image dims)
   content.js              thin re-export wrapper over content.json
   globals.css             the design system — :root tokens are canonical
+  lib/
+    img.js                <img> srcSet/width/height helper, backed by the manifest
+    img-manifest.json     generated — image dimensions + WebP variants
+    edit.js               data-edit attribute helpers (dev-only, no-ops in a build)
 docs/
   STYLE-GUIDE.md          why every design choice exists + how to use it
   content-notes.md        authorial notes on the copy
-public/                   images, résumé, cursor asset
-tools/                    dev-only content editor (dev-all.mjs, edit-server.mjs)
+public/                   images + generated WebP variants, résumé
+tools/                    dev-only: content editor (dev-all.mjs, edit-server.mjs)
+                          + the image optimizer (optimize-images.mjs)
 ```
 
 ## Content
 
 All copy and screenshot dimensions live in [`app/content.json`](app/content.json) — text is used verbatim, styling and structure live in the components. A dev-only in-browser editor (`npm run edit`) reads and writes that file so copy can be tuned against the live layout. Nothing is fetched at runtime; the shipped site is static.
+
+## Images
+
+`next/image` is off (a static export can't optimize on demand), so the work is done ahead of time. `npm run optimize:images` walks the raster sources in `public/`, writes resized WebP variants beside each one, and emits `app/lib/img-manifest.json`; `imgProps()` turns a manifest entry into `srcSet` + `sizes` + intrinsic `width`/`height`. Sources with no manifest entry fall through to the raw file, so a freshly dropped-in image still renders — it just isn't optimized until you rerun the script. Commit both the variants and the manifest; the build does not regenerate them.
+
+Two rules keep the output sharp:
+
+- **`sizes` describes the layout**, not the breakpoint list — it has to switch where the *column* changes width, or the browser picks a variant for the wrong box and upscales it.
+- **Crop at build time, not paint time.** Where a layout shows a different aspect than the file (`object-fit: cover`), give the source an `aspect` entry in the optimizer's `OVERRIDES` so the variants are already cropped. Otherwise the encoder spends its bits on pixels nobody sees and the visible slice gets stretched.
+
+> **Note:** the about-page portrait (`public/bismark.jpg`) is only 800×533, and the 4:5 plate crops that to 426×533 of usable detail. That's sharp at 1× but still short of a 2×/retina 380px plate. Replacing it with a ≥1440×1200 original is the one remaining fix — drop it in, rerun the script, and the wider ladder is picked up automatically.
 
 ## Design system, in one breath
 

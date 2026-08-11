@@ -44,8 +44,9 @@ export const viewport = {
 };
 
 export const metadata = {
-  // TODO: set to the real deployed domain so OG/canonical URLs resolve correctly
-  metadataBase: new URL('https://bismarkgyau.com'),
+  // The deployed origin. OG/Twitter image and canonical URLs resolve against it,
+  // so it has to be the absolute origin the site is actually served from.
+  metadataBase: new URL('https://bismarkportfolio.vercel.app'),
   title: 'Bismark Gyau · product designer',
   description: DESCRIPTION,
   openGraph: {
