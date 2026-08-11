@@ -35,6 +35,7 @@ npm run preview    # serves ./out via `npx serve`
 | `npm run edit` | Dev server + content-edit server together (`tools/dev-all.mjs`) |
 | `npm run edit-server` | Content-edit server only (`tools/edit-server.mjs`) |
 | `npm run optimize:images` | Re-encode `public/` screenshots to resized WebP + rebuild the image manifest |
+| `npm run resume` | Regenerate `public/bismark-gyau-resume.pdf` from `tools/resume/build.mjs` |
 
 ## Structure
 
@@ -59,8 +60,9 @@ docs/
   STYLE-GUIDE.md          why every design choice exists + how to use it
   content-notes.md        authorial notes on the copy
 public/                   images + generated WebP variants, résumé
-tools/                    dev-only: content editor (dev-all.mjs, edit-server.mjs)
-                          + the image optimizer (optimize-images.mjs)
+tools/                    dev-only: content editor (dev-all.mjs, edit-server.mjs),
+                          the image optimizer (optimize-images.mjs), and the
+                          résumé generator (resume/build.mjs + vendored fonts)
 ```
 
 ## Content
@@ -77,6 +79,20 @@ Two rules keep the output sharp:
 - **Crop at build time, not paint time.** Where a layout shows a different aspect than the file (`object-fit: cover`), give the source an `aspect` entry in the optimizer's `OVERRIDES` so the variants are already cropped. Otherwise the encoder spends its bits on pixels nobody sees and the visible slice gets stretched.
 
 > **Note:** the about-page portrait (`public/bismark.jpg`) is only 800×533, and the 4:5 plate crops that to 426×533 of usable detail. That's sharp at 1× but still short of a 2×/retina 380px plate. Replacing it with a ≥1440×1200 original is the one remaining fix — drop it in, rerun the script, and the wider ladder is picked up automatically.
+
+## Résumé
+
+`public/bismark-gyau-resume.pdf` is generated, not hand-authored — the original Google Doc is gone, so the layout now lives in [`tools/resume/build.mjs`](tools/resume/build.mjs) as HTML printed to PDF via Chromium. Geometry, colours (`#274e13` green, `#1155cc` links) and type (Raleway Bold display, Lato body) were reverse-engineered from the old export, so it still reads as the same document.
+
+```bash
+npm run resume     # -> public/bismark-gyau-resume.pdf
+```
+
+Fonts are vendored under `tools/resume/fonts` and inlined as data URIs, so the build needs no network and the PDF embeds its own faces. Chromium is found via `CHROME_PATH`, then the image-provided binary, then Playwright's registry.
+
+It **must stay one page.** The script measures the laid-out height and exits non-zero if the content would spill onto a second, so the overflow can't pass silently — tune the `T` spacing block at the top of the script, or cut copy.
+
+`stampMetadata()` then writes `/Title` and `/Author` through a PDF incremental update, because Chromium leaves both blank and the visible name is split across two display lines. It also pins `/CreationDate` and `/ModDate` to `RESUME_DATE` (a constant in the script — bump it when you revise the content). Those timestamps are the only non-deterministic bytes Skia emits, so pinning them makes the build reproducible: rerunning `npm run resume` with no content change leaves the committed PDF byte-identical, and a diff always means a real change.
 
 ## Design system, in one breath
 
