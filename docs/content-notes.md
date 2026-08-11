@@ -10,6 +10,20 @@ carries the intent instead.
 - `impact` metric is real, from the résumé: "15% increase in time spent on site".
 - `image` is a real photo from the live AmaliTech site (the site Bismark rebuilt).
 
+## about
+
+- **Don't reintroduce claims of hand-writing code.** `sections[0]` used to end
+  "and often the build itself when a project calls for it" and `sections[1]`
+  "I design in Figma and build in the browser when it helps the idea land". The
+  build work is AI-assisted, so both were deliberately softened to talk about
+  *working prototypes* — the products really do get shipped, which is the part
+  worth claiming, but neither line should imply framework fluency. The résumé
+  (`tools/resume/build.mjs`) makes the same distinction: it lists no frameworks
+  under Skills.
+- Case-study `Role: Design & build` and `Stack:` values are a **different
+  register and stay as they are** — a stack line describes what the product is
+  built with, which is simply true, rather than asserting a personal proficiency.
+
 ## clients (NDA cards)
 
 - Under wraps. NDA cards are text-only — the client name carries the credibility
