@@ -141,7 +141,7 @@ li::before { content:"\\25CF"; position:absolute; left:0; font-family:"Liberatio
   </div>
 </div>
 
-${section('Profile', `<p>Product designer, 3+ years across web, mobile, and desktop. I start at the problem, not the
+${section('Profile', `<p>Product designer, 4+ years across web, mobile, and desktop. I start at the problem, not the
 screen, and would rather put a working thing in front of people than a static mockup. Most of
 my work is design systems, accessibility, and getting things shipped.</p>`)}
 
