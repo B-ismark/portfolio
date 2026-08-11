@@ -187,15 +187,40 @@ const out = process.argv[2] || path.join(ROOT, 'public', 'bismark-gyau-resume.pd
 // then a new xref section whose trailer chains to the old one with /Prev. Nothing
 // earlier in the file moves, so every existing byte offset stays valid.
 // ASCII only — avoids any text-string encoding ambiguity.
+// Skia stamps a wall-clock /CreationDate and /ModDate, the only non-deterministic
+// bytes in its output — which would make this committed binary churn on every
+// rebuild even when nothing changed. Pin them to the résumé's revision date
+// instead (bump it when you revise the content) so `npm run resume` is
+// reproducible and a diff always means a real change.
+const REVISED = process.env.RESUME_DATE || '20260811000000';
+const PDF_DATE = `D:${REVISED}+00'00'`;
+
 const META = {
   Title: 'Bismark Kwadwo Gyau - Resume',
   Author: 'Bismark Kwadwo Gyau',
   Subject: 'Product Designer - UI/UX',
   Creator: 'tools/resume/build.mjs',
+  CreationDate: PDF_DATE,
+  ModDate: PDF_DATE,
 };
 
 function stampMetadata(file) {
-  const orig = fs.readFileSync(file);
+  let orig = fs.readFileSync(file);
+
+  // The superseded object 1 keeps its bytes in the file, so its wall-clock dates
+  // have to be normalised in place too — not just overridden in the replacement
+  // dict. Equal-length substitution only, so no byte offset moves.
+  orig = Buffer.from(
+    orig.toString('latin1').replace(
+      /\/(CreationDate|ModDate)\s*\(D:[^)]*\)/g,
+      (m, key) => {
+        const next = `/${key} (${PDF_DATE})`;
+        return next.length === m.length ? next : m;
+      },
+    ),
+    'latin1',
+  );
+
   const s = orig.toString('latin1');
 
   const trailer = s.lastIndexOf('trailer');

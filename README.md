@@ -90,7 +90,9 @@ npm run resume     # -> public/bismark-gyau-resume.pdf
 
 Fonts are vendored under `tools/resume/fonts` and inlined as data URIs, so the build needs no network and the PDF embeds its own faces. Chromium is found via `CHROME_PATH`, then the image-provided binary, then Playwright's registry.
 
-It **must stay one page.** The script measures the laid-out height and exits non-zero if the content would spill onto a second, so the overflow can't pass silently — tune the `T` spacing block at the top of the script, or cut copy. `stampMetadata()` then writes `/Title` and `/Author` through a PDF incremental update, because Chromium leaves both blank and the visible name is split across two display lines.
+It **must stay one page.** The script measures the laid-out height and exits non-zero if the content would spill onto a second, so the overflow can't pass silently — tune the `T` spacing block at the top of the script, or cut copy.
+
+`stampMetadata()` then writes `/Title` and `/Author` through a PDF incremental update, because Chromium leaves both blank and the visible name is split across two display lines. It also pins `/CreationDate` and `/ModDate` to `RESUME_DATE` (a constant in the script — bump it when you revise the content). Those timestamps are the only non-deterministic bytes Skia emits, so pinning them makes the build reproducible: rerunning `npm run resume` with no content change leaves the committed PDF byte-identical, and a diff always means a real change.
 
 ## Design system, in one breath
 
