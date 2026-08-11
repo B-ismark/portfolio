@@ -50,8 +50,13 @@ export default function About() {
           )}
         </div>
         <figure className="about-photo reveal" style={{ '--d': '150ms' }} data-develop>
+          {/* sizes must follow the LAYOUT, not the breakpoint list: .about-intro
+              collapses to one column at 860px (not 720px), where the portrait
+              jumps from the ~380px side column to the near-full content width.
+              Claiming 380px through 720–860px had the browser picking the 400w
+              variant for a ~780px box and upscaling it 2×. */}
           <img
-            {...imgProps(about.portrait.src, '(max-width: 720px) 92vw, 380px')}
+            {...imgProps(about.portrait.src, '(max-width: 860px) 92vw, 380px')}
             alt={about.portrait.alt}
             {...edImg('about.portrait.src')}
             {...edAlt('about.portrait.alt')}

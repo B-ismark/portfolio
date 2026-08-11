@@ -1,15 +1,12 @@
 {
   "/bismark.jpg": {
-    "width": 800,
+    "width": 426,
     "height": 533,
+    "cropped": "0.800 (from 800×533)",
     "variants": [
       {
-        "w": 400,
-        "path": "/bismark-400.webp"
-      },
-      {
-        "w": 800,
-        "path": "/bismark-800.webp"
+        "w": 426,
+        "path": "/bismark-426.webp"
       }
     ]
   },
@@ -46,10 +43,6 @@
       {
         "w": 800,
         "path": "/work/amalitech/hero-800.webp"
-      },
-      {
-        "w": 1200,
-        "path": "/work/amalitech/hero-1200.webp"
       },
       {
         "w": 1264,
@@ -256,10 +249,6 @@
     "height": 648,
     "variants": [
       {
-        "w": 400,
-        "path": "/work/trackpad/pairing-400.webp"
-      },
-      {
         "w": 453,
         "path": "/work/trackpad/pairing-453.webp"
       }
@@ -412,10 +401,6 @@
       {
         "w": 1200,
         "path": "/work/weaver/home-1200.webp"
-      },
-      {
-        "w": 1600,
-        "path": "/work/weaver/home-1600.webp"
       },
       {
         "w": 1800,

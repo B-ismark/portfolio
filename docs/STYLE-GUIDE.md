@@ -141,7 +141,7 @@ Three pieces, all reduced-motion-gated in JS:
 
 - **`SmoothScroll`** — Lenis lerp `0.12` driven off the GSAP ticker, `ScrollTrigger` synced, resets on route change; also writes `--reg-drift` and exposes `window.__lenis`.
 - **`HeadlineReveal`** — the near-fold LOAD wave as ONE top-down GSAP timeline: `.lead-headline` masked line-rise **first**, then `.lead-meta`, then `.worked-with`, then `.section--lead-work`. Blocks are staged hidden before paint via `html.gsap-lead` (set in `layout.js`); their own CSS `.reveal` is switched off under `.gsap-lead` so nothing fades in on its own clock ahead of the headline. Failsafe keyframes reveal everything by **2.5s** if JS/fonts stall.
-- **`ScrollReveal`** — restrained block reveal via `ScrollTrigger.batch` + `.is-in` (no per-card cascade). Also drives the rule-draw and plate-develop signatures.
+- **`ScrollReveal`** — restrained block reveal via a single `IntersectionObserver` + `.is-in` (light stagger for a group entering together, no per-card cascade). Also drives the rule-draw and plate-develop signatures. **Not** `ScrollTrigger.batch`: batch defers `onEnter` for elements already in view at mount until the first scroll, which left above-the-fold content sitting hidden. Re-runs on `pathname` — the App Router reuses this layout, so a bare `[]` effect would only ever observe the first page's elements.
 
 **Gating contract:** `html.js` is set before paint so `[data-reveal]` only hides content when JS can also reveal it. Under `prefers-reduced-motion: reduce`, all animation/transition durations collapse to `0.001ms` and staged content is shown flat. **Every new interaction must survive both no-JS and reduced-motion with the full static print look intact.**
 
@@ -155,7 +155,8 @@ Three pieces, all reduced-motion-gated in JS:
 - One `<h1>` per page (About/Explorations use their big lead as the h1).
 - `.skip-link` to `#main`; keyboard users tabbing into the auto-hiding header always bring it back (`:focus-within`).
 - Lightbox is a native `<dialog>` (Esc, focus trap, inert background for free); no-JS opens the raw image.
-- Reserve image space with real `width`/`height` (CLS): screenshot dimensions live in `content.json` and pass through `BrowserMock`.
+- Reserve image space with real `width`/`height` (CLS). `imgProps()` ([`app/lib/img.js`](../app/lib/img.js)) supplies both from the build-time manifest, alongside the `srcSet` of resized WebP variants.
+- **`sizes` must describe the layout, not the breakpoint list.** It's a CSS-pixel hint for variant selection, so it has to switch where the *column* changes width — and where a shot is cropped by `object-fit: cover`, the crop belongs in [`tools/optimize-images.mjs`](../tools/optimize-images.mjs) (`OVERRIDES`), not at paint time, or the browser upscales a slice of the file.
 
 ---
 
