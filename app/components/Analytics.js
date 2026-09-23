@@ -29,6 +29,11 @@ import Script from 'next/script';
 // critical path. Clarity auto-tracks page views + SPA route changes and masks
 // text/input by default.
 //
+// Boot waits for idle or the first interaction, but nothing sent before then is
+// lost: events go through Clarity's own call queue (window.clarity.q, the stub
+// its snippet installs), which the tag replays when it arrives. init() keeps an
+// existing window.clarity, so the stub is safe to install first.
+//
 // Custom events go to both tools with no per-component wiring; the list, and
 // the data each carries, is the Analytics table in README.md (keep it in step).
 // Event data becomes Umami event properties. Clarity gets the text fields as
@@ -40,12 +45,14 @@ import Script from 'next/script';
 // work" link). A 404 under /work/ carries neither, so it never counts. Reading
 // time only runs while the tab is on screen, so a case study opened in a
 // background tab doesn't pass for a close read.
-//
-// Clarity's init() is idempotent (it no-ops once its <script> is present) and
-// setTag()/event() require window.clarity to already exist — so init and all
-// tagging live here, in one place, guaranteeing init runs first.
 const UMAMI_ID = '5906bcd6-b2d8-49ab-bcbf-14ce4982e8f6';
 const CLARITY_ID = process.env.NEXT_PUBLIC_CLARITY_ID;
+
+// Any of these boots Clarity early, ahead of the idle callback.
+const INTERACTIONS = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+
+// `host` is `domain` itself or one of its subdomains (not notgithub.com).
+const isHost = (host, domain) => host === domain || host.endsWith(`.${domain}`);
 
 // Map a clicked anchor to an event (+ optional data).
 // Returns null for internal SPA links (case-study opens are tracked by route).
@@ -63,25 +70,32 @@ function classifyLink(a) {
   if (!isExternal) return null;
 
   const host = a.hostname.replace(/^www\./, '');
-  if (host.includes('linkedin.com')) return { event: 'social_linkedin' };
-  if (host.includes('behance.net')) return { event: 'social_behance' };
-  if (host.includes('github.com')) return { event: 'social_github' };
-  if (host.includes('dribbble.com')) return { event: 'social_dribbble' };
+  if (isHost(host, 'linkedin.com')) return { event: 'social_linkedin' };
+  if (isHost(host, 'behance.net')) return { event: 'social_behance' };
+  if (isHost(host, 'github.com')) return { event: 'social_github' };
+  if (isHost(host, 'dribbble.com')) return { event: 'social_dribbble' };
   return { event: 'outbound_link', data: { outbound_host: host } };
 }
 
-function toClarity(clarity, event, data) {
+// window.clarity('set' | 'event', …) is exactly what the package's setTag()
+// and event() call, so events never wait on the package chunk.
+function toClarity(event, data) {
+  if (!CLARITY_ID) return;
+  window.clarity =
+    window.clarity ||
+    function () {
+      (window.clarity.q = window.clarity.q || []).push(arguments);
+    };
   if (data) {
     Object.entries(data).forEach(([key, value]) => {
-      if (typeof value === 'string') clarity.setTag(key, value);
+      if (typeof value === 'string') window.clarity('set', key, value);
     });
   }
-  clarity.event(event);
+  window.clarity('event', event);
 }
 
 export default function Analytics({ liveHost }) {
   const pathname = usePathname();
-  const clarityRef = useRef(null);
   // Umami sends waiting for its script, run on load. Set to null once loaded,
   // or if the script never arrives (an ad blocker), so nothing piles up.
   const umamiQueue = useRef([]);
@@ -104,21 +118,25 @@ export default function Analytics({ liveHost }) {
 
   const track = (event, data) => {
     toUmami(event, data);
-    if (clarityRef.current) toClarity(clarityRef.current, event, data);
+    toClarity(event, data);
   };
 
-  // Boot Clarity once.
+  // Boot Clarity once — the only place it's loaded.
   useEffect(() => {
     if (!CLARITY_ID) return;
+    let started = false;
     let cancelled = false;
 
     const boot = () => {
-      if (cancelled || clarityRef.current) return;
-      import('@microsoft/clarity').then(({ default: clarity }) => {
-        if (cancelled) return;
-        clarity.init(CLARITY_ID);
-        clarityRef.current = clarity;
-      });
+      if (started) return;
+      started = true;
+      import('@microsoft/clarity')
+        .then(({ default: clarity }) => {
+          if (!cancelled) clarity.init(CLARITY_ID);
+        })
+        // The chunk can 404 in a tab left open across a redeploy; that visit
+        // just goes unrecorded.
+        .catch(() => {});
     };
 
     // Keep analytics off the critical path: boot when the main thread is idle,
@@ -128,20 +146,14 @@ export default function Analytics({ liveHost }) {
     const idle = hasIdle
       ? requestIdleCallback(boot, { timeout: 3000 })
       : setTimeout(boot, 2000);
-    const kick = () => boot();
     const opts = { once: true, passive: true, capture: true };
-    ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach((t) =>
-      window.addEventListener(t, kick, opts),
-    );
-    const clearIdle = () =>
-      hasIdle ? cancelIdleCallback(idle) : clearTimeout(idle);
+    INTERACTIONS.forEach((t) => window.addEventListener(t, boot, opts));
 
     return () => {
       cancelled = true;
-      clearIdle();
-      ['pointerdown', 'keydown', 'scroll', 'touchstart'].forEach((t) =>
-        window.removeEventListener(t, kick, opts),
-      );
+      if (hasIdle) cancelIdleCallback(idle);
+      else clearTimeout(idle);
+      INTERACTIONS.forEach((t) => window.removeEventListener(t, boot, opts));
     };
   }, []);
 
@@ -174,20 +186,7 @@ export default function Analytics({ liveHost }) {
     if (!article) return;
     const slug = article.dataset.caseStudy;
 
-    toUmami('case_study_view', { case_study: slug });
-    if (CLARITY_ID) {
-      const tag = (clarity) =>
-        toClarity(clarity, 'case_study_view', { case_study: slug });
-      if (clarityRef.current) {
-        tag(clarityRef.current);
-      } else {
-        import('@microsoft/clarity').then(({ default: clarity }) => {
-          clarity.init(CLARITY_ID);
-          clarityRef.current = clarity;
-          tag(clarity);
-        });
-      }
-    }
+    track('case_study_view', { case_study: slug });
 
     const end = article.querySelector('[data-read-end]');
     if (!end || typeof IntersectionObserver !== 'function') return;
