@@ -48,7 +48,7 @@ app/
   work/[slug]/page.js     case studies (amalitech, trackpad, video-conferencing, weaver, booking-room)
   opengraph-image.js      generated OG image
   components/             ShushCursor, HeadlineReveal, SmoothScroll, BrowserMock, NdaCard,
-                          Bookshelf, PageTransition, ClarityAnalytics, EditLayer, …
+                          Bookshelf, PageTransition, Analytics, EditLayer, …
   content.json            single source of truth for all copy (+ fallback image dims)
   content.js              thin re-export wrapper over content.json
   globals.css             the design system — :root tokens are canonical
@@ -104,9 +104,27 @@ It **must stay one page.** The script measures the laid-out height and exits non
 
 See [`docs/STYLE-GUIDE.md`](docs/STYLE-GUIDE.md) for tokens, component vocabulary, motion contract, accessibility, and the checklist for adding anything new.
 
+## Analytics
+
+Two tools, wired in one place ([`app/components/Analytics.js`](app/components/Analytics.js)) and sharing one set of events:
+
+- **[Umami](https://umami.is)**: the numbers (visitors, sources, journeys, funnels, exit pages). It's cookieless, so there's no consent banner. It's always on, but only records on the live hostname: `metadataBase` in `layout.js` is passed to the script as `data-domains`, so dev, `npm run preview` and Vercel preview deploys send nothing. Move the site to a new domain by updating `metadataBase`, and Umami follows.
+- **[Microsoft Clarity](https://clarity.microsoft.com)**: the why (session replay and heatmaps). Off unless `NEXT_PUBLIC_CLARITY_ID` is set; see [`.env.example`](.env.example).
+
+| Event | Fires when | Data |
+|---|---|---|
+| `case_study_view` | a case study opens | `case_study` |
+| `case_study_read` | the case study's bottom "Back to work" link (`data-read-end`) scrolls into view, once per visit | `case_study`, `seconds` on screen (paused while the tab is hidden) |
+| `contact_email` / `contact_phone` | a `mailto:` / `tel:` link is clicked | |
+| `resume_download` | a `.pdf` link is clicked | |
+| `social_linkedin` / `social_behance` / `social_github` / `social_dribbble` | a profile link is clicked | |
+| `outbound_link` | any other external link is clicked | `outbound_host` |
+
+A case study page declares itself with `data-case-study="<slug>"` on its `<article>`, so a 404 under `/work/` never counts. Umami page views are sent by `Analytics.js` on every route change, not by Umami's script, so a visitor who clicks through before the page has finished loading keeps both pages. Umami keeps every data field as an event property. Clarity gets the text fields as session tags, so recordings can be filtered by project. A Umami funnel of `/` → `case_study_view` → `case_study_read` → `contact_email` shows where readers drop off.
+
 ## Deployment
 
-Static export — host `./out` on any static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages, plain S3). `trailingSlash: true` keeps relative asset paths correct on any host. No build-time secrets, no runtime services.
+Static export — host `./out` on any static host (GitHub Pages, Netlify, Vercel, Cloudflare Pages, plain S3). `trailingSlash: true` keeps relative asset paths correct on any host. No build-time secrets; the only runtime services are the two analytics scripts above.
 
 ---
 
