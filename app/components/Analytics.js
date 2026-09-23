@@ -8,11 +8,17 @@ import Script from 'next/script';
 //
 // Umami — the numbers: visitors, sources, journeys, funnels, exit pages.
 // Cookieless, so it needs no consent banner and still counts the EEA/UK
-// visitors Clarity can only partly track without one. Its ~2KB script tracks
-// page views (client-side route changes included) on its own. It only sends from
+// visitors Clarity can only partly track without one. It only sends from
 // `liveHost` (the metadataBase hostname, set as data-domains), so local dev,
 // `npm run preview` and Vercel preview deploys load it but record nothing.
 // The website id isn't a secret; it ships in every page's HTML.
+//
+// Page views are sent from here (data-auto-track="false"), not by the script's
+// own history hook: that only switches on once every image has loaded, so a
+// visitor who clicked through before then would lose the page they went to.
+// Everything sent to Umami is stamped with the page it happened on at the
+// moment it happened, so events queued before the ~2KB script arrives still
+// land on the right page.
 //
 // Microsoft Clarity — the why: session replay + heatmaps + geo, via the
 // official @microsoft/clarity package. Boots only when NEXT_PUBLIC_CLARITY_ID
@@ -23,22 +29,17 @@ import Script from 'next/script';
 // critical path. Clarity auto-tracks page views + SPA route changes and masks
 // text/input by default.
 //
-// Custom events, sent to both (no per-component wiring):
-//   case_study_view  — opened /work/<slug>                  (case_study)
-//   case_study_read  — reached the end of a case study      (case_study, seconds)
-//   contact_email    — clicked a mailto: link
-//   contact_phone    — clicked a tel: link
-//   resume_download  — clicked a .pdf link (the résumé)
-//   social_linkedin / social_behance / social_github / social_dribbble
-//   outbound_link    — any other external link              (outbound_host)
-//
-// Bracketed fields become Umami event properties. Clarity gets the text ones as
+// Custom events go to both tools with no per-component wiring; the list, and
+// the data each carries, is the Analytics table in README.md (keep it in step).
+// Event data becomes Umami event properties. Clarity gets the text fields as
 // session tags; tags filter whole recordings, so a number like `seconds` stays
 // Umami-only.
 //
-// "The end" of a case study is the element marked data-read-end (the bottom
-// "Back to work" link). `seconds` counts from the case study opening, which
-// tells a reader apart from someone flicking straight to the bottom.
+// A case study page declares itself: data-case-study="<slug>" on its article
+// and data-read-end on the element that counts as its end (the bottom "Back to
+// work" link). A 404 under /work/ carries neither, so it never counts. Reading
+// time only runs while the tab is on screen, so a case study opened in a
+// background tab doesn't pass for a close read.
 //
 // Clarity's init() is idempotent (it no-ops once its <script> is present) and
 // setTag()/event() require window.clarity to already exist — so init and all
@@ -81,14 +82,24 @@ function toClarity(clarity, event, data) {
 export default function Analytics({ liveHost }) {
   const pathname = usePathname();
   const clarityRef = useRef(null);
-  // Umami events fired before its script arrives, flushed on load. Set to null
-  // once loaded, or if the script never arrives (an ad blocker), so nothing
-  // piles up.
+  // Umami sends waiting for its script, run on load. Set to null once loaded,
+  // or if the script never arrives (an ad blocker), so nothing piles up.
   const umamiQueue = useRef([]);
+  // Path of the last page view: the referrer for the next one.
+  const lastPath = useRef(null);
 
-  const toUmami = (event, data) => {
-    if (window.umami) window.umami.track(event, data);
-    else if (umamiQueue.current) umamiQueue.current.push([event, data]);
+  // Send to Umami, stamped with the page as it is right now. No event name
+  // means a page view; `extra` overrides payload fields (a view's referrer).
+  const toUmami = (event, data, extra) => {
+    const page = { url: location.href, title: document.title, ...extra };
+    const send = () =>
+      window.umami?.track((payload) => ({
+        ...payload,
+        ...page,
+        ...(event && { name: event, data }),
+      }));
+    if (window.umami) send();
+    else if (umamiQueue.current) umamiQueue.current.push(send);
   };
 
   const track = (event, data) => {
@@ -148,14 +159,20 @@ export default function Analytics({ liveHost }) {
     return () => document.removeEventListener('click', onClick);
   }, []);
 
-  // On a case study (/work/<slug>): log the open, so replays, heatmaps and
-  // funnels can be filtered per project, then watch for the reader reaching
-  // the end.
+  // One Umami page view per route. The landing page keeps the script's own
+  // referrer (where the visitor came from); later ones came from the page
+  // before. Declared ahead of the case-study effect so the view is sent first.
   useEffect(() => {
-    const match = pathname && pathname.match(/^\/work\/([^/]+)\/?$/);
-    if (!match) return;
-    const slug = match[1];
-    const openedAt = performance.now();
+    toUmami(null, null, lastPath.current && { referrer: lastPath.current });
+    lastPath.current = location.pathname + location.search;
+  }, [pathname]);
+
+  // On a case study: log the open, so replays, heatmaps and funnels can be
+  // filtered per project, then watch for the reader reaching the end.
+  useEffect(() => {
+    const article = document.querySelector('[data-case-study]');
+    if (!article) return;
+    const slug = article.dataset.caseStudy;
 
     toUmami('case_study_view', { case_study: slug });
     if (CLARITY_ID) {
@@ -172,18 +189,37 @@ export default function Analytics({ liveHost }) {
       }
     }
 
-    const end = document.querySelector('[data-read-end]');
+    const end = article.querySelector('[data-read-end]');
     if (!end || typeof IntersectionObserver !== 'function') return;
+
+    // Time on screen only: pause while the tab is hidden.
+    let visibleMs = 0;
+    let visibleSince = document.hidden ? null : performance.now();
+    const onVisibility = () => {
+      if (document.hidden && visibleSince !== null) {
+        visibleMs += performance.now() - visibleSince;
+        visibleSince = null;
+      } else if (!document.hidden && visibleSince === null) {
+        visibleSince = performance.now();
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
+
     const io = new IntersectionObserver((entries) => {
       if (!entries.some((entry) => entry.isIntersecting)) return;
       io.disconnect();
+      const onScreen =
+        visibleMs + (visibleSince === null ? 0 : performance.now() - visibleSince);
       track('case_study_read', {
         case_study: slug,
-        seconds: Math.round((performance.now() - openedAt) / 1000),
+        seconds: Math.round(onScreen / 1000),
       });
     });
     io.observe(end);
-    return () => io.disconnect();
+    return () => {
+      io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibility);
+    };
   }, [pathname]);
 
   return (
@@ -191,11 +227,12 @@ export default function Analytics({ liveHost }) {
       src="https://cloud.umami.is/script.js"
       data-website-id={UMAMI_ID}
       data-domains={liveHost}
+      data-auto-track="false"
       strategy="afterInteractive"
       onLoad={() => {
         const queued = umamiQueue.current || [];
         umamiQueue.current = null;
-        queued.forEach(([event, data]) => window.umami?.track(event, data));
+        queued.forEach((send) => send());
       }}
       onError={() => {
         umamiQueue.current = null;

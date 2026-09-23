@@ -34,7 +34,9 @@ export default async function WorkPage({ params }) {
   const base = `work.${slug}`;
 
   return (
-    <article className="wrap work">
+    // data-case-study marks this as a real project page for Analytics (a 404
+    // under /work/ has none), and names it in the case_study_* events.
+    <article className="wrap work" data-case-study={slug}>
       <Link className="work-back reveal" href="/" style={{ '--d': '0ms' }}>
         <span aria-hidden="true">←</span> Work
       </Link>

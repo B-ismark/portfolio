@@ -114,13 +114,13 @@ Two tools, wired in one place ([`app/components/Analytics.js`](app/components/An
 | Event | Fires when | Data |
 |---|---|---|
 | `case_study_view` | a case study opens | `case_study` |
-| `case_study_read` | the case study's bottom "Back to work" link (`data-read-end`) scrolls into view | `case_study`, `seconds` since it opened |
+| `case_study_read` | the case study's bottom "Back to work" link (`data-read-end`) scrolls into view, once per visit | `case_study`, `seconds` on screen (paused while the tab is hidden) |
 | `contact_email` / `contact_phone` | a `mailto:` / `tel:` link is clicked | |
 | `resume_download` | a `.pdf` link is clicked | |
 | `social_linkedin` / `social_behance` / `social_github` / `social_dribbble` | a profile link is clicked | |
 | `outbound_link` | any other external link is clicked | `outbound_host` |
 
-Umami keeps every data field as an event property. Clarity gets the text fields as session tags, so recordings can be filtered by project. A Umami funnel of `/` → `case_study_view` → `case_study_read` → `contact_email` shows where readers drop off.
+A case study page declares itself with `data-case-study="<slug>"` on its `<article>`, so a 404 under `/work/` never counts. Umami page views are sent by `Analytics.js` on every route change, not by Umami's script, so a visitor who clicks through before the page has finished loading keeps both pages. Umami keeps every data field as an event property. Clarity gets the text fields as session tags, so recordings can be filtered by project. A Umami funnel of `/` → `case_study_view` → `case_study_read` → `contact_email` shows where readers drop off.
 
 ## Deployment
 
