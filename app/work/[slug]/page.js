@@ -191,7 +191,9 @@ export default async function WorkPage({ params }) {
         })}
       </div>
 
-      <Link className="work-back work-back--bottom" href="/">
+      {/* data-read-end: scrolling this into view counts as finishing the case
+          study (the case_study_read event in Analytics). */}
+      <Link className="work-back work-back--bottom" href="/" data-read-end>
         <span aria-hidden="true">←</span> Back to work
       </Link>
 
