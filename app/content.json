@@ -36,7 +36,7 @@
     },
     "explorations": {
       "eyebrow": "Explorations",
-      "lead": "PERSONAL TOOLS, SIDE QUESTS, AND HALF-FORMED IDEAS",
+      "lead": "Personal tools, side quests, and half-formed ideas",
       "leadEm": "made to answer my own questions.",
       "projectsLabel": "Built for myself",
       "projectsCount": "01–02",
@@ -86,7 +86,7 @@
     "category": "Web platform",
     "status": "Live",
     "title": "Rebuilding the AmaliTech website from the ground up",
-    "description": "The WordPress template had outgrown its uses. I led the design side of the move to a CMS-backed site — the design system, tone of voice, and editorial guidelines — so the team could publish on-brand without a designer in the loop.",
+    "description": "The WordPress template had outgrown its purpose. I led the design side of the move to a CMS-backed site — the design system, tone of voice, and editorial guidelines — so the team could publish on-brand without a designer in the loop.",
     "meta": [
       {
         "label": "Role",
@@ -133,7 +133,7 @@
       "status": "Shipped",
       "title": "A video conferencing platform",
       "description": "Designed the calling experience end to end: joining, presence, and the small moments between calls that most tools ignore.",
-      "role": "Product designer",
+      "role": "Design & build",
       "plateWord": "Calls",
       "slug": "video-conferencing",
       "image": "/work/video-conferencing/landing.png"
@@ -212,14 +212,14 @@
         ]
       },
       {
-        "heading": "PARALLEL INTERESTS",
+        "heading": "Parallel interests",
         "body": [
           "Behind a camera, or deep in a 3D scene modelling and sculpting, chasing the same thing I chase at work: how a thing is made, and how it makes you feel."
         ]
       }
     ],
     "reading": {
-      "title": "Favorite books",
+      "title": "Favourite books",
       "note": "Books I keep coming back to. Hover or tap one for the line that stuck.",
       "books": [
         {
@@ -300,7 +300,7 @@
       "status": "Live",
       "title": "Rebuilding the AmaliTech website from the ground up",
       "plateWord": "AmaliTech",
-      "summary": "The WordPress template had outgrown its uses and it was time to create a full-fledged website from scratch. I led the design aspects in the move to a CMS-backed site, taking charge of the design system, tone of voice, and editorial guidelines — so the team could publish on-brand without a designer in the loop.",
+      "summary": "The WordPress template had outgrown its purpose, and it was time to create a full-fledged website from scratch. I led the design aspects in the move to a CMS-backed site, taking charge of the design system, tone of voice, and editorial guidelines — so the team could publish on-brand without a designer in the loop.",
       "meta": [
         {
           "label": "Role",
@@ -345,15 +345,15 @@
         },
         {
           "heading": "The approach",
-          "body": "I treated it as a systems problem, not a reskin. Two goals sat under every decision: give the team a site they could actually run themselves, and make staying on-brand the path of least resistance. That meant coming up with CMS modules the team owned, and the design language, voice, and rules to hold the site together long after launch. I conducted UX research, collected and improved the modules and pages based on user feedback."
+          "body": "I treated it as a systems problem, not a reskin. Two goals sat under every decision: give the team a site they could actually run themselves, and make staying on-brand the path of least resistance. That meant coming up with CMS modules the team owned, and the design language, voice, and rules to hold the site together long after launch. I ran UX research along the way and refined the modules and pages based on what users told us."
         },
         {
           "heading": "Team and my role",
           "body": "As lead designer, I worked across the project on more than one front:",
           "list": [
             "Led the design hands-on — the system, the pages, and the details in between.",
-            "Ran the UX research end to end with my capable design team—myself and Gina :)—then systemised scattered feedback into changes the team could act on.",
-            "Worked in the open with engineers, content, product, and marketing — designing with them (involving countles wonderful alignment meetings), not handing work over a wall.",
+            "Ran the UX research end to end with a two-person design team (Gina and me), then systemised scattered feedback into changes the team could act on.",
+            "Worked in the open with engineers, content, product, and marketing — designing with them through plenty of alignment meetings, not handing work over a wall.",
             "Started a design-critique rhythm with the other designer, so consistency held across everyone's work, not just mine."
           ]
         },
@@ -434,7 +434,7 @@
       ],
       "hero": {
         "src": "/work/trackpad/app.png",
-        "alt": "The LazeR Android control screen and its settings sheet, recreated from the app",
+        "alt": "The Android control screen and its settings sheet, recreated from the app",
         "width": 1600,
         "height": 1000,
         "caption": "The control surface: trackpad and scroll strip, media transport, and the settings that tune the feel."
@@ -712,7 +712,7 @@
           "list": [
             "Designed and built the whole thing — the calendar interactions, the room finder, and the conflict logic underneath.",
             "Ran UX research and feedback rounds, so the flows matched how people actually book a room, not how I assumed they would.",
-            "Owned every trade-off myself, from the data model down to which features to leave out. (Along with my AI buddies ofc)"
+            "Owned every trade-off myself, from the data model down to which features to leave out, with AI-assisted development speeding up the build."
           ]
         },
         {

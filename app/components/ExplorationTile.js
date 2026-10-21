@@ -9,8 +9,8 @@ export default function ExplorationTile({ num, title, description, slug }) {
       </h3>
       <p className="expl-desc">{description}</p>
       {slug && (
-        <span className="expl-more" aria-hidden="true">
-          Case study →
+        <span className="expl-more">
+          Case study <span aria-hidden="true">→</span>
         </span>
       )}
     </>
@@ -21,7 +21,6 @@ export default function ExplorationTile({ num, title, description, slug }) {
       <Link
         className="expl-tile expl-tile--link"
         href={`/work/${slug}`}
-        aria-label={`${title} — read the case study`}
       >
         {body}
       </Link>

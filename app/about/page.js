@@ -46,6 +46,7 @@ export default function About() {
               Download{' '}
               <span {...ed(`site.footer.elsewhere[${RESUME_INDEX}].label`)}>{resume.label}</span>
               <span aria-hidden="true"> ↗</span>
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           )}
         </div>
