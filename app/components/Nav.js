@@ -7,6 +7,10 @@ import { site } from '../content';
 import { ed, edHref } from '../lib/edit';
 import ThemeToggle from './ThemeToggle';
 
+// The résumé is what a recruiter came for — keep it one click away on every
+// page, not only in the contact banner at the bottom.
+const resume = site.footer.elsewhere.find((l) => l.href.toLowerCase().endsWith('.pdf'));
+
 export default function Nav() {
   const pathname = usePathname() || '/';
   // Normalise away any trailing slash (static export uses trailingSlash) so the
@@ -72,6 +76,13 @@ export default function Nav() {
               </Link>
             );
           })}
+          {resume && (
+            // a plain <a>: it's a PDF in a new tab, not a client-side route
+            <a href={resume.href} target="_blank" rel="noopener noreferrer">
+              {resume.label}
+              <span className="sr-only"> (opens in new tab)</span>
+            </a>
+          )}
           <ThemeToggle />
         </nav>
       </div>

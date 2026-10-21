@@ -45,6 +45,9 @@ const leavesOf = (b) => Math.max(1, Math.round(positionOf(b) * MAX_LEAVES));
 export default function Bookshelf({ books, editBase }) {
   const [enhanced, setEnhanced] = useState(false);
   const [open, setOpen] = useState(() => books.map(() => false));
+  // Opening a book swaps its cover for the page, which a screen reader won't
+  // notice on its own — so the line is also spoken through a live region.
+  const [announce, setAnnounce] = useState('');
 
   const cardRefs = useRef([]);
   const tlRefs = useRef([]);
@@ -149,120 +152,125 @@ export default function Bookshelf({ books, editBase }) {
     const next = !sticky.current[i];
     sticky.current[i] = next;
     setOpen((o) => o.map((v, j) => (j === i ? next : v)));
+    setAnnounce(next ? `\u201C${books[i].quote}\u201D — ${books[i].author}` : '');
     next ? tlRefs.current[i]?.play() : tlRefs.current[i]?.reverse();
   };
 
   return (
-    <ul className="shelf" role="list">
-      {books.map((b, i) => {
-        const pos = positionOf(b);
-        const inner = (
-          <span className="book-inner" style={{ '--pos': pos }}>
-            <span className="book-covers" aria-hidden={enhanced || undefined}>
-              <span className="book-cover">
-                <span className="book-coverface">
-                  <span className="book-spine" aria-hidden="true" />
-                  <span className="book-cover-copy">
-                    <span
-                      className="book-title"
-                      data-text={b.title}
-                      {...ed(`${editBase}[${i}].title`)}
-                    >
-                      {b.title}
+    <>
+      <ul className="shelf" role="list">
+        {books.map((b, i) => {
+          const pos = positionOf(b);
+          const inner = (
+            <span className="book-inner" style={{ '--pos': pos }}>
+              <span className="book-covers">
+                <span className="book-cover">
+                  <span className="book-coverface">
+                    <span className="book-spine" aria-hidden="true" />
+                    <span className="book-cover-copy">
+                      <span
+                        className="book-title"
+                        data-text={b.title}
+                        {...ed(`${editBase}[${i}].title`)}
+                      >
+                        {b.title}
+                      </span>
+                      <span
+                        className="book-author"
+                        {...ed(`${editBase}[${i}].author`)}
+                      >
+                        {b.author}
+                      </span>
                     </span>
-                    <span
-                      className="book-author"
-                      {...ed(`${editBase}[${i}].author`)}
-                    >
-                      {b.author}
+                    <span className="book-cue">
+                      Favourite line <span aria-hidden="true">→</span>
                     </span>
-                  </span>
-                  <span className="book-cue" aria-hidden="true">
-                    Favourite line →
                   </span>
                 </span>
               </span>
-            </span>
 
-            {enhanced && (
-              <span className="book-leaves" aria-hidden="true">
-                {Array.from({ length: leavesOf(b) }).map((_, k) => (
-                  <span className="book-leaf" key={k} />
-                ))}
-              </span>
-            )}
-            {enhanced && <span className="book-shadow" aria-hidden="true" />}
-
-            <span
-              className="book-page"
-              aria-hidden={enhanced && !open[i] ? true : undefined}
-            >
-              <span className="book-edge book-edge--l" aria-hidden="true" />
-              <span className="book-edge book-edge--r" aria-hidden="true" />
-              <span className="book-runhead" aria-hidden="true">
-                <span className="book-runhead-title">{b.title}</span>
-                <span className="book-folio">
-                  p. {b.folio} / {b.pages}
-                </span>
-              </span>
-              <span className="book-body">
-                <span className="book-fauxset" aria-hidden="true">
-                  {(b.contextTop?.length ? b.contextTop : FAUX_TOP).map((t, k) => (
-                    <span className="book-line" key={`t${k}`}>
-                      {t}
-                    </span>
+              {enhanced && (
+                <span className="book-leaves" aria-hidden="true">
+                  {Array.from({ length: leavesOf(b) }).map((_, k) => (
+                    <span className="book-leaf" key={k} />
                   ))}
                 </span>
-                <span className="book-pull">
-                  <span className="book-quote-mark" aria-hidden="true">
-                    &ldquo;
+              )}
+              {enhanced && <span className="book-shadow" aria-hidden="true" />}
+
+              <span
+                className="book-page"
+                aria-hidden={enhanced && !open[i] ? true : undefined}
+              >
+                <span className="book-edge book-edge--l" aria-hidden="true" />
+                <span className="book-edge book-edge--r" aria-hidden="true" />
+                <span className="book-runhead" aria-hidden="true">
+                  <span className="book-runhead-title">{b.title}</span>
+                  <span className="book-folio">
+                    p. {b.folio} / {b.pages}
                   </span>
-                  <span className="book-quote" {...ed(`${editBase}[${i}].quote`)}>
-                    <span className="book-mark">{b.quote}</span>
-                  </span>
-                  <span className="book-pull-author">— {b.author}</span>
                 </span>
-                {(b.contextBottom ?? FAUX_BOTTOM).length > 0 && (
+                <span className="book-body">
                   <span className="book-fauxset" aria-hidden="true">
-                    {(b.contextBottom ?? FAUX_BOTTOM).map((t, k) => (
-                      <span className="book-line" key={`b${k}`}>
+                    {(b.contextTop?.length ? b.contextTop : FAUX_TOP).map((t, k) => (
+                      <span className="book-line" key={`t${k}`}>
                         {t}
                       </span>
                     ))}
                   </span>
-                )}
+                  <span className="book-pull">
+                    <span className="book-quote-mark" aria-hidden="true">
+                      &ldquo;
+                    </span>
+                    <span className="book-quote" {...ed(`${editBase}[${i}].quote`)}>
+                      <span className="book-mark">{b.quote}</span>
+                    </span>
+                    <span className="book-pull-author">— {b.author}</span>
+                  </span>
+                  {(b.contextBottom ?? FAUX_BOTTOM).length > 0 && (
+                    <span className="book-fauxset" aria-hidden="true">
+                      {(b.contextBottom ?? FAUX_BOTTOM).map((t, k) => (
+                        <span className="book-line" key={`b${k}`}>
+                          {t}
+                        </span>
+                      ))}
+                    </span>
+                  )}
+                </span>
               </span>
             </span>
-          </span>
-        );
+          );
 
-        return (
-          <li
-            key={b.title}
-            ref={(el) => (cardRefs.current[i] = el)}
-            className={`book${enhanced ? ' is-enhanced' : ''}${
-              open[i] ? ' is-open' : ''
-            }`}
-            data-book
-          >
-            {enhanced ? (
-              <button
-                type="button"
-                className="book-flip"
-                aria-expanded={open[i]}
-                aria-label={`Favourite line from ${b.title} by ${b.author}`}
-                onClick={() => onClick(i)}
-                onMouseEnter={() => onEnter(i)}
-                onMouseLeave={() => onLeave(i)}
-              >
-                {inner}
-              </button>
-            ) : (
-              <div className="book-flip">{inner}</div>
-            )}
-          </li>
-        );
-      })}
-    </ul>
+          return (
+            <li
+              key={b.title}
+              ref={(el) => (cardRefs.current[i] = el)}
+              className={`book${enhanced ? ' is-enhanced' : ''}${
+                open[i] ? ' is-open' : ''
+              }`}
+              data-book
+            >
+              {enhanced ? (
+                <button
+                  type="button"
+                  className="book-flip"
+                  aria-expanded={open[i]}
+                  onClick={() => onClick(i)}
+                  onMouseEnter={() => onEnter(i)}
+                  onMouseLeave={() => onLeave(i)}
+                >
+                  {inner}
+                </button>
+              ) : (
+                <div className="book-flip">{inner}</div>
+              )}
+            </li>
+          );
+        })}
+      </ul>
+      <p className="sr-only" aria-live="polite">
+        {announce}
+      </p>
+    </>
   );
 }

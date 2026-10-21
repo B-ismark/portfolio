@@ -9,7 +9,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
 const opts = { cwd: ROOT, stdio: 'inherit', shell: true };
 
-const next = spawn('npx next dev', opts);
+const next = spawn('npx next dev -H 127.0.0.1', opts);
 const editServer = spawn(`node "${join('tools', 'edit-server.mjs')}"`, opts);
 
 const kids = [next, editServer];

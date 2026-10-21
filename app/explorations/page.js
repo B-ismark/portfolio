@@ -27,7 +27,7 @@ export default function Explorations() {
       <div className="about-intro explorations-intro">
         <div className="about-intro-text">
           <h1 className="about-lead reveal" style={{ '--d': '80ms' }}>
-            <span className="about-lead-setup" {...ed('site.explorations.lead')}>{x.lead}</span>
+            <span className="about-lead-setup about-lead-setup--caps" {...ed('site.explorations.lead')}>{x.lead}</span>
             <span className="about-lead-punch">
               <em {...ed('site.explorations.leadEm')}>{x.leadEm}</em>
             </span>

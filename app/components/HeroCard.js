@@ -39,9 +39,9 @@ export default function HeroCard({
           ))}
         </dl>
         {slug ? (
-          <span className="product-more" aria-hidden="true">
+          <span className="product-more">
             Case study
-            <svg viewBox="0 0 16 16" width="13" height="13" fill="none">
+            <svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true">
               <path
                 d="M2.5 8h11M9 3.5 13.5 8 9 12.5"
                 stroke="currentColor"
@@ -53,9 +53,10 @@ export default function HeroCard({
           </span>
         ) : (
           href && (
-            <span className="product-more" aria-hidden="true">
+            <span className="product-more">
               Visit live site
-              <svg viewBox="0 0 16 16" width="13" height="13" fill="none">
+              <span className="sr-only"> (opens in new tab)</span>
+              <svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true">
                 <path
                   d="M4 12 12 4M6 4h6v6"
                   stroke="currentColor"
@@ -114,7 +115,6 @@ export default function HeroCard({
       <Link
         href={`/work/${slug}`}
         className="hero hero--link"
-        aria-label={`${title}, read the case study`}
       >
         {body}
       </Link>
@@ -128,7 +128,6 @@ export default function HeroCard({
         target="_blank"
         rel="noopener noreferrer"
         className="hero hero--link"
-        aria-label={`${title}, visit the live website`}
       >
         {body}
       </a>

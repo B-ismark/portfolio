@@ -53,9 +53,9 @@ export default function ProductCard({
         </div>
       </dl>
       {slug && (
-        <span className="product-more" aria-hidden="true">
+        <span className="product-more">
           Case study
-          <svg viewBox="0 0 16 16" width="13" height="13" fill="none">
+          <svg viewBox="0 0 16 16" width="13" height="13" fill="none" aria-hidden="true">
             <path
               d="M2.5 8h11M9 3.5 13.5 8 9 12.5"
               stroke="currentColor"
@@ -74,7 +74,6 @@ export default function ProductCard({
       <Link
         className="product product--link"
         href={`/work/${slug}`}
-        aria-label={`${title}, read the case study`}
       >
         {body}
       </Link>

@@ -143,6 +143,7 @@ export default function ContactCTA() {
             >
               <span {...ed(`site.footer.elsewhere[${resume.i}].label`)}>{resume.label}</span>
               <span aria-hidden="true"> ↗</span>
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
           )}
         </div>
@@ -157,6 +158,7 @@ export default function ContactCTA() {
             >
               <span {...ed(`site.footer.elsewhere[${l.i}].label`)}>{l.label}</span>
               {l.ext && <span aria-hidden="true"> ↗</span>}
+              {l.ext && <span className="sr-only"> (opens in new tab)</span>}
             </a>
           ))}
         </nav>

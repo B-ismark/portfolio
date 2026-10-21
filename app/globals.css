@@ -139,6 +139,8 @@
   margin: 0;
 }
 html {
+  /* keep focused/anchored elements clear of the sticky header (WCAG 2.4.11) */
+  scroll-padding-top: 96px;
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -225,6 +227,18 @@ a {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
   border-radius: 1px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
 }
 
 .skip-link {
@@ -936,6 +950,11 @@ a {
   color: var(--ink-2);
   max-width: 48ch;
   margin-bottom: 0.6em;
+}
+/* Explorations sets its setup line in caps. Done in CSS so the source stays
+   sentence case — some screen readers spell out text typed in capitals. */
+.about-lead-setup--caps {
+  text-transform: uppercase;
 }
 /* The punch is the statement — it fills its column (measured in rem, not ch:
    Big Shoulders is ultra-condensed) and runs big, so it anchors the intro
@@ -1684,7 +1703,55 @@ a {
   background: var(--line-strong);
 }
 .work-back--bottom {
+  margin-top: clamp(24px, 4vw, 40px);
+}
+
+/* prev / next case study — a ruled two-up, so the read never dead-ends */
+.work-pager {
   margin-top: clamp(40px, 6vw, 72px);
+  border-top: 2px solid var(--ink); /* heavy poster rule */
+  padding-top: clamp(16px, 2.5vw, 24px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 4vw, 48px);
+}
+.work-pager-link {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  color: var(--ink);
+  text-decoration: none;
+}
+.work-pager-link--next {
+  justify-items: end;
+  text-align: right;
+}
+.work-pager-label {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.work-pager-title {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 700;
+  font-size: var(--fs-title-sm);
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+@media (max-width: 560px) {
+  .work-pager {
+    grid-template-columns: 1fr;
+  }
+  .work-pager > span:empty {
+    display: none;
+  }
+  .work-pager-link--next {
+    justify-items: start;
+    text-align: left;
+  }
 }
 
 /* case-study skim path — "At a glance" highlights strip */
@@ -1970,7 +2037,7 @@ a {
   background: #ff4d9a;
 }
 .lightbox-close:focus-visible {
-  outline: 2px solid #2540c0;
+  outline: 2px solid #fcfcfc; /* the blue ring vanished on the black backdrop */
   outline-offset: 2px;
 }
 /* lock the page behind the open viewer */
@@ -2088,6 +2155,10 @@ html:has(.lightbox[open]) {
   padding: clamp(32px, 6vw, 72px);
   display: grid;
   gap: clamp(24px, 4vw, 40px);
+}
+/* The global ring is --accent, the same blue as this banner — switch to cream. */
+.cta :focus-visible {
+  outline-color: var(--cream);
 }
 /* Two columns on wider viewports so the banner uses its width instead of
    stacking tall: the heading sits left, the invitation + actions right. */
@@ -2463,7 +2534,8 @@ html.js [data-reveal].is-in {
 .hero--link:hover .title-mark,
 .product--link:hover .title-mark,
 .nda-card:hover .title-mark,
-.expl-tile--link:hover .title-mark {
+.expl-tile--link:hover .title-mark,
+.work-pager-link:hover .title-mark {
   background-size: 100% 0.14em;
 }
 
@@ -2614,6 +2686,9 @@ html.js [data-reveal].is-in {
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .lead-now .dot {
+    animation: none; /* an infinite 0.001ms loop flickers rather than stops */
   }
   * {
     animation-duration: 0.001ms !important;

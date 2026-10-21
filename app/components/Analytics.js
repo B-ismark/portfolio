@@ -41,8 +41,8 @@ import Script from 'next/script';
 // Umami-only.
 //
 // A case study page declares itself: data-case-study="<slug>" on its article
-// and data-read-end on the element that counts as its end (the bottom "Back to
-// work" link). A 404 under /work/ carries neither, so it never counts. Reading
+// and data-read-end on the element that counts as its end (the prev/next pager
+// at the bottom). A 404 under /work/ carries neither, so it never counts. Reading
 // time only runs while the tab is on screen, so a case study opened in a
 // background tab doesn't pass for a close read.
 const UMAMI_ID = '5906bcd6-b2d8-49ab-bcbf-14ce4982e8f6';

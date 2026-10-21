@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import StatusLine from '../../components/StatusLine';
 import BrowserMock from '../../components/BrowserMock';
 import ContactCTA from '../../components/ContactCTA';
-import { work } from '../../content';
+import { work, hero, products, explorationProjects } from '../../content';
 import { ed, edHref } from '../../lib/edit';
 
 export function generateStaticParams() {
@@ -26,12 +26,22 @@ export async function generateMetadata({ params }) {
 
 const NOTE = /what i.?d do differently/i;
 
+// Reading order for the prev/next pager: the order the home and explorations
+// pages list the work, so a reviewer can walk the whole set without bouncing
+// back to the index between case studies.
+const ORDER = [hero, ...products, ...explorationProjects]
+  .map((p) => p.slug)
+  .filter((s) => s && work[s]);
+
 export default async function WorkPage({ params }) {
   const { slug } = await params;
   const project = work[slug];
   if (!project) notFound();
 
   const base = `work.${slug}`;
+  const at = ORDER.indexOf(slug);
+  const prev = at > 0 ? ORDER[at - 1] : null;
+  const next = at >= 0 && at < ORDER.length - 1 ? ORDER[at + 1] : null;
 
   return (
     // data-case-study marks this as a real project page for Analytics (a 404
@@ -86,6 +96,7 @@ export default async function WorkPage({ params }) {
               {...edHref(`${base}.links[${i}].href`)}
             >
               <span {...ed(`${base}.links[${i}].label`)}>{l.label}</span>
+              <span className="sr-only"> (opens in new tab)</span>
               <svg viewBox="0 0 16 16" width="12" height="12" fill="none" aria-hidden="true">
                 <path
                   d="M4 12 12 4M6 4h6v6"
@@ -195,7 +206,31 @@ export default async function WorkPage({ params }) {
 
       {/* data-read-end: scrolling this into view counts as finishing the case
           study (the case_study_read event in Analytics). */}
-      <Link className="work-back work-back--bottom" href="/" data-read-end>
+      <nav className="work-pager" aria-label="More case studies" data-read-end>
+        {prev ? (
+          <Link className="work-pager-link" href={`/work/${prev}/`} rel="prev">
+            <span className="work-pager-label">
+              <span aria-hidden="true">←</span> Previous
+            </span>
+            <span className="work-pager-title title-mark">{work[prev].title}</span>
+          </Link>
+        ) : (
+          <span />
+        )}
+        {next && (
+          <Link
+            className="work-pager-link work-pager-link--next"
+            href={`/work/${next}/`}
+            rel="next"
+          >
+            <span className="work-pager-label">
+              Next <span aria-hidden="true">→</span>
+            </span>
+            <span className="work-pager-title title-mark">{work[next].title}</span>
+          </Link>
+        )}
+      </nav>
+      <Link className="work-back work-back--bottom" href="/">
         <span aria-hidden="true">←</span> Back to work
       </Link>
 
