@@ -20,8 +20,6 @@ what's left here needs source material or a decision.
 - [ ] **Decide the positioning.** Most case studies are solo design-and-build;
       choose whether the site tells a product-designer or a design-engineer story
       and edit the case-study order and copy to match.
-- [ ] **"Learning a car, part by part"**: add a sketch or hold it back until it can
-      stand on its own.
 
 ## Copy
 
@@ -34,11 +32,6 @@ what's left here needs source material or a decision.
 - [ ] **Clarity consent.** Session recording starts without asking. Either add a
       consent banner that gates `boot()` in `app/components/Analytics.js`, or
       turn Clarity off. Umami is cookieless and needs no banner.
-
-## Site
-
-- [ ] A custom 404 page (`app/not-found.js`).
-- [ ] `app/sitemap.js` and `app/robots.js` for search engines.
 
 ## How to check (see the audit for the full plan)
 
