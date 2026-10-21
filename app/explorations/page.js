@@ -51,38 +51,40 @@ export default function Explorations() {
         </div>
       </section>
 
-      <section className="section" data-reveal aria-labelledby="xidea-h">
-        <div className="section-head">
-          <h2 id="xidea-h" className="eyebrow" {...ed('site.explorations.ideasLabel')}>
-            {x.ideasLabel}
-          </h2>
-          <span className="eyebrow s-count" {...ed('site.explorations.ideasCount')}>
-            {x.ideasCount}
-          </span>
-        </div>
-        <ul className="ideas">
-          {explorations.map((idea, i) => (
-            <li className="idea" key={idea.title}>
-              <span className="idx">{idea.index}</span>
-              <div className="idea-copy">
-                <h3 className="p-title--sm">
-                  <span className="title-mark" {...ed(`explorations[${i}].title`)}>
-                    {idea.title}
-                  </span>
-                  {idea.status && (
-                    <span className="idea-tag" {...ed(`explorations[${i}].status`)}>
-                      {idea.status}
+      {explorations.length > 0 && (
+        <section className="section" data-reveal aria-labelledby="xidea-h">
+          <div className="section-head">
+            <h2 id="xidea-h" className="eyebrow" {...ed('site.explorations.ideasLabel')}>
+              {x.ideasLabel}
+            </h2>
+            <span className="eyebrow s-count" {...ed('site.explorations.ideasCount')}>
+              {x.ideasCount}
+            </span>
+          </div>
+          <ul className="ideas">
+            {explorations.map((idea, i) => (
+              <li className="idea" key={idea.title}>
+                <span className="idx">{idea.index}</span>
+                <div className="idea-copy">
+                  <h3 className="p-title--sm">
+                    <span className="title-mark" {...ed(`explorations[${i}].title`)}>
+                      {idea.title}
                     </span>
-                  )}
-                </h3>
-                <p className="p-desc" {...ed(`explorations[${i}].description`)}>
-                  {idea.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      </section>
+                    {idea.status && (
+                      <span className="idea-tag" {...ed(`explorations[${i}].status`)}>
+                        {idea.status}
+                      </span>
+                    )}
+                  </h3>
+                  <p className="p-desc" {...ed(`explorations[${i}].description`)}>
+                    {idea.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <ContactCTA />
     </div>

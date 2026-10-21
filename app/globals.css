@@ -229,6 +229,10 @@ a {
   border-radius: 1px;
 }
 
+h1[tabindex='-1']:focus {
+  outline: none;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -370,6 +374,13 @@ a {
   color: var(--ink-2);
   padding-bottom: 3px;
   transition: color 0.3s var(--ease);
+}
+.nav a::before {
+  /* invisible hit area: the links are only ~24px tall, so pad the target
+     (WCAG 2.5.8) without shifting the underline or the row */
+  content: '';
+  position: absolute;
+  inset: -10px -8px;
 }
 .nav a::after {
   content: '';
@@ -1701,6 +1712,15 @@ a {
   width: 9px;
   height: 1px;
   background: var(--line-strong);
+}
+/* 404 — the way back, set as a short column of the same back-links */
+.nf-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  justify-items: start;
+  gap: 14px;
 }
 .work-back--bottom {
   margin-top: clamp(24px, 4vw, 40px);

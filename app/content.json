@@ -51,6 +51,12 @@
       "linkedinLabel": "LinkedIn",
       "linkedinHref": "https://www.linkedin.com/in/bismark-gyau"
     },
+    "notFound": {
+      "eyebrow": "404",
+      "lead": "This page didn't make it to print. The link may be old, or the page has moved.",
+      "leadEm": "Let's get you back to the work.",
+      "linksLabel": "Try one of these"
+    },
     "footer": {
       "name": "Bismark Gyau",
       "colophon": "Product designer · Ghana",
@@ -174,14 +180,7 @@
       "image": "/work/weaver/home.jpg"
     }
   ],
-  "explorations": [
-    {
-      "index": "08",
-      "status": "Work in progress",
-      "title": "Learning a car, part by part",
-      "description": "New drivers pick a car, open the bonnet, and read up on each part: what it does, upkeep, cost."
-    }
-  ],
+  "explorations": [],
   "about": {
     "eyebrow": "About",
     "metaDescription": "I work with teams at whatever stage they're in. What stays constant is where I start: the problem, before the pixels.",

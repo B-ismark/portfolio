@@ -1,15 +1,27 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+
 // Light/dark switch. The resolved theme is written to <html data-theme> before
 // paint by the theme-init script in layout.js, and the visible icon is chosen
 // purely from that attribute in CSS — so this component owns no theme state and
 // can't cause a hydration flip. Its only jobs on click: flip the attribute,
 // persist the choice, and keep the mobile browser-chrome colour in step.
+//
+// It's a toggle button named "Dark theme", so aria-pressed tells a screen
+// reader which theme is on. That's mirrored from the attribute straight onto
+// the DOM (not React state) for the same no-hydration-flip reason.
 
 const DARK_BG = '#000000';
 const LIGHT_BG = '#f4f1ea';
 
+const isDark = () => document.documentElement.getAttribute('data-theme') === 'dark';
+
 export default function ThemeToggle() {
+  const ref = useRef(null);
+  const sync = () => ref.current?.setAttribute('aria-pressed', String(isDark()));
+  useEffect(sync, []);
+
   const toggle = () => {
     const root = document.documentElement;
     const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -21,14 +33,16 @@ export default function ThemeToggle() {
     }
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.setAttribute('content', next === 'dark' ? DARK_BG : LIGHT_BG);
+    sync();
   };
 
   return (
     <button
+      ref={ref}
       type="button"
       className="theme-toggle"
       onClick={toggle}
-      aria-label="Switch between light and dark theme"
+      aria-label="Dark theme"
       title="Switch theme"
     >
       {/* moon — shown in light mode (click to go dark) */}
