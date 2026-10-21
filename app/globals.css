@@ -2391,6 +2391,16 @@ html:has(.lightbox[open]) {
 .foot-base {
   display: flex;
   gap: 16px;
+  /* Keep clear of the floating back-to-top block: its left edge sits
+     right offset + 46px in from the viewport edge, so push the group in by
+     whatever of that (plus 12px air) the column's own margin doesn't cover. */
+  margin-right: max(
+    0px,
+    calc(
+      clamp(16px, 3vw, 30px) + 58px -
+        max(var(--gutter), (100vw - var(--max)) / 2 + var(--gutter))
+    )
+  );
 }
 /* On phones the floating back-to-top block covers the footer's bottom-right
    corner, so the copyright drops to its own line on the left. */
