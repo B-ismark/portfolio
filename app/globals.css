@@ -2376,8 +2376,8 @@ html:has(.lightbox[open]) {
   background: var(--paper-2);
 }
 /* ---- footer (updated) ------------------------------------ */
-.foot-grid {
-  align-items: flex-start;
+.site-footer .foot-grid {
+  align-items: flex-end; /* the right group sits on the colophon's line */
 }
 .foot-name {
   font-family: var(--font-display), sans-serif;
@@ -2389,9 +2389,25 @@ html:has(.lightbox[open]) {
   margin-bottom: 4px;
 }
 .foot-base {
-  margin-top: 24px;
-  padding-top: 18px;
-  border-top: 1px solid var(--line);
+  display: flex;
+  gap: 16px;
+  /* Keep clear of the floating back-to-top block: its left edge sits
+     right offset + 46px in from the viewport edge, so push the group in by
+     whatever of that (plus 12px air) the column's own margin doesn't cover. */
+  margin-right: max(
+    0px,
+    calc(
+      clamp(16px, 3vw, 30px) + 58px -
+        max(var(--gutter), (100vw - var(--max)) / 2 + var(--gutter))
+    )
+  );
+}
+/* On phones the floating back-to-top block covers the footer's bottom-right
+   corner, so the copyright drops to its own line on the left. */
+@media (max-width: 560px) {
+  .foot-base {
+    flex-basis: 100%;
+  }
 }
 
 /* ---- route transition (riso slab pass) ------------------- */
