@@ -34,6 +34,7 @@ export default function PageTransition() {
   // 'idle' → 'covering' → 'covered' → 'uncovering'. A ref so the click handler
   // and the pathname effect share one truth without re-rendering.
   const st = useRef({ phase: 'idle', href: null });
+  const firstPath = useRef(true);
 
   const uncover = () => {
     st.current.phase = 'uncovering';
@@ -131,6 +132,22 @@ export default function PageTransition() {
     document.addEventListener('click', onClick, true);
     return () => document.removeEventListener('click', onClick, true);
   }, []);
+
+  // After any client-side route change, put keyboard and screen-reader users at
+  // the top of the new page (its h1) instead of leaving focus on <body> or on a
+  // link that no longer exists. Runs with or without the riso pass.
+  useEffect(() => {
+    if (firstPath.current) {
+      firstPath.current = false;
+      return;
+    }
+    requestAnimationFrame(() => {
+      const h1 = document.querySelector('main h1');
+      if (!h1) return;
+      if (!h1.hasAttribute('tabindex')) h1.setAttribute('tabindex', '-1');
+      h1.focus({ preventScroll: true });
+    });
+  }, [pathname]);
 
   // Route committed after a cover → wait for the new page to paint, then reveal.
   useEffect(() => {

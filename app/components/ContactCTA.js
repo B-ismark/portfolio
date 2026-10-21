@@ -10,8 +10,8 @@ import { ed, edHref } from '../lib/edit';
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 // The contact banner folds the "elsewhere" links in so the long pages read as
-// one invitation, not a stray list above a second call to action. (Case-study
-// pages keep the footer's own copy — they have no banner.)
+// one invitation, not a stray list above a second call to action. Every content
+// page closes on it — home, about, explorations and each case study.
 //
 // The whole block prints itself into register as it scrolls in — the site's own
 // riso language rather than the cursor-reactive effects it used to carry. The
