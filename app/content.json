@@ -36,7 +36,7 @@
     },
     "explorations": {
       "eyebrow": "Explorations",
-      "lead": "Personal tools, side quests, and half-formed ideas",
+      "lead": "Personal tools and side quests,",
       "leadEm": "made to answer my own questions.",
       "projectsLabel": "Built for myself",
       "projectsCount": "06–07",
@@ -45,7 +45,7 @@
     },
     "cta": {
       "eyebrow": "Contact",
-      "heading": "So — what are we solving?",
+      "heading": "So, what are we solving?",
       "sub": "Freelance, a partnership, or a build that needs a designer who ships. Tell me what you're working on.",
       "email": "bismarkgyau@gmail.com",
       "linkedinLabel": "LinkedIn",
@@ -92,7 +92,7 @@
     "category": "Web platform",
     "status": "Live",
     "title": "Rebuilding the AmaliTech website from the ground up",
-    "description": "The WordPress template had outgrown its purpose. I led the design side of the move to a CMS-backed site — the design system, tone of voice, and editorial guidelines — so the team could publish on-brand without a designer in the loop.",
+    "description": "The WordPress template had outgrown its purpose. I led the design side of the move to a CMS-backed site: the design system, tone of voice, and editorial guidelines, so the team could publish on-brand without a designer in the loop.",
     "meta": [
       {
         "label": "Role",
@@ -299,7 +299,7 @@
       "status": "Live",
       "title": "Rebuilding the AmaliTech website from the ground up",
       "plateWord": "AmaliTech",
-      "summary": "The WordPress template had outgrown its purpose, and it was time to create a full-fledged website from scratch. I led the design aspects in the move to a CMS-backed site, taking charge of the design system, tone of voice, and editorial guidelines — so the team could publish on-brand without a designer in the loop.",
+      "summary": "The WordPress template had outgrown its purpose, and it was time to create a full-fledged website from scratch. I led the design aspects in the move to a CMS-backed site, taking charge of the design system, tone of voice, and editorial guidelines so the team could publish on-brand without a designer in the loop.",
       "meta": [
         {
           "label": "Role",
@@ -335,7 +335,7 @@
         "alt": "The rebuilt AmaliTech website home page",
         "width": 1264,
         "height": 705,
-        "caption": "The rebuilt home page — one system, published by the team itself."
+        "caption": "The rebuilt home page. One system, published by the team itself."
       },
       "sections": [
         {
@@ -350,9 +350,9 @@
           "heading": "Team and my role",
           "body": "As lead designer, I worked across the project on more than one front:",
           "list": [
-            "Led the design hands-on — the system, the pages, and the details in between.",
+            "Led the design hands-on: the system, the pages, and the details in between.",
             "Ran the UX research end to end with a two-person design team (Gina and me), then systemised scattered feedback into changes the team could act on.",
-            "Worked in the open with engineers, content, product, and marketing — designing with them through plenty of alignment meetings, not handing work over a wall.",
+            "Worked in the open with engineers, content, product, and marketing. We designed together through plenty of alignment meetings instead of handing work over a wall.",
             "Started a design-critique rhythm with the other designer, so consistency held across everyone's work, not just mine."
           ]
         },
@@ -360,7 +360,7 @@
           "heading": "What I built",
           "list": [
             "A design system from scratch: type, colour, spacing, and a component set covering the pages the company actually publishes.",
-            "A tone of voice — how AmaliTech sounds in a headline, a caption, a call to action — so the copy reads as one company.",
+            "A tone of voice for how AmaliTech sounds in a headline, a caption or a call to action, so the copy reads as one company.",
             "Editorial and content guidelines: what goes where, how to structure a page, and the do's and don'ts that keep new pages honest.",
             "CMS templates and page patterns mapped to the system, so building a page means assembling blocks, not designing one."
           ],
@@ -369,12 +369,12 @@
             "alt": "The services page: a six-card capability grid built from one card component",
             "width": 1440,
             "height": 900,
-            "caption": "One card component, six services, zero one-off layouts — the grid, icons, links and CTA all come from the system."
+            "caption": "One card component, six services, zero one-off layouts. The grid, icons, links and CTA all come from the system."
           }
         },
         {
           "heading": "Publishing without a designer",
-          "body": "The real deliverable wasn't simply the launch — it was the team's ability to keep going. With the components, the voice, and the guidelines in place, the team publishes new pages on its own and going off-brand is hard to do by accident. The design work is baked into the tools, so it doesn't leave after the development team is done.",
+          "body": "The real deliverable wasn't simply the launch. It was the team's ability to keep going. With the components, the voice, and the guidelines in place, the team publishes new pages on its own and going off-brand is hard to do by accident. The design work is baked into the tools, so it doesn't leave after the development team is done.",
           "media": {
             "src": "/work/amalitech/insights.png",
             "alt": "The CMS-backed insights index: search, tags, and a card grid of dated articles",
@@ -385,18 +385,18 @@
         },
         {
           "heading": "The outcome",
-          "body": "The rebuilt site launched on the new system, and time on site rose around 15% after the change — a site people stayed with rather than bounced off. More quietly, the publishing bottleneck went away: the team ships pages at its own pace.",
+          "body": "The rebuilt site launched on the new system, and time on site rose around 15% after the change. People stayed instead of bouncing off. More quietly, the publishing bottleneck went away: the team ships pages at its own pace.",
           "media": {
             "src": "/work/amalitech/clients.png",
             "alt": "An engagement-model accordion flowing into a client and partner logo wall",
             "width": 1440,
             "height": 900,
-            "caption": "One expandable component carries three engagement models — and the client wall shows the system ships real business."
+            "caption": "One expandable component carries three engagement models, and the client wall shows the system ships real business."
           }
         },
         {
           "heading": "What I'd do differently",
-          "body": "A system is only as strong as the discipline around it. Running it again, I'd stand up a light governance rhythm from day one — a clear owner for the component set and a short review cadence — so the system keeps its edges as the site grows, instead of leaving that to catch up later."
+          "body": "A system is only as strong as the discipline around it. Running it again, I'd set up light governance from day one, with a clear owner for the component set and a short review cadence, so the system keeps its edges as the site grows, instead of leaving that to catch up later."
         }
       ]
     },
@@ -469,7 +469,7 @@
           "body": "Pairing is a QR scan, not a config screen. On the same Wi-Fi it stays direct and low-latency; off your network it still connects through a coordinator that never sees your keys. Haptics confirm every tap, and the phone eases off polling when you are idle to spare the battery.",
           "media": {
             "src": "/work/trackpad/pairing.png",
-            "alt": "The desktop server's pairing screen — a device card and a QR code to scan",
+            "alt": "The desktop server's pairing screen, with a device card and a QR code to scan",
             "width": 453,
             "height": 648,
             "caption": "The desktop side of pairing: one QR scan, no config screen."
@@ -517,7 +517,7 @@
         "alt": "The pre-call lobby: a camera preview, device toggles, and a mic level meter",
         "width": 1440,
         "height": 900,
-        "caption": "The pre-call lobby — a device check and a live mic meter before you commit to joining."
+        "caption": "The pre-call lobby: a device check and a live mic meter before you commit to joining."
       },
       "sections": [
         {
@@ -528,7 +528,7 @@
             "alt": "The landing screen: start a new meeting or join one by name or code",
             "width": 1440,
             "height": 900,
-            "caption": "The front door — one screen to start or join. The anxious part (am I in the right place? who's here?) is where most tools drop you cold."
+            "caption": "The front door. One screen to start or join. The anxious part (am I in the right place? who's here?) is where most tools drop you cold."
           }
         },
         {
@@ -539,7 +539,7 @@
             "alt": "The passwordless sign-in dialog: continue with Google, or an email sign-in link",
             "width": 1440,
             "height": 900,
-            "caption": "Sign-in is a dialog like every other surface — same primitive, passwordless, so arriving is one tap, not a form."
+            "caption": "Sign-in is a dialog like every other surface. Same primitive, passwordless, so arriving is one tap, not a form."
           }
         },
         {
@@ -560,7 +560,7 @@
             "alt": "Appearance settings: theme colour tokens, high-contrast, and vision-assistive colours",
             "width": 1440,
             "height": 900,
-            "caption": "The whole app retints from a couple of named tokens — high-contrast and vision-assistive modes included. Theming that bends without breaking."
+            "caption": "The whole app retints from a couple of named tokens, high-contrast and vision-assistive modes included. Theming that bends without breaking."
           }
         },
         {
@@ -615,7 +615,7 @@
       "sections": [
         {
           "heading": "The problem",
-          "body": "Saving things is easy; the apps are already full of your taste. But every feed just shows more of what you've seen, or what's popular — this was my personal problem with my Pinterest feed. I wanted the opposite: use everything I've saved as a signal, and spend it on finding new work I'd never have surfaced myself."
+          "body": "Saving things is easy; the apps are already full of your taste. But every feed just shows more of what you've seen, or what's popular. That was my own problem with my Pinterest feed. I wanted the opposite: use everything I've saved as a signal, and spend it on finding new work I'd never have surfaced myself."
         },
         {
           "heading": "The pivot",
@@ -625,7 +625,7 @@
             "alt": "The tune-your-taste panel: add an interest, and more/less-like-this concept chips",
             "width": 1440,
             "height": 900,
-            "caption": "When the feed gets it wrong you don't wait it out — you tell it, in words: more of this, less of that."
+            "caption": "When the feed gets it wrong you don't wait it out. You tell it, in words: more of this, less of that."
           }
         },
         {
@@ -647,7 +647,7 @@
             "alt": "The Weaver feed on a phone: a two-column masonry with some cards tilted like pinned scraps",
             "width": 780,
             "height": 1688,
-            "caption": "Built to live on a phone — a hand-pinned feel, not a stamped-out grid."
+            "caption": "Built to live on a phone, with a hand-pinned feel instead of a stamped-out grid."
           }
         },
         {
@@ -707,9 +707,9 @@
         },
         {
           "heading": "My role",
-          "body": "A solo design-and-build — but not a solo guess:",
+          "body": "A solo design-and-build, but not a solo guess:",
           "list": [
-            "Designed and built the whole thing — the calendar interactions, the room finder, and the conflict logic underneath.",
+            "Designed and built the whole thing: the calendar interactions, the room finder, and the conflict logic underneath.",
             "Ran UX research and feedback rounds, so the flows matched how people actually book a room, not how I assumed they would.",
             "Owned every trade-off myself, from the data model down to which features to leave out, with AI-assisted development speeding up the build."
           ]
@@ -752,7 +752,7 @@
         },
         {
           "heading": "Reports & analytics",
-          "body": "Bookings are only worth capturing if someone can learn from them. Each room reports its own utilisation — how often it's booked, when demand peaks, and how much of its capacity actually gets used — and the numbers roll up across a building or the whole organisation. Facilities can see which rooms earn their space and which sit empty, and plan from real usage instead of a hunch.",
+          "body": "Bookings are only worth capturing if someone can learn from them. Each room reports its own utilisation (how often it's booked, when demand peaks, and how much of its capacity actually gets used), and the numbers roll up across a building or the whole organisation. Facilities can see which rooms earn their space and which sit empty, and plan from real usage instead of a hunch.",
           "media": {
             "src": "/work/booking-room/room-detail.png",
             "alt": "Room detail with utilisation analytics",
@@ -760,7 +760,7 @@
             "height": 900,
             "focus": "top",
             "zoom": 1.14,
-            "caption": "Each room carries its own detail and utilisation — what gets used, when, and how hard."
+            "caption": "Each room carries its own detail and utilisation: what gets used, when, and how hard."
           }
         },
         {

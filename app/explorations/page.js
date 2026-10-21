@@ -4,7 +4,7 @@ import { explorationProjects, explorations, site } from '../content';
 import { ed } from '../lib/edit';
 
 const DESCRIPTION =
-  'Side projects and half-formed ideas — the things I build when no one has asked me to, made to answer my own questions.';
+  'Personal tools and side projects. The things I build when no one has asked me to, made to answer my own questions.';
 
 export const metadata = {
   title: 'Explorations · Bismark Gyau',
