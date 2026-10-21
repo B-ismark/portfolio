@@ -39,9 +39,9 @@
       "lead": "Personal tools, side quests, and half-formed ideas",
       "leadEm": "made to answer my own questions.",
       "projectsLabel": "Built for myself",
-      "projectsCount": "01–02",
+      "projectsCount": "06–07",
       "ideasLabel": "Also exploring",
-      "ideasCount": "03"
+      "ideasCount": "08"
     },
     "cta": {
       "eyebrow": "Contact",
@@ -152,7 +152,7 @@
   ],
   "explorationProjects": [
     {
-      "index": "01",
+      "index": "06",
       "category": "Mobile",
       "status": "Shipped",
       "title": "Your phone as a trackpad",
@@ -163,7 +163,7 @@
       "image": "/work/trackpad/app.png"
     },
     {
-      "index": "02",
+      "index": "07",
       "category": "Web",
       "status": "Live",
       "title": "Media that learns your taste",
@@ -176,7 +176,7 @@
   ],
   "explorations": [
     {
-      "index": "03",
+      "index": "08",
       "status": "Work in progress",
       "title": "Learning a car, part by part",
       "description": "New drivers pick a car, open the bonnet, and read up on each part: what it does, upkeep, cost."
@@ -402,7 +402,7 @@
       ]
     },
     "trackpad": {
-      "index": "01",
+      "index": "06",
       "category": "Mobile",
       "status": "Shipped",
       "title": "Your phone as a trackpad",
@@ -571,7 +571,7 @@
       ]
     },
     "weaver": {
-      "index": "02",
+      "index": "07",
       "category": "Web",
       "status": "Live",
       "title": "Media that learns your taste",

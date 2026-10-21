@@ -59,6 +59,7 @@ app/
 docs/
   STYLE-GUIDE.md          why every design choice exists + how to use it
   content-notes.md        authorial notes on the copy
+  TODO.md                 open content / privacy work from the audit
 public/                   images + generated WebP variants, résumé
 tools/                    dev-only: content editor (dev-all.mjs, edit-server.mjs),
                           the image optimizer (optimize-images.mjs), and the
