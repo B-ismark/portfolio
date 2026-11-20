@@ -56,5 +56,7 @@ carries the intent instead.
 - "970+ commits" and "5 months" are counted from the repo (974 commits,
   2026-06-06 to 2026-11-19). "7 to 13 of 19" is the detector benchmark in the
   commit that added the second model. No usage numbers exist; don't add any.
+- Live at https://danmuproject.vercel.app; source at github.com/B-ismark/Danmu.
+  Both links are on the case study, and the live one is on the résumé.
 - Screenshots were captured from the running app (starter living room, light
   theme) at 2400px wide.

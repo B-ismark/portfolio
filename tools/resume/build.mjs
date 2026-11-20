@@ -153,7 +153,7 @@ ${section('Skills', `
 ${section('Experience', [
   job('AmaliTech', 'Associate UI/UX Designer', '2024 &ndash; Present', [
     'Co-led the website rebuild off an outgrown WordPress template onto a CMS the team owns &mdash; <b>+15% time on site</b>.',
-    'Built the design system, tone of voice, and editorial guidelines from scratch; the team now publishes on-brand without a designer in the loop.',
+    'Built the design system, tone of voice, and editorial guidelines from scratch; the team now publishes on-brand without a designer.',
     '<b>Major European telecom</b> (ongoing): moving several platforms onto their in-house design system, tightening UX along the way.',
     '<b>Major North American industrial services firm</b>: modernised the platform UI in a short engagement.',
   ]),
@@ -169,8 +169,9 @@ ${section('Experience', [
 ${section('Selected Projects', `
 <p class="proj-note">Self-directed products &mdash; designed, then taken all the way to working software</p>
 <ul>
-  <li><b>Meeting room booking</b> &mdash; search by time, capacity, and amenities; drag to create; conflict detection so nothing double-books. Recurring bookings, ICS export, utilisation reports. <b>~30% faster to book.</b></li>
-  <li><b>Weaver</b> &mdash; reads your taste from what you&rsquo;ve saved, then surfaces new work ranked to it, keeping room for exploration rather than replaying your history. Shipped as a PWA.</li>
+  <li><b>Danmu</b> &mdash; a 3D room studio whose sizes come from rules, not AI: what won&rsquo;t fit is refused, never shrunk. <a href="https://danmuproject.vercel.app">danmuproject.vercel.app</a></li>
+  <li><b>Meeting room booking</b> &mdash; search by time, capacity, and amenities; drag to create; nothing double-books. <b>~30% faster to book.</b></li>
+  <li><b>Weaver</b> &mdash; reads your taste from what you&rsquo;ve saved, then surfaces new work ranked to it. Shipped as a PWA.</li>
 </ul>`)}
 
 ${section('Education &amp; Certifications', `

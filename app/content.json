@@ -807,6 +807,10 @@
       ],
       "links": [
         {
+          "label": "Visit live site",
+          "href": "https://danmuproject.vercel.app"
+        },
+        {
           "label": "Source on GitHub",
           "href": "https://github.com/B-ismark/Danmu"
         }
