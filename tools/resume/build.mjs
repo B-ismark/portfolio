@@ -141,9 +141,8 @@ li::before { content:"\\25CF"; position:absolute; left:0; font-family:"Liberatio
   </div>
 </div>
 
-${section('Profile', `<p>Product designer, 4+ years across web, mobile, and desktop. I start at the problem, not the
-screen, and would rather put a working thing in front of people than a static mockup. Most of
-my work is design systems, accessibility, and getting things shipped.</p>`)}
+${section('Profile', `<p>Product designer, 4+ years across web, mobile and desktop. Most of my work is design systems
+and accessibility, and I build working prototypes to test ideas with the people who will use them.</p>`)}
 
 ${section('Skills', `
 <div class="skill"><b>Design</b><span>Figma, Adobe XD, Framer &middot; design systems, design tokens, prototyping, interaction design</span></div>
@@ -152,10 +151,10 @@ ${section('Skills', `
 
 ${section('Experience', [
   job('AmaliTech', 'Associate UI/UX Designer', '2024 &ndash; Present', [
-    'Co-led the website rebuild off an outgrown WordPress template onto a CMS the team owns &mdash; <b>+15% time on site</b>.',
-    'Built the design system, tone of voice, and editorial guidelines from scratch; the team now publishes on-brand without a designer.',
-    '<b>Major European telecom</b> (ongoing): moving several platforms onto their in-house design system, tightening UX along the way.',
-    '<b>Major North American industrial services firm</b>: modernised the platform UI in a short engagement.',
+    'Co-led the website rebuild, moving from a WordPress template to a CMS the team runs itself. <b>+15% time on site.</b>',
+    'Wrote the design system, tone of voice and editorial guidelines. The team now publishes pages without a designer.',
+    '<b>European telecom</b> (ongoing): moving several platforms onto their in-house design system and fixing UX issues.',
+    '<b>North American industrial services firm</b>: redesigned a platform UI in a short engagement.',
   ]),
   job('AmaliTech', 'Junior Associate UI/UX Designer', '2023 &ndash; 2024', [
     'Designed user-management and asset-tracking platforms across multiple product teams.',
@@ -167,11 +166,11 @@ ${section('Experience', [
 ].join(''))}
 
 ${section('Selected Projects', `
-<p class="proj-note">Self-directed products &mdash; designed, then taken all the way to working software</p>
+<p class="proj-note">Personal projects, designed and built to working software</p>
 <ul>
-  <li><b>Danmu</b> &mdash; a 3D room studio whose sizes come from rules, not AI: what won&rsquo;t fit is refused, never shrunk. <a href="https://danmuproject.vercel.app">danmuproject.vercel.app</a></li>
-  <li><b>Meeting room booking</b> &mdash; search by time, capacity, and amenities; drag to create; nothing double-books. <b>~30% faster to book.</b></li>
-  <li><b>Weaver</b> &mdash; reads your taste from what you&rsquo;ve saved, then surfaces new work ranked to it. Shipped as a PWA.</li>
+  <li><b>Danmu</b>: a 3D room planner where sizes come from fixed rules for real furniture. Open source, no account. <a href="https://danmuproject.vercel.app">danmuproject.vercel.app</a></li>
+  <li><b>Meeting room booking</b>: search by time, capacity and amenities, with double bookings blocked in the database. <b>~30% faster to book.</b></li>
+  <li><b>Weaver</b>: an image feed that learns my taste from saved images and ranks new ones against it. PWA.</li>
 </ul>`)}
 
 ${section('Education &amp; Certifications', `
