@@ -192,6 +192,136 @@
       }
     ]
   },
+  "/work/danmu/ideas.png": {
+    "width": 2400,
+    "height": 1500,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/danmu/ideas-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/danmu/ideas-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/danmu/ideas-1200.webp"
+      },
+      {
+        "w": 1600,
+        "path": "/work/danmu/ideas-1600.webp"
+      },
+      {
+        "w": 2400,
+        "path": "/work/danmu/ideas-2400.webp"
+      }
+    ]
+  },
+  "/work/danmu/plan.png": {
+    "width": 2400,
+    "height": 1500,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/danmu/plan-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/danmu/plan-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/danmu/plan-1200.webp"
+      },
+      {
+        "w": 1600,
+        "path": "/work/danmu/plan-1600.webp"
+      },
+      {
+        "w": 2400,
+        "path": "/work/danmu/plan-2400.webp"
+      }
+    ]
+  },
+  "/work/danmu/rooms.png": {
+    "width": 2400,
+    "height": 1500,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/danmu/rooms-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/danmu/rooms-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/danmu/rooms-1200.webp"
+      },
+      {
+        "w": 1600,
+        "path": "/work/danmu/rooms-1600.webp"
+      },
+      {
+        "w": 2400,
+        "path": "/work/danmu/rooms-2400.webp"
+      }
+    ]
+  },
+  "/work/danmu/studio.png": {
+    "width": 2400,
+    "height": 1500,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/danmu/studio-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/danmu/studio-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/danmu/studio-1200.webp"
+      },
+      {
+        "w": 1600,
+        "path": "/work/danmu/studio-1600.webp"
+      },
+      {
+        "w": 2400,
+        "path": "/work/danmu/studio-2400.webp"
+      }
+    ]
+  },
+  "/work/danmu/typical-sizes.png": {
+    "width": 2400,
+    "height": 1500,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/danmu/typical-sizes-400.webp"
+      },
+      {
+        "w": 800,
+        "path": "/work/danmu/typical-sizes-800.webp"
+      },
+      {
+        "w": 1200,
+        "path": "/work/danmu/typical-sizes-1200.webp"
+      },
+      {
+        "w": 1600,
+        "path": "/work/danmu/typical-sizes-1600.webp"
+      },
+      {
+        "w": 2400,
+        "path": "/work/danmu/typical-sizes-2400.webp"
+      }
+    ]
+  },
   "/work/trackpad/app.png": {
     "width": 3200,
     "height": 2000,

@@ -6,8 +6,9 @@ what's left here needs source material or a decision.
 
 ## Case studies
 
-- [ ] **Deutsche Telekom case study, told without the pixels.** The most senior,
-      most recognisable work is currently a text-only NDA card. Tell the problem,
+- [ ] **Telecom case study, told without the pixels or the name.** The most senior,
+      most recognisable work is currently a text-only NDA card. Keep the client
+      anonymous ("a major European telecommunications company"). Tell the problem,
       the role, the process and the outcome in words; use blurred screens or
       redrawn diagrams instead of real UI.
 - [ ] **Show the thinking, not just the final screens.** Every case study shows

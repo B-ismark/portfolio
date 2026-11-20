@@ -45,7 +45,7 @@ app/
   page.js                 home — masthead, selected work, client work, shipped products
   about/page.js           about — intro, portrait, numbered sections, bookshelf
   explorations/page.js    personal tools + side quests
-  work/[slug]/page.js     case studies (amalitech, trackpad, video-conferencing, weaver, booking-room)
+  work/[slug]/page.js     case studies (amalitech, trackpad, video-conferencing, weaver, booking-room, danmu)
   opengraph-image.js      generated OG image
   components/             ShushCursor, HeadlineReveal, SmoothScroll, BrowserMock, NdaCard,
                           Bookshelf, PageTransition, Analytics, EditLayer, …

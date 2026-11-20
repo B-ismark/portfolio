@@ -23,8 +23,8 @@
       "workedWithLabel": "Worked with",
       "workedWith": [
         "AmaliTech",
-        "Deutsche Telekom",
-        "Brock"
+        "Major European telecom",
+        "Major North American industrial firm"
       ],
       "selectedWorkLabel": "Selected work",
       "selectedWorkCount": "01",
@@ -32,16 +32,16 @@
       "clientWorkCount": "Under wraps",
       "clientNote": "Real clients, real work. The pixels just aren't mine to share.",
       "shippedLabel": "Shipped products",
-      "shippedCount": "04–05"
+      "shippedCount": "04–06"
     },
     "explorations": {
       "eyebrow": "Explorations",
       "lead": "Personal tools and side quests,",
       "leadEm": "made to answer my own questions.",
       "projectsLabel": "Built for myself",
-      "projectsCount": "06–07",
+      "projectsCount": "07–08",
       "ideasLabel": "Also exploring",
-      "ideasCount": "08"
+      "ideasCount": "09"
     },
     "cta": {
       "eyebrow": "Contact",
@@ -115,21 +115,21 @@
   "clients": [
     {
       "index": "02",
-      "client": "Deutsche Telekom",
+      "client": "A major European telecommunications company",
       "category": "Enterprise",
       "status": "Ongoing",
-      "description": "I'm redesigning several of their platforms onto the OneDesign system, tightening the UX as I go. An ongoing partner engagement I'm quietly proud of.",
+      "description": "I'm redesigning several of their platforms onto their in-house design system, tightening the UX as I go. An ongoing partner engagement I'm quietly proud of.",
       "role": "UX / UI designer, partner",
-      "mark": "DT"
+      "mark": "EU"
     },
     {
       "index": "03",
-      "client": "Brock",
+      "client": "A major North American industrial services company",
       "category": "Platform",
       "status": "2024",
       "description": "I modernised their platform's UI in a short, focused engagement. Small team, tight scope, real dent.",
       "role": "UX / UI designer",
-      "mark": "B"
+      "mark": "NA"
     }
   ],
   "products": [
@@ -154,11 +154,22 @@
       "plateWord": "Rooms",
       "slug": "booking-room",
       "image": "/work/booking-room/dashboard.png"
+    },
+    {
+      "index": "06",
+      "category": "3D web app",
+      "status": "Open source",
+      "title": "Redecorate your room, to scale",
+      "description": "A playful 3D studio for rearranging a room, with sizes real enough to buy furniture by. No account, no server, no faked measurements.",
+      "role": "Design & build",
+      "plateWord": "Danmu",
+      "slug": "danmu",
+      "image": "/work/danmu/studio.png"
     }
   ],
   "explorationProjects": [
     {
-      "index": "06",
+      "index": "07",
       "category": "Mobile",
       "status": "Shipped",
       "title": "Your phone as a trackpad",
@@ -169,7 +180,7 @@
       "image": "/work/trackpad/app.png"
     },
     {
-      "index": "07",
+      "index": "08",
       "category": "Web",
       "status": "Live",
       "title": "Media that learns your taste",
@@ -401,7 +412,7 @@
       ]
     },
     "trackpad": {
-      "index": "06",
+      "index": "07",
       "category": "Mobile",
       "status": "Shipped",
       "title": "Your phone as a trackpad",
@@ -570,7 +581,7 @@
       ]
     },
     "weaver": {
-      "index": "07",
+      "index": "08",
       "category": "Web",
       "status": "Live",
       "title": "Media that learns your taste",
@@ -766,6 +777,141 @@
         {
           "heading": "What I'd do differently",
           "body": "The four-level location hierarchy is the right model for a big organisation and overkill for a single office. I would add a fast path (one room, one calendar) so a small team never has to meet the admin panel."
+        }
+      ]
+    },
+    "danmu": {
+      "index": "06",
+      "category": "3D web app",
+      "status": "Open source",
+      "title": "Danmu: redecorate your room, to scale",
+      "plateWord": "Danmu",
+      "summary": "An interior decoration studio for people who rearrange rooms for fun. Pick a floor shape or photograph your room, and Danmu rebuilds it in 3D at its real size so you can move, restyle and relight every piece. It runs entirely in the browser: no account, no server, and no AI-made pictures.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "Product owner, design & build"
+        },
+        {
+          "label": "Type",
+          "value": "3D web app, open source"
+        },
+        {
+          "label": "Stack",
+          "value": "Next.js · React Three Fiber · TypeScript · on-device ONNX"
+        },
+        {
+          "label": "Timeline",
+          "value": "5 months · 970+ commits"
+        }
+      ],
+      "links": [
+        {
+          "label": "Visit live site",
+          "href": "https://danmuproject.vercel.app"
+        },
+        {
+          "label": "Source on GitHub",
+          "href": "https://github.com/B-ismark/Danmu"
+        }
+      ],
+      "highlights": [
+        "Started as an AI photo-render app behind an API key. Became a sandbox you're in within two clicks.",
+        "Sizes come from rules, not AI. If something doesn't fit, Danmu says so instead of shrinking it.",
+        "Suggests layouts as a gallery of options, described in plain words and never scored.",
+        "Private by design: rooms stay on your device and travel as a file you choose to send."
+      ],
+      "hero": {
+        "src": "/work/danmu/studio.png",
+        "alt": "The Danmu 3D studio: a furnished living room with the catalogue on the left and a details panel on the right",
+        "width": 2400,
+        "height": 1500,
+        "caption": "The studio. The 3D room is the product; everything else is a tool for changing it."
+      },
+      "sections": [
+        {
+          "heading": "The problem",
+          "body": "Room planners tend to fall into two camps. CAD tools are accurate but cold, technical and locked behind an account. Mood-board apps are fun, but their sizes are made up. If you enjoy rearranging rooms, and sometimes end up actually buying the sofa, you're stuck choosing between play and trust. I wanted one tool that's warm enough to play in and honest enough to act on."
+        },
+        {
+          "heading": "My role",
+          "body": "A solo project, built with AI agents doing most of the typing. My job was to decide what the product is and isn't, and to hold every change to that:",
+          "list": [
+            "Owned the product direction: who it's for, what success looks like, and what it must never do.",
+            "Designed the experience end to end: the studio, the 2D plan, the photo flow, the empty states and the copy.",
+            "Wrote the product rules down so every change could be checked against them, and reviewed each change in a real browser before it landed.",
+            "Made the calls when the evidence changed, including reversing my own earlier decisions."
+          ]
+        },
+        {
+          "heading": "Where it started, and the first cut",
+          "body": "The first version, in June, was a different product. You pasted a Google AI key before seeing anything, photographed the room in six guided shots, then asked an image model to paint a photoreal makeover. There were fifteen screens, a carpenter's cut sheet and a share link. The pictures looked impressive, but they couldn't be trusted: an AI render will happily fit a three-metre sofa into a two-metre wall. On day one I took the key wall out, so a new visitor lands in a furnished room in two clicks. Within weeks the whole render pipeline was deleted for good. AI stayed in one narrow job: spotting furniture in your photos, on your own device, and only if you ask."
+        },
+        {
+          "heading": "Sizes are rules, not guesses",
+          "body": "The principle the rest of the product hangs on: every size runs through fixed rules for what a real sofa, bed or doorway can be. AI only ever gives a hint. When something doesn't fit, Danmu tells you why. It never quietly shrinks the piece, because a sofa that only fits on screen is the worst outcome for someone about to buy one. The same rules power the Room report (walkways, door swings, a bed you can get out of) and the 2D plan, so the two views can never disagree.",
+          "media": {
+            "src": "/work/danmu/plan.png",
+            "alt": "The 2D floor plan: a 6 by 4 metre room with labelled walls, dimensions and furniture outlines",
+            "width": 2400,
+            "height": 1500,
+            "caption": "The 2D plan reads the same rules as the 3D room, so moving a piece in one moves it in the other."
+          }
+        },
+        {
+          "heading": "Admitting what a photo can't tell you",
+          "body": "For months the promise was that a scanned piece is measured from your photos. Testing on real rooms said otherwise: windows came out with a deep sill they didn't have, and curtains came out tiny. A measurement you can't trust is worse than an honest estimate. So in October I reversed my own decision. A piece found in a photo is now built at a typical size and colour, the screen says so in plain words, and you type the real size when it matters. Less impressive on paper, and much more honest.",
+          "media": {
+            "src": "/work/danmu/typical-sizes.png",
+            "alt": "The studio with a prompt reading 'These are typical sizes. Measure your room and type the real width, depth and height.'",
+            "width": 2400,
+            "height": 1500,
+            "caption": "Say what you don't know. The prompt asks for the real numbers rather than pretending to have them."
+          }
+        },
+        {
+          "heading": "Ideas, not answers",
+          "body": "An early 'Suggest' button rearranged the whole room in one go: one answer, no way to compare it with anything, and no reason given. Now Ideas shows a gallery: several arrangements at once, each a small plan with a caption in everyday words, like 'Sofa against the front wall, facing the TV · 5 pieces move'. There are no scores. Tap an idea and the 3D room becomes the preview. 'Back to your room' undoes the lot, and you can pin the pieces you love so the ideas work around them.",
+          "media": {
+            "src": "/work/danmu/ideas.png",
+            "alt": "The Ideas gallery: four mini floor plans, each captioned with what moves, beside the 3D room",
+            "width": 2400,
+            "height": 1500,
+            "caption": "Four ideas a page, each described by what it moves. The room itself is the preview."
+          }
+        },
+        {
+          "heading": "Private by design",
+          "list": [
+            "No server and no account. Rooms live in the browser, and the app works offline once it has loaded.",
+            "Sharing is a file you save and send yourself. It carries the room and its furniture, never the photos, because those show the inside of someone's home.",
+            "Furniture spotting runs on the device. Adding a second detection model took a real test room from 7 to 13 of its 19 pieces found."
+          ]
+        },
+        {
+          "heading": "A first screen that's also a drawing",
+          "body": "The first screen used to be a hero illustration above three identical cards. I redesigned it as a single drawing sheet: three numbered ways in on the left and, on the right, a scaled plan of the starter room with a title block. That plan isn't an illustration. It's drawn from the same room 'Try the starter room' opens, so the first thing you see already keeps the product's promise.",
+          "media": {
+            "src": "/work/danmu/rooms.png",
+            "alt": "Danmu's first screen: 'Your room, drawn to scale' with three numbered ways in beside a dimensioned floor plan",
+            "width": 2400,
+            "height": 1500,
+            "caption": "The welcome is a working drawing, not a sales pitch."
+          }
+        },
+        {
+          "heading": "How we worked",
+          "body": "Working with AI agents made the process the product as much as the code. A few habits kept a fast pace from becoming a mess:",
+          "list": [
+            "Rules on one page. Ten product rules, each earned by a mistake that cost real work, written so any new session starts from them.",
+            "Decisions dated, reversals recorded. 'Decided against' is kept as carefully as 'shipped', so settled questions stay settled.",
+            "Eyes on every change. A visual-check list of things only a person in a browser can judge, plus regular audits of the 2D plan, mobile and the whole platform.",
+            "Cut before adding. When a screen needed explaining, the explanation was usually the problem: I removed standing helper text across the app and kept only warnings, privacy notes and the reason something can't be done."
+          ]
+        },
+        {
+          "heading": "What I'd do differently",
+          "body": "Phones came too late. The mobile audit only arrived in September, after the studio was shaped around a laptop with two side panels, so a lot of the work since has been retrofitting. I'd sketch the phone layout of the studio first next time. I'd also have kept the rules page short from the start: the long design record is valuable history, but a one-page brief is what actually stops a wrong turn."
         }
       ]
     }
