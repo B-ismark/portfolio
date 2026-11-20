@@ -348,6 +348,20 @@
       }
     ]
   },
+  "/work/trackpad/desktop.png": {
+    "width": 480,
+    "height": 712,
+    "variants": [
+      {
+        "w": 400,
+        "path": "/work/trackpad/desktop-400.webp"
+      },
+      {
+        "w": 480,
+        "path": "/work/trackpad/desktop-480.webp"
+      }
+    ]
+  },
   "/work/trackpad/gestures.png": {
     "width": 3200,
     "height": 2000,
@@ -371,16 +385,6 @@
       {
         "w": 3200,
         "path": "/work/trackpad/gestures-3200.webp"
-      }
-    ]
-  },
-  "/work/trackpad/pairing.png": {
-    "width": 453,
-    "height": 648,
-    "variants": [
-      {
-        "w": 453,
-        "path": "/work/trackpad/pairing-453.webp"
       }
     ]
   },

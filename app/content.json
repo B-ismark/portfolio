@@ -18,26 +18,26 @@
     "home": {
       "leadHeadline": "I'm Bismark, a",
       "leadHeadlineEm": "product designer",
-      "leadHeadlineTail": "who'd rather solve the problem than decorate the screen.",
+      "leadHeadlineTail": "Based in Ghana. I work on web, mobile and desktop products.",
       "currentStatus": "Currently UI/UX designer at AmaliTech",
       "workedWithLabel": "Worked with",
       "workedWith": [
         "AmaliTech",
-        "Major European telecom",
-        "Major North American industrial firm"
+        "European telecom",
+        "North American industrial firm"
       ],
       "selectedWorkLabel": "Selected work",
       "selectedWorkCount": "01",
       "clientWorkLabel": "Client work",
       "clientWorkCount": "Under wraps",
-      "clientNote": "Real clients, real work. The pixels just aren't mine to share.",
+      "clientNote": "Both are under NDA, so there are no screenshots.",
       "shippedLabel": "Shipped products",
       "shippedCount": "04–06"
     },
     "explorations": {
       "eyebrow": "Explorations",
-      "lead": "Personal tools and side quests,",
-      "leadEm": "made to answer my own questions.",
+      "lead": "Personal tools,",
+      "leadEm": "built for problems I had myself.",
       "projectsLabel": "Built for myself",
       "projectsCount": "07–08",
       "ideasLabel": "Also exploring",
@@ -46,7 +46,7 @@
     "cta": {
       "eyebrow": "Contact",
       "heading": "So, what are we solving?",
-      "sub": "Freelance, a partnership, or a build that needs a designer who ships. Tell me what you're working on.",
+      "sub": "I take on freelance and partnership work. Send a short note about the project and I'll reply.",
       "email": "bismarkgyau@gmail.com",
       "linkedinLabel": "LinkedIn",
       "linkedinHref": "https://www.linkedin.com/in/bismark-gyau"
@@ -91,8 +91,8 @@
     "index": "01",
     "category": "Web platform",
     "status": "Live",
-    "title": "Rebuilding the AmaliTech website from the ground up",
-    "description": "The WordPress template had outgrown its purpose. I led the design side of the move to a CMS-backed site: the design system, tone of voice, and editorial guidelines, so the team could publish on-brand without a designer in the loop.",
+    "title": "Rebuilding the AmaliTech website",
+    "description": "The old site ran on a WordPress template the company had outgrown. I led design on the move to a CMS-backed site and wrote the design system and writing guidelines the team now publishes with.",
     "meta": [
       {
         "label": "Role",
@@ -115,19 +115,19 @@
   "clients": [
     {
       "index": "02",
-      "client": "A major European telecommunications company",
+      "client": "European telecommunications company",
       "category": "Enterprise",
       "status": "Ongoing",
-      "description": "I'm redesigning several of their platforms onto their in-house design system, tightening the UX as I go. An ongoing partner engagement I'm quietly proud of.",
+      "description": "I'm moving several of their platforms onto their in-house design system and fixing UX issues along the way.",
       "role": "UX / UI designer, partner",
       "mark": "EU"
     },
     {
       "index": "03",
-      "client": "A major North American industrial services company",
+      "client": "North American industrial services company",
       "category": "Platform",
       "status": "2024",
-      "description": "I modernised their platform's UI in a short, focused engagement. Small team, tight scope, real dent.",
+      "description": "A short engagement with a small team. I redesigned the UI of one of their platforms.",
       "role": "UX / UI designer",
       "mark": "NA"
     }
@@ -137,8 +137,8 @@
       "index": "04",
       "category": "Platform",
       "status": "Shipped",
-      "title": "A video conferencing platform",
-      "description": "Designed the calling experience end to end: joining, presence, and the small moments between calls that most tools ignore.",
+      "title": "Video conferencing app",
+      "description": "I designed and built the calling experience: the lobby, joining, presence and what happens between calls.",
       "role": "Design & build",
       "plateWord": "Calls",
       "slug": "video-conferencing",
@@ -149,7 +149,7 @@
       "category": "Web",
       "status": "Live",
       "title": "Meeting room booking",
-      "description": "A booking system that makes finding and holding a room take seconds, not clicks.",
+      "description": "Room booking for an organisation. Search by time and capacity, and the database blocks double bookings.",
       "role": "Design & build",
       "plateWord": "Rooms",
       "slug": "booking-room",
@@ -159,8 +159,8 @@
       "index": "06",
       "category": "3D web app",
       "status": "Open source",
-      "title": "Redecorate your room, to scale",
-      "description": "A playful 3D studio for rearranging a room, with sizes real enough to buy furniture by. No account, no server, no faked measurements.",
+      "title": "Danmu, a 3D room planner",
+      "description": "Rebuild a room in 3D at its real size and rearrange it in the browser. Open source, no account needed.",
       "role": "Design & build",
       "plateWord": "Danmu",
       "slug": "danmu",
@@ -172,10 +172,10 @@
       "index": "07",
       "category": "Mobile",
       "status": "Shipped",
-      "title": "Your phone as a trackpad",
-      "description": "Controlling a laptop from across the room shouldn't need a manual. I designed the gestures to feel obvious on first touch.",
+      "title": "LazeR, a phone trackpad",
+      "description": "An Android app and a Windows companion that turn your phone into a trackpad and remote for your laptop.",
       "role": "Product designer",
-      "plateWord": "Trackpad",
+      "plateWord": "LazeR",
       "slug": "trackpad",
       "image": "/work/trackpad/app.png"
     },
@@ -183,8 +183,8 @@
       "index": "08",
       "category": "Web",
       "status": "Live",
-      "title": "Media that learns your taste",
-      "description": "Most feeds just replay what you've already saved. Weaver reads your taste from what you've engaged with, then goes looking for new work you haven't seen, ranked by how close it lands.",
+      "title": "Weaver, an image discovery feed",
+      "description": "Learns my taste from images I've saved, then finds new images from open sources and ranks them against it.",
       "role": "Design & build",
       "plateWord": "Weaver",
       "slug": "weaver",
@@ -194,9 +194,9 @@
   "explorations": [],
   "about": {
     "eyebrow": "About",
-    "metaDescription": "I work with teams at whatever stage they're in. What stays constant is where I start: the problem, before the pixels.",
-    "lead": "I work with teams at whatever stage they're in: an idea with no shape yet, a product due for a rethink, or one that works but needs to work harder. What stays constant is where I start:",
-    "leadEm": "the problem, before the pixels.",
+    "metaDescription": "Product designer in Takoradi, Ghana. Web, mobile and desktop, from first sketches to working prototypes.",
+    "lead": "I work with teams at different stages. Some have an idea and nothing else, some have a product that needs rethinking. Either way I start with",
+    "leadEm": "the problem.",
     "portrait": {
       "src": "/bismark.jpg",
       "alt": "Bismark Gyau"
@@ -205,26 +205,26 @@
       {
         "heading": "What I do",
         "body": [
-          "Product design is what I do most, across web, mobile, and desktop. It comes with website design, design systems, and prototyping, often carried further into something people can use rather than just look at. No two get the same answer, because no two start from the same place."
+          "Mostly product design for web, mobile and desktop. I also design websites and design systems, and build prototypes people can click through and use."
         ]
       },
       {
         "heading": "Right now",
         "body": [
-          "I'm a UI/UX designer at AmaliTech, working out of Takoradi, Ghana. I design in Figma and get ideas into working prototypes when that helps them land."
+          "UI/UX designer at AmaliTech, based in Takoradi, Ghana. I design in Figma and build a working prototype when a static mockup won't answer the question."
         ]
       },
       {
         "heading": "How I work",
         "body": [
-          "I believe the best design takes time and requires room to sit with the problem before solving it, not a sprint to a deadline.",
-          "And I like to work in the open. I keep the people I'm building with close and ask questions early, rather than guess. The clearer we both are, the better the thing we end up making."
+          "I like time to understand a problem before I start designing. Rushing to a deadline usually means solving the wrong thing.",
+          "I ask questions early and share work while it's still rough. It's faster than guessing what people meant."
         ]
       },
       {
         "heading": "Parallel interests",
         "body": [
-          "Behind a camera, or deep in a 3D scene modelling and sculpting, chasing the same thing I chase at work: how a thing is made, and how it makes you feel."
+          "Photography, and 3D modelling and sculpting in my spare time."
         ]
       }
     ],
@@ -308,9 +308,9 @@
       "index": "01",
       "category": "Web platform",
       "status": "Live",
-      "title": "Rebuilding the AmaliTech website from the ground up",
+      "title": "Rebuilding the AmaliTech website",
       "plateWord": "AmaliTech",
-      "summary": "The WordPress template had outgrown its purpose, and it was time to create a full-fledged website from scratch. I led the design aspects in the move to a CMS-backed site, taking charge of the design system, tone of voice, and editorial guidelines so the team could publish on-brand without a designer in the loop.",
+      "summary": "AmaliTech's website ran on a WordPress template that couldn't keep up with the company. I led design on the rebuild as a CMS-backed site, including the design system and the writing guidelines the team now publishes with.",
       "meta": [
         {
           "label": "Role",
@@ -322,7 +322,7 @@
         },
         {
           "label": "Scope",
-          "value": "Design system, tone, editorial docs"
+          "value": "Design system, tone of voice, editorial guidelines"
         },
         {
           "label": "Impact",
@@ -336,78 +336,77 @@
         }
       ],
       "highlights": [
-        "Moved off an outgrown WordPress template onto a CMS the team owns.",
-        "A design system, tone of voice, and editorial guidelines, all built from scratch.",
-        "The team now publishes on-brand without a designer in the loop.",
-        "+15% time on site after launch."
+        "Moved from a WordPress template to a CMS the team manages itself.",
+        "Design system, tone of voice and editorial guidelines written from scratch.",
+        "Time on site up about 15% after launch."
       ],
       "hero": {
         "src": "/work/amalitech/hero.png",
         "alt": "The rebuilt AmaliTech website home page",
         "width": 1264,
         "height": 705,
-        "caption": "The rebuilt home page. One system, published by the team itself."
+        "caption": "The rebuilt home page."
       },
       "sections": [
         {
-          "heading": "The problem",
-          "body": "AmaliTech had outgrown its website. A WordPress template picked for speed early on had, over time, started shaping the company more than the company shaped it: new pages bent to what the template allowed, brand details drifted, and anything past a basic edit needed developer intervention. The site had become a bottleneck instead of a platform."
-        },
-        {
-          "heading": "The approach",
-          "body": "I treated it as a systems problem, not a reskin. Two goals sat under every decision: give the team a site they could actually run themselves, and make staying on-brand the path of least resistance. That meant coming up with CMS modules the team owned, and the design language, voice, and rules to hold the site together long after launch. I ran UX research along the way and refined the modules and pages based on what users told us."
+          "heading": "Context",
+          "body": "The site was built on a WordPress template picked early on for speed. Over time, new pages had to fit what the template allowed, brand details drifted from page to page, and most changes beyond text edits needed a developer."
         },
         {
           "heading": "Team and my role",
-          "body": "As lead designer, I worked across the project on more than one front:",
+          "body": "Two designers, Gina and me, working with engineering, content, product and marketing. I was the lead designer.",
           "list": [
-            "Led the design hands-on: the system, the pages, and the details in between.",
-            "Ran the UX research end to end with a two-person design team (Gina and me), then systemised scattered feedback into changes the team could act on.",
-            "Worked in the open with engineers, content, product, and marketing. We designed together through plenty of alignment meetings instead of handing work over a wall.",
-            "Started a design-critique rhythm with the other designer, so consistency held across everyone's work, not just mine."
+            "Designed the system and the page templates.",
+            "Ran user research with Gina and turned the feedback into a list of changes the team could work through.",
+            "Set up regular design critiques between the two of us to keep our work consistent.",
+            "Reviewed work in progress with engineering and content in alignment meetings."
           ]
         },
         {
-          "heading": "What I built",
+          "heading": "Process",
+          "body": "We planned the site as a set of CMS modules the team could combine into pages. I designed the modules and the rules for using them, tested pages with users during the build, and changed modules based on what came back."
+        },
+        {
+          "heading": "Deliverables",
           "list": [
-            "A design system from scratch: type, colour, spacing, and a component set covering the pages the company actually publishes.",
-            "A tone of voice for how AmaliTech sounds in a headline, a caption or a call to action, so the copy reads as one company.",
-            "Editorial and content guidelines: what goes where, how to structure a page, and the do's and don'ts that keep new pages honest.",
-            "CMS templates and page patterns mapped to the system, so building a page means assembling blocks, not designing one."
+            "Design system: type, colour, spacing and components for every page type the company publishes.",
+            "Tone of voice for headlines, captions and calls to action.",
+            "Editorial guidelines on page structure and what goes where.",
+            "CMS templates built from the system's components."
           ],
           "media": {
             "src": "/work/amalitech/services.png",
             "alt": "The services page: a six-card capability grid built from one card component",
             "width": 1440,
             "height": 900,
-            "caption": "One card component, six services, zero one-off layouts. The grid, icons, links and CTA all come from the system."
+            "caption": "Services page. All six cards use the same component."
           }
         },
         {
-          "heading": "Publishing without a designer",
-          "body": "The real deliverable wasn't simply the launch. It was the team's ability to keep going. With the components, the voice, and the guidelines in place, the team publishes new pages on its own and going off-brand is hard to do by accident. The design work is baked into the tools, so it doesn't leave after the development team is done.",
+          "heading": "After launch",
+          "body": "The team builds and publishes pages from the templates without a designer. The insights section gets the most use.",
           "media": {
             "src": "/work/amalitech/insights.png",
             "alt": "The CMS-backed insights index: search, tags, and a card grid of dated articles",
             "width": 1440,
             "height": 900,
-            "caption": "The team publishes here whenever they want; same article template, filters and category system, no designer needed in the loop."
+            "caption": "Insights index, published by the content team."
           }
         },
         {
-          "heading": "The outcome",
-          "body": "The rebuilt site launched on the new system, and time on site rose around 15% after the change. People stayed instead of bouncing off. More quietly, the publishing bottleneck went away: the team ships pages at its own pace.",
+          "heading": "Result",
+          "body": "Time on site went up about 15% after the new site launched, and new pages no longer wait for design or development time.",
           "media": {
             "src": "/work/amalitech/clients.png",
             "alt": "An engagement-model accordion flowing into a client and partner logo wall",
             "width": 1440,
             "height": 900,
-            "caption": "One expandable component carries three engagement models, and the client wall shows the system ships real business."
+            "caption": "Engagement models and the client logo wall."
           }
         },
         {
-          "heading": "What I'd do differently",
-          "body": "A system is only as strong as the discipline around it. Running it again, I'd set up light governance from day one, with a clear owner for the component set and a short review cadence, so the system keeps its edges as the site grows, instead of leaving that to catch up later."
+          "heading": "What I'd change",
+          "body": "I'd give the component library a named owner and a short review process from the start. Without one, new pages drift from the system as the site grows."
         }
       ]
     },
@@ -415,9 +414,9 @@
       "index": "07",
       "category": "Mobile",
       "status": "Shipped",
-      "title": "Your phone as a trackpad",
-      "plateWord": "Trackpad",
-      "summary": "Your phone as a trackpad, and a remote for the whole laptop. Point, scroll, type, and nudge the volume from across the room, with none of it needing a manual.",
+      "title": "LazeR, a phone trackpad",
+      "plateWord": "LazeR",
+      "summary": "An Android app and a Windows companion that turn your phone into a trackpad and remote for your laptop. They connect directly over your Wi-Fi, encrypted, after you pair them with a QR code.",
       "meta": [
         {
           "label": "Role",
@@ -425,7 +424,7 @@
         },
         {
           "label": "Type",
-          "value": "Android app + desktop server"
+          "value": "Android app + Windows app"
         },
         {
           "label": "Stack",
@@ -433,62 +432,73 @@
         },
         {
           "label": "Status",
-          "value": "Shipped"
+          "value": "v2.6.1, November 2026"
         }
       ],
       "links": [],
       "highlights": [
-        "Your phone becomes a full trackpad: move, click, scroll, cycle apps.",
-        "Pairing is a QR scan; direct and low-latency on your own Wi-Fi.",
-        "Off-network relay that never sees your keys."
+        "Trackpad gestures, keyboard, media keys, volume, brightness and mic mute from the phone.",
+        "QR pairing. Traffic is encrypted and stays on the local network.",
+        "Ten releases since August, with in-app updates on the phone and the laptop."
       ],
       "hero": {
         "src": "/work/trackpad/app.png",
         "alt": "The Android control screen and its settings sheet, recreated from the app",
         "width": 1600,
         "height": 1000,
-        "caption": "The control surface: trackpad and scroll strip, media transport, and the settings that tune the feel."
+        "caption": "Phone app with media controls, the trackpad and settings."
       },
       "sections": [
         {
-          "heading": "The problem",
-          "body": "Controlling a laptop from the sofa usually means a flaky app, a fiddly setup, or a menu you have to learn. Every option asked me to learn a new remote when the best pointer I own was already in my hand."
+          "heading": "Problem",
+          "body": "I wanted to control my laptop from the sofa. The apps I tried were unreliable or needed setup I had to look up. My phone already has a good touch surface, so I built the remote around the gestures people already use on a laptop trackpad."
         },
         {
-          "heading": "The approach",
-          "body": "I wanted the phone to feel like an extension of the trackpad you already know: obvious on first touch, nothing to read. Every gesture maps to something your thumb already does, so the learning curve is the one you climbed years ago."
-        },
-        {
-          "heading": "The gestures",
+          "heading": "Gestures",
           "list": [
-            "Drag to move, tap to click, with optional pointer acceleration so it tracks like a real trackpad.",
-            "Two fingers to scroll; swipe them sideways for browser back and forward.",
-            "Three fingers to cycle apps, the way a laptop touchpad does.",
-            "Sliders for system volume and brightness, synced both ways.",
-            "A keyboard panel and one-shot clipboard paste, the typing a phone is actually good at."
+            "One finger moves the pointer, tap to click. Optional pointer acceleration.",
+            "Two fingers scroll in both directions. The app on the laptop decides what that does.",
+            "Pinch to zoom.",
+            "Three fingers left or right to switch apps.",
+            "A keyboard panel, and a shortcuts sheet for copy, paste, undo and redo."
           ],
           "media": {
             "src": "/work/trackpad/gestures.png",
             "alt": "The full-bleed trackpad expanded, and the keyboard panel for typing on the laptop",
             "width": 1600,
             "height": 1000,
-            "caption": "The pad goes full-bleed when you want room; a keyboard panel handles the typing a phone is actually good at."
+            "caption": "Full-screen pad and the keyboard panel."
           }
         },
         {
-          "heading": "Getting out of the way",
-          "body": "Pairing is a QR scan, not a config screen. On the same Wi-Fi it stays direct and low-latency; off your network it still connects through a coordinator that never sees your keys. Haptics confirm every tap, and the phone eases off polling when you are idle to spare the battery.",
+          "heading": "Releases since July",
+          "list": [
+            "2.0, August: removed access from outside the home network. The relay needed servers to run, and almost all use is on the same Wi-Fi.",
+            "2.1: security fixes and UX polish on both apps.",
+            "2.2, September: a landscape layout that docks media and keys beside the pad, and a setting for which side the scroll bar sits on.",
+            "2.3: in-app updates for the phone app, after a full audit of both apps.",
+            "2.5, November: laptop window redesigned in Material 3 to match the phone.",
+            "2.6: mute the laptop's mic from the phone, or use the phone as the laptop's microphone."
+          ]
+        },
+        {
+          "heading": "Laptop app",
+          "body": "The laptop side shows the QR code for pairing. It now starts with Windows, updates itself, and recovers from sleep and firewall problems without restarting or re-pairing.",
           "media": {
-            "src": "/work/trackpad/pairing.png",
-            "alt": "The desktop server's pairing screen, with a device card and a QR code to scan",
-            "width": 453,
-            "height": 648,
-            "caption": "The desktop side of pairing: one QR scan, no config screen."
+            "src": "/work/trackpad/desktop.png",
+            "alt": "LazeR laptop window: a Ready badge, the laptop name and a QR code under 'Connect your phone'",
+            "width": 480,
+            "height": 712,
+            "caption": "Laptop window after the 2.5 redesign."
           }
         },
         {
-          "heading": "What I'd do differently",
-          "body": "The off-network rendezvous coordinator is the part I would rethink. Powerful, but heavy for what most people actually want, which is the sofa. I would ship the same-network path first and treat remote access as an opt-in, not a reason to stand up infrastructure."
+          "heading": "Audit",
+          "body": "On 23 September I audited both apps for security, stored data, reliability and UX flows. Every high-priority finding was checked by hand against the code, and the fixes shipped in 2.3."
+        },
+        {
+          "heading": "What I'd change",
+          "body": "I built the off-network relay in July and removed it in August. I should have shipped the local-network version first and waited to see whether anyone needed remote access."
         }
       ]
     },
@@ -496,9 +506,9 @@
       "index": "04",
       "category": "Platform",
       "status": "Shipped",
-      "title": "A video conferencing platform",
+      "title": "Video conferencing app",
       "plateWord": "Calls",
-      "summary": "A calling app built end to end. Not the grid of faces, but everything around it: how you arrive, how presence reads at a glance, and the small moments most tools drop on the floor.",
+      "summary": "A video calling web app I designed and built. Most of the design work went into the parts around the call: the lobby, joining, presence and leaving.",
       "meta": [
         {
           "label": "Role",
@@ -519,64 +529,64 @@
       ],
       "links": [],
       "highlights": [
-        "The whole call considered: arriving, presence, and leaving, not just the video grid.",
-        "Built from a small set of primitives, so every surface behaves the same way.",
-        "Accessibility wired into CI, not bolted on at the end."
+        "Pre-call lobby with a device check and mic meter.",
+        "Every surface built from a few shared components: dialog, sheet, popover, tooltip.",
+        "Accessibility checks run in CI."
       ],
       "hero": {
         "src": "/work/video-conferencing/lobby.png",
         "alt": "The pre-call lobby: a camera preview, device toggles, and a mic level meter",
         "width": 1440,
         "height": 900,
-        "caption": "The pre-call lobby: a device check and a live mic meter before you commit to joining."
+        "caption": "Pre-call lobby with a device check and live mic meter."
       },
       "sections": [
         {
-          "heading": "The problem",
-          "body": "Most video tools nail the call and forget the edges. Joining is anxious, you can't tell who's really present, and the moments between talking (a reaction, stepping away, leaving quietly) feel clumsy. I wanted the whole experience considered, not just the video feed.",
+          "heading": "Problem",
+          "body": "Joining is where most calling tools are weakest. You aren't sure you're in the right room or that your mic works, and it's hard to tell who is actually there. Small actions during a call, like reacting or stepping away, take too many steps.",
           "media": {
             "src": "/work/video-conferencing/landing.png",
             "alt": "The landing screen: start a new meeting or join one by name or code",
             "width": 1440,
             "height": 900,
-            "caption": "The front door. One screen to start or join. The anxious part (am I in the right place? who's here?) is where most tools drop you cold."
+            "caption": "Start or join from one screen."
           }
         },
         {
-          "heading": "The approach",
-          "body": "I built the interface from a small set of primitives (dialog, sheet, popover, tooltip, a stage) so every surface behaves the same way. The call sits at the center, but the design work lives in the edges: arriving, reading the room, and leaving without a fuss.",
+          "heading": "Approach",
+          "body": "I built every surface from five shared components: dialog, sheet, popover, tooltip and the call stage. Sign-in is a dialog like everything else, and it's passwordless.",
           "media": {
             "src": "/work/video-conferencing/signin.png",
             "alt": "The passwordless sign-in dialog: continue with Google, or an email sign-in link",
             "width": 1440,
             "height": 900,
-            "caption": "Sign-in is a dialog like every other surface. Same primitive, passwordless, so arriving is one tap, not a form."
+            "caption": "Passwordless sign-in in the standard dialog."
           }
         },
         {
-          "heading": "The small moments",
+          "heading": "Around the call",
           "list": [
-            "Presence you can read at a glance: who is here, muted, speaking, or away.",
-            "Reactions and call sounds that add warmth without hijacking the call.",
-            "Picture-in-picture and media-session controls, so a call survives switching tabs.",
-            "Background blur and noise suppression for focus, one toggle away.",
-            "Moderation built in: blocks and mutes that actually stick."
+            "Presence: who is in the call, muted, speaking or away.",
+            "Reactions and call sounds.",
+            "Picture-in-picture and media-session controls, so the call keeps going when you switch tabs.",
+            "Background blur and noise suppression.",
+            "Blocks and mutes for moderation."
           ]
         },
         {
-          "heading": "Craft",
-          "body": "Accessibility was a foundation, not a final pass: keyboard paths, a live announcer for state changes, and automated a11y checks in CI. Mobile got its own UX pass, and end-to-end and capacity tests keep it honest under a full room.",
+          "heading": "Accessibility and testing",
+          "body": "Keyboard navigation throughout, a live region that announces state changes, and automated accessibility checks in CI. Mobile had its own UX pass. End-to-end and capacity tests run against a full room.",
           "media": {
             "src": "/work/video-conferencing/theme.png",
             "alt": "Appearance settings: theme colour tokens, high-contrast, and vision-assistive colours",
             "width": 1440,
             "height": 900,
-            "caption": "The whole app retints from a couple of named tokens, high-contrast and vision-assistive modes included. Theming that bends without breaking."
+            "caption": "The theme comes from a few named tokens. High-contrast and vision-assistive modes use the same tokens."
           }
         },
         {
-          "heading": "What I'd do differently",
-          "body": "It's built for a room, not an auditorium. The next real problem is scale: capacity and a grid that stays legible past a dozen faces. I'd design the large-call view as its own mode rather than stretching the small-call one."
+          "heading": "What I'd change",
+          "body": "It's designed for small calls, and past a dozen people the grid gets hard to read. I'd design large calls as a separate view."
         }
       ]
     },
@@ -584,9 +594,9 @@
       "index": "08",
       "category": "Web",
       "status": "Live",
-      "title": "Media that learns your taste",
+      "title": "Weaver, an image discovery feed",
       "plateWord": "Weaver",
-      "summary": "A single-person discovery engine. It learns your taste from what you've already liked, then goes looking for new images you haven't seen, ranked to that taste.",
+      "summary": "A personal discovery feed. It learns my taste from images I've saved, finds new images from open sources, and ranks them against that taste.",
       "meta": [
         {
           "label": "Role",
@@ -602,7 +612,7 @@
         },
         {
           "label": "Status",
-          "value": "Live"
+          "value": "Live, public since July 2026"
         }
       ],
       "links": [
@@ -612,58 +622,70 @@
         }
       ],
       "highlights": [
-        "Turns everything you've saved into taste signal, then finds work you haven't seen.",
-        "OpenCLIP embeddings in pgvector, ranked by distance with room kept for exploration.",
-        "Shipped as a PWA on a $0 infrastructure budget."
+        "Saved images are used as taste signal and never shown in the feed.",
+        "OpenCLIP embeddings in pgvector. New images ranked by distance to my taste clusters.",
+        "Runs on free tiers. A daily GitHub Actions job refreshes the pool of new images."
       ],
       "hero": {
         "src": "/work/weaver/home.jpg",
         "alt": "Weaver, the woven-for-you discovery feed",
         "width": 1800,
         "height": 1125,
-        "caption": "The feed: new work pulled from open sources, ranked to your taste."
+        "caption": "The feed."
       },
       "sections": [
         {
-          "heading": "The problem",
-          "body": "Saving things is easy; the apps are already full of your taste. But every feed just shows more of what you've seen, or what's popular. That was my own problem with my Pinterest feed. I wanted the opposite: use everything I've saved as a signal, and spend it on finding new work I'd never have surfaced myself."
+          "heading": "Problem",
+          "body": "My Pinterest feed kept showing me more of what I'd already saved, or what was popular. I wanted my saves to be used to find work I hadn't seen."
         },
         {
-          "heading": "The pivot",
-          "body": "The first version consolidated your own saves into one feed. It worked, and it was pointless; re-showing pins you already have isn't discovery. So I split every image into two roles: your saves became taste signal, never shown; the feed became new candidates pulled from open sources, ranked against that taste. Same machinery, opposite purpose.",
+          "heading": "Version one",
+          "body": "The first version pulled my saves from different sites into one feed. It worked, but it only showed images I already had. So I changed what each image is for: saves became taste signal and are never shown, and the feed shows new images from open sources ranked against them.",
           "media": {
             "src": "/work/weaver/taste.png",
             "alt": "The tune-your-taste panel: add an interest, and more/less-like-this concept chips",
             "width": 1440,
             "height": 900,
-            "caption": "When the feed gets it wrong you don't wait it out. You tell it, in words: more of this, less of that."
+            "caption": "Adjusting the feed in words: more of this, less of that."
           }
         },
         {
           "heading": "How it works",
-          "body": "Images are embedded with OpenCLIP; your taste is a handful of centroids clustered from your saves; new candidates are scored by how closely they land, with room kept for exploration so the feed never collapses into one look. Save something new and it tightens the profile.",
+          "body": "Images are embedded with OpenCLIP. My taste is a few clusters built from my saves. New images are scored by distance to those clusters, with some room left for exploration so the feed doesn't settle on one style. Saving an image updates the clusters.",
           "media": {
             "src": "/work/weaver/detail.png",
             "alt": "An expanded image with like / not-my-taste controls and a 'threads from this' grid of similar work",
             "width": 1440,
             "height": 900,
-            "caption": "Every image is a thread you can pull. 'Threads from this' is the similarity model itself, made visible."
+            "caption": "\"Threads from this\" shows similar images."
           }
         },
         {
-          "heading": "Constraints & craft",
-          "body": "Built as a PWA to feel native on a phone, on a $0 infrastructure budget (a recurring theme across my exploratory projects): Supabase and pgvector for storage and search, a daily job to refresh the pool. Motion is layered but every layer is gated on reduced-motion, and accessibility (semantic markup, focus management, alt text, AA contrast) was a starting point, not a finish.",
+          "heading": "Build",
+          "list": [
+            "PWA, so it installs and runs like an app on a phone.",
+            "Supabase and pgvector for storage and search, on free tiers.",
+            "A daily GitHub Actions job pulls new candidates from sources including Wikimedia, the Art Institute of Chicago, Reddit, DeviantArt and Tumblr.",
+            "Motion respects reduced-motion settings. Semantic markup, focus management, alt text and AA contrast throughout."
+          ],
           "media": {
             "src": "/work/weaver/mobile-feed.png",
             "alt": "The Weaver feed on a phone: a two-column masonry with some cards tilted like pinned scraps",
             "width": 780,
             "height": 1688,
-            "caption": "Built to live on a phone, with a hand-pinned feel instead of a stamped-out grid."
+            "caption": "The feed on a phone."
           }
         },
         {
-          "heading": "What I'd do differently",
-          "body": "I cut the scheduled aggregation and a learned ranker to ship. Taste refreshes manually and ranks by distance to the centroids, which is honest but blunt. A lightweight learned re-ranker on top of the CLIP similarity is the upgrade I would make next."
+          "heading": "Changes since launch",
+          "list": [
+            "July: made Weaver public. Anyone can browse as a guest. The library, taste and import screens are only visible to me.",
+            "September: thumbnails of new candidates are cached in Weaver's own storage, because images on the source sites get deleted."
+          ]
+        },
+        {
+          "heading": "What I'd change",
+          "body": "Ranking by distance to the clusters works, but it's blunt. Weaver already logs which images I engage with, for a learned ranker I parked to get the first version out. Building that ranker is the next step."
         }
       ]
     },
@@ -673,7 +695,7 @@
       "status": "Live",
       "title": "Meeting room booking",
       "plateWord": "Rooms",
-      "summary": "A meeting-room booking system built to make finding and holding a room take seconds. Search by time, capacity, and amenities; drag to create; and never double-book.",
+      "summary": "A meeting room booking system for organisations. You search by time, capacity and amenities, and the database blocks double bookings.",
       "meta": [
         {
           "label": "Role",
@@ -699,71 +721,70 @@
         }
       ],
       "highlights": [
-        "Find, hold, and never double-book a room in seconds.",
-        "Server-side conflict detection, recurring bookings, and ICS export.",
-        "Per-room utilisation reports that roll up across a building or the whole org.",
-        "~30% faster to book."
+        "Search rooms by date, time, capacity and amenities.",
+        "Double bookings blocked in the database. Recurring bookings and ICS export.",
+        "Booking time cut by about 30%."
       ],
       "hero": {
         "src": "/work/booking-room/dashboard.png",
         "alt": "The Booking-Room dashboard",
         "width": 1440,
         "height": 900,
-        "caption": "The dashboard: your day, your rooms, and quick actions in one place."
+        "caption": "Dashboard with today's bookings and rooms."
       },
       "sections": [
         {
-          "heading": "The problem",
-          "body": "Booking a room is usually more clicks than the meeting deserves: hunt a calendar, guess a free slot, hope no one grabbed it first. I wanted the whole thing to take seconds: find a room that fits, hold it, move on."
+          "heading": "Problem",
+          "body": "Booking a room meant checking a calendar, guessing a free slot and hoping nobody took it first. The goal was to find a suitable room and hold it in a few steps."
         },
         {
           "heading": "My role",
-          "body": "A solo design-and-build, but not a solo guess:",
+          "body": "Solo design and build, with AI-assisted development.",
           "list": [
-            "Designed and built the whole thing: the calendar interactions, the room finder, and the conflict logic underneath.",
-            "Ran UX research and feedback rounds, so the flows matched how people actually book a room, not how I assumed they would.",
-            "Owned every trade-off myself, from the data model down to which features to leave out, with AI-assisted development speeding up the build."
+            "Designed the calendar interactions, the room finder and the conflict rules.",
+            "Ran research and feedback rounds with people who book rooms, and changed the flows based on what they said.",
+            "Decided the data model and which features to leave out."
           ]
         },
         {
-          "heading": "What I designed",
+          "heading": "Booking",
           "list": [
-            "Day, week, and month calendars you can drag on to create a booking.",
-            "A room finder that filters by date, time, capacity, and amenities.",
-            "Keyboard shortcuts for the two things people do most: book a room, find a room.",
-            "A booking drawer that keeps the details and the conversation in one place."
+            "Day, week and month calendars. Drag on the calendar to create a booking.",
+            "Room finder filtered by date, time, capacity and amenities.",
+            "Keyboard shortcuts for booking a room and finding one.",
+            "A booking drawer with the details and comments together."
           ],
           "media": {
             "src": "/work/booking-room/bookings.png",
             "alt": "Calendar with drag-to-create bookings",
             "width": 1440,
             "height": 900,
-            "caption": "Day, week, and month views, drag to create."
+            "caption": "Day, week and month views."
           }
         },
         {
-          "heading": "Holding the room, not fighting for it",
+          "heading": "Conflicts and approvals",
           "list": [
-            "Conflict detection in the database, not just the UI: overlaps are blocked server-side, and a meeting ending at 11:00 doesn't block an 11:00 start.",
-            "Recurring bookings, past-slot guards, and ICS export so it lives in your real calendar.",
-            "Counter-propose: an approver can offer a different time instead of a flat no.",
-            "A comment thread per booking, scoped to the people actually involved."
+            "Overlaps are blocked by the database as well as the UI. A meeting ending at 11:00 doesn't block one starting at 11:00.",
+            "Recurring bookings, a guard against booking past slots, and ICS export.",
+            "Approvers can suggest another time when they turn a request down.",
+            "Each booking has a comment thread for the people involved."
           ]
         },
         {
-          "heading": "Built for an organisation",
-          "body": "Locations, buildings, floors, and rooms in one hierarchy, each with its own timezone. Three roles (admin, booking user, view-only) and an approval queue for rooms that need it. Every change is written to an audit log.",
+          "heading": "Organisation setup",
+          "body": "Locations, buildings, floors and rooms in one hierarchy, each with its own timezone. Three roles: admin, booking user and view-only. Rooms can require approval, and every change goes to an audit log.",
           "media": {
             "src": "/work/booking-room/rooms.png",
             "alt": "Rooms grid with search and filters",
             "width": 1440,
             "height": 900,
-            "caption": "Rooms by capacity, amenities, and status."
+            "caption": "Rooms list with filters."
           }
         },
         {
-          "heading": "Reports & analytics",
-          "body": "Bookings are only worth capturing if someone can learn from them. Each room reports its own utilisation (how often it's booked, when demand peaks, and how much of its capacity actually gets used), and the numbers roll up across a building or the whole organisation. Facilities can see which rooms earn their space and which sit empty, and plan from real usage instead of a hunch.",
+          "heading": "Reports",
+          "body": "Each room shows how often it's booked, when demand peaks and how much of its capacity gets used. The figures roll up to building and organisation level, so facilities teams can see which rooms sit empty.",
           "media": {
             "src": "/work/booking-room/room-detail.png",
             "alt": "Room detail with utilisation analytics",
@@ -771,12 +792,12 @@
             "height": 900,
             "focus": "top",
             "zoom": 1.14,
-            "caption": "Each room carries its own detail and utilisation: what gets used, when, and how hard."
+            "caption": "Room detail with utilisation."
           }
         },
         {
-          "heading": "What I'd do differently",
-          "body": "The four-level location hierarchy is the right model for a big organisation and overkill for a single office. I would add a fast path (one room, one calendar) so a small team never has to meet the admin panel."
+          "heading": "What I'd change",
+          "body": "The four-level location hierarchy suits a large organisation and is too much for one office. I'd add a simple mode with one room and one calendar, so a small team never has to open the admin panel."
         }
       ]
     },
@@ -784,9 +805,9 @@
       "index": "06",
       "category": "3D web app",
       "status": "Open source",
-      "title": "Danmu: redecorate your room, to scale",
+      "title": "Danmu, a 3D room planner",
       "plateWord": "Danmu",
-      "summary": "An interior decoration studio for people who rearrange rooms for fun. Pick a floor shape or photograph your room, and Danmu rebuilds it in 3D at its real size so you can move, restyle and relight every piece. It runs entirely in the browser: no account, no server, and no AI-made pictures.",
+      "summary": "A browser app for planning a room in 3D at its real size. You pick a floor shape or photograph the room, then move, resize and restyle the furniture. There's no account or server, and rooms stay on your device.",
       "meta": [
         {
           "label": "Role",
@@ -802,7 +823,7 @@
         },
         {
           "label": "Timeline",
-          "value": "5 months · 970+ commits"
+          "value": "June to November 2026, 970+ commits"
         }
       ],
       "links": [
@@ -816,102 +837,104 @@
         }
       ],
       "highlights": [
-        "Started as an AI photo-render app behind an API key. Became a sandbox you're in within two clicks.",
-        "Sizes come from rules, not AI. If something doesn't fit, Danmu says so instead of shrinking it.",
-        "Suggests layouts as a gallery of options, described in plain words and never scored.",
-        "Private by design: rooms stay on your device and travel as a file you choose to send."
+        "Started as an AI makeover app behind an API key. Now a 3D planner you can open in two clicks.",
+        "Sizes come from fixed rules for real furniture. If a piece doesn't fit, the app says so.",
+        "Rooms are saved in the browser and shared as a file, without the photos."
       ],
       "hero": {
         "src": "/work/danmu/studio.png",
         "alt": "The Danmu 3D studio: a furnished living room with the catalogue on the left and a details panel on the right",
         "width": 2400,
         "height": 1500,
-        "caption": "The studio. The 3D room is the product; everything else is a tool for changing it."
+        "caption": "The 3D studio with the starter living room."
       },
       "sections": [
         {
-          "heading": "The problem",
-          "body": "Room planners tend to fall into two camps. CAD tools are accurate but cold, technical and locked behind an account. Mood-board apps are fun, but their sizes are made up. If you enjoy rearranging rooms, and sometimes end up actually buying the sofa, you're stuck choosing between play and trust. I wanted one tool that's warm enough to play in and honest enough to act on."
+          "heading": "Context",
+          "body": "Room planners tend to be either CAD software, accurate but technical and tied to an account, or mood-board apps where the sizes aren't real. Danmu is for people who rearrange rooms as a hobby and sometimes go on to buy the furniture, so it had to be easy to pick up and accurate enough to buy from."
         },
         {
           "heading": "My role",
-          "body": "A solo project, built with AI agents doing most of the typing. My job was to decide what the product is and isn't, and to hold every change to that:",
+          "body": "Solo project. AI agents wrote most of the code. I set the direction and reviewed the work.",
           "list": [
-            "Owned the product direction: who it's for, what success looks like, and what it must never do.",
-            "Designed the experience end to end: the studio, the 2D plan, the photo flow, the empty states and the copy.",
-            "Wrote the product rules down so every change could be checked against them, and reviewed each change in a real browser before it landed.",
-            "Made the calls when the evidence changed, including reversing my own earlier decisions."
+            "Decided who it's for and what it should never do: no AI image generation, no backend.",
+            "Designed the 3D studio, the 2D plan, the photo flow and the copy.",
+            "Wrote a one-page brief of product rules that every change was checked against.",
+            "Reviewed changes in the browser before they merged, and reversed decisions when testing showed they were wrong."
           ]
         },
         {
-          "heading": "Where it started, and the first cut",
-          "body": "The first version, in June, was a different product. You pasted a Google AI key before seeing anything, photographed the room in six guided shots, then asked an image model to paint a photoreal makeover. There were fifteen screens, a carpenter's cut sheet and a share link. The pictures looked impressive, but they couldn't be trusted: an AI render will happily fit a three-metre sofa into a two-metre wall. On day one I took the key wall out, so a new visitor lands in a furnished room in two clicks. Within weeks the whole render pipeline was deleted for good. AI stayed in one narrow job: spotting furniture in your photos, on your own device, and only if you ask."
+          "heading": "Version one",
+          "body": "The June version asked for a Google AI key before showing anything. You took six photos of the room and an image model generated a makeover. It had about 15 screens, a carpenter's cut sheet and share links. The renders looked good, but the sizes couldn't be trusted. The model would happily fit a sofa against a wall too short for it."
         },
         {
-          "heading": "Sizes are rules, not guesses",
-          "body": "The principle the rest of the product hangs on: every size runs through fixed rules for what a real sofa, bed or doorway can be. AI only ever gives a hint. When something doesn't fit, Danmu tells you why. It never quietly shrinks the piece, because a sofa that only fits on screen is the worst outcome for someone about to buy one. The same rules power the Room report (walkways, door swings, a bed you can get out of) and the 2D plan, so the two views can never disagree.",
+          "heading": "6 June to July: removing the AI renders",
+          "body": "I removed the key wall first, so a new user lands in a furnished room in two clicks. In July the render pipeline was deleted. AI now does one job, spotting furniture in your photos, and it's optional."
+        },
+        {
+          "heading": "Sizes come from rules",
+          "body": "Every size goes through fixed limits for real furniture, doors and walls, and AI can only suggest a size. When a piece doesn't fit, the app keeps it at its real size and says why. The room report (walkways, door swings, space around the bed) and the 2D plan use the same rules, so the two views always agree.",
           "media": {
             "src": "/work/danmu/plan.png",
             "alt": "The 2D floor plan: a 6 by 4 metre room with labelled walls, dimensions and furniture outlines",
             "width": 2400,
             "height": 1500,
-            "caption": "The 2D plan reads the same rules as the 3D room, so moving a piece in one moves it in the other."
+            "caption": "2D plan of the same room."
           }
         },
         {
-          "heading": "Admitting what a photo can't tell you",
-          "body": "For months the promise was that a scanned piece is measured from your photos. Testing on real rooms said otherwise: windows came out with a deep sill they didn't have, and curtains came out tiny. A measurement you can't trust is worse than an honest estimate. So in October I reversed my own decision. A piece found in a photo is now built at a typical size and colour, the screen says so in plain words, and you type the real size when it matters. Less impressive on paper, and much more honest.",
+          "heading": "3 October: typical sizes for scanned furniture",
+          "body": "The plan was to measure furniture from the photos. Testing on real rooms showed the measurements were often wrong: windows came out with deep sills and curtains came out tiny. So I changed it. A piece found in a photo now gets a typical size and colour, the app says so, and you type the real size if you need it.",
           "media": {
             "src": "/work/danmu/typical-sizes.png",
             "alt": "The studio with a prompt reading 'These are typical sizes. Measure your room and type the real width, depth and height.'",
             "width": 2400,
             "height": 1500,
-            "caption": "Say what you don't know. The prompt asks for the real numbers rather than pretending to have them."
+            "caption": "The prompt shown after a photo scan."
           }
         },
         {
-          "heading": "Ideas, not answers",
-          "body": "An early 'Suggest' button rearranged the whole room in one go: one answer, no way to compare it with anything, and no reason given. Now Ideas shows a gallery: several arrangements at once, each a small plan with a caption in everyday words, like 'Sofa against the front wall, facing the TV · 5 pieces move'. There are no scores. Tap an idea and the 3D room becomes the preview. 'Back to your room' undoes the lot, and you can pin the pieces you love so the ideas work around them.",
+          "heading": "Ideas",
+          "body": "The first Suggest button rearranged the whole room at once, gave one result and no reason. I replaced it with Ideas, a page of alternative layouts. Each is a small plan with a caption like \"Sofa against the front wall, facing the TV · 5 pieces move\". There's no score. Tapping an idea applies it in 3D, \"Back to your room\" undoes it, and pinned pieces stay where they are.",
           "media": {
             "src": "/work/danmu/ideas.png",
             "alt": "The Ideas gallery: four mini floor plans, each captioned with what moves, beside the 3D room",
             "width": 2400,
             "height": 1500,
-            "caption": "Four ideas a page, each described by what it moves. The room itself is the preview."
+            "caption": "Ideas panel, four layouts per page."
           }
         },
         {
-          "heading": "Private by design",
+          "heading": "Privacy",
           "list": [
-            "No server and no account. Rooms live in the browser, and the app works offline once it has loaded.",
-            "Sharing is a file you save and send yourself. It carries the room and its furniture, never the photos, because those show the inside of someone's home.",
-            "Furniture spotting runs on the device. Adding a second detection model took a real test room from 7 to 13 of its 19 pieces found."
+            "No server or account. Rooms are stored in the browser, and the app works offline after the first visit.",
+            "To share a room you save a file and send it. The file has the room and furniture but no photos.",
+            "Furniture detection runs on the device. Adding a second detection model raised the hits on a test room from 7 to 13 of 19 pieces."
           ]
         },
         {
-          "heading": "A first screen that's also a drawing",
-          "body": "The first screen used to be a hero illustration above three identical cards. I redesigned it as a single drawing sheet: three numbered ways in on the left and, on the right, a scaled plan of the starter room with a title block. That plan isn't an illustration. It's drawn from the same room 'Try the starter room' opens, so the first thing you see already keeps the product's promise.",
+          "heading": "First screen",
+          "body": "The first screen used to be a hero illustration above three identical cards. I replaced it with a drawing sheet: three numbered ways to start, and a scaled plan of the starter room drawn from the same data the app opens.",
           "media": {
             "src": "/work/danmu/rooms.png",
             "alt": "Danmu's first screen: 'Your room, drawn to scale' with three numbered ways in beside a dimensioned floor plan",
             "width": 2400,
             "height": 1500,
-            "caption": "The welcome is a working drawing, not a sales pitch."
+            "caption": "First screen."
           }
         },
         {
-          "heading": "How we worked",
-          "body": "Working with AI agents made the process the product as much as the code. A few habits kept a fast pace from becoming a mess:",
+          "heading": "How the work was run",
           "list": [
-            "Rules on one page. Ten product rules, each earned by a mistake that cost real work, written so any new session starts from them.",
-            "Decisions dated, reversals recorded. 'Decided against' is kept as carefully as 'shipped', so settled questions stay settled.",
-            "Eyes on every change. A visual-check list of things only a person in a browser can judge, plus regular audits of the 2D plan, mobile and the whole platform.",
-            "Cut before adding. When a screen needed explaining, the explanation was usually the problem: I removed standing helper text across the app and kept only warnings, privacy notes and the reason something can't be done."
+            "A one-page brief with ten product rules. A rule went in only after breaking it had cost real work.",
+            "Decisions logged with dates, including the ones we decided against.",
+            "A visual-check list for things only a person in a browser can judge, plus audits of the 2D plan, mobile and the whole platform.",
+            "Standing help text removed across the app. Warnings, privacy notes and explanations of why something can't be done stayed."
           ]
         },
         {
-          "heading": "What I'd do differently",
-          "body": "Phones came too late. The mobile audit only arrived in September, after the studio was shaped around a laptop with two side panels, so a lot of the work since has been retrofitting. I'd sketch the phone layout of the studio first next time. I'd also have kept the rules page short from the start: the long design record is valuable history, but a one-page brief is what actually stops a wrong turn."
+          "heading": "What I'd change",
+          "body": "I'd design the phone layout earlier. The mobile audit came in September, after the studio had been built around a laptop screen with two side panels, and a lot of later work went into retrofitting it."
         }
       ]
     }

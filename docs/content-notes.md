@@ -29,8 +29,8 @@ carries the intent instead.
 - Under wraps. NDA cards are text-only (the witty "no screenshots" bit lives in
   the section note on the home page).
 - **Clients are never named.** Each is described by industry and region instead
-  ("A major European telecommunications company", "A major North American
-  industrial services company"). The same applies to the home page's "Worked
+  ("European telecommunications company", "North American industrial
+  services company"). No "major" or other size claims. The same applies to the home page's "Worked
   with" strip, the résumé (`tools/resume/build.mjs`) and any future case study.
   Don't name a client's internal products or design systems either: they
   identify the client as surely as the name. `mark` is the region's initials.
@@ -60,3 +60,24 @@ carries the intent instead.
   Both links are on the case study, and the live one is on the résumé.
 - Screenshots were captured from the running app (starter living room, light
   theme) at 2400px wide.
+
+## Voice
+
+- Copy follows the documented signs of AI writing in reverse
+  (https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing): no "not X but
+  Y" contrasts, no padded threes, no "-ing" clauses that add significance, no
+  "serves as", no em dashes, no promotional adjectives, and none of the words
+  that list flags ("quietly", "crucial", "seamless", "ensure", "showcase" …).
+- Case studies read as a process record: context, role, what was done, dated
+  decisions, result, what I'd change. Facts and dates come from the repos.
+  Captions say what the picture shows.
+
+## trackpad (LazeR)
+
+- Source: github.com/B-ismark/lazeR. Version history from its tags (v2.0.0 on
+  2026-08-05 removed off-LAN access; v2.6.1 on 2026-11-07). "Ten releases since
+  August" counts the tags v2.0.0 to v2.6.1.
+- `desktop.png` is the real 2.6.1 laptop window, captured on Linux with the
+  machine name set to "Studio-PC". The phone mockups (`app.png`,
+  `gestures.png`) predate the landscape layout and mic controls; replace them
+  with phone screenshots when available.
