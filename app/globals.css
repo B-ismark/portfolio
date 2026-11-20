@@ -1722,18 +1722,23 @@ h1[tabindex='-1']:focus {
   justify-items: start;
   gap: 14px;
 }
-.work-back--bottom {
-  margin-top: clamp(24px, 4vw, 40px);
-}
-
 /* prev / next case study — a ruled two-up, so the read never dead-ends */
 .work-pager {
   margin-top: clamp(40px, 6vw, 72px);
   border-top: 2px solid var(--ink); /* heavy poster rule */
   padding-top: clamp(16px, 2.5vw, 24px);
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* previous | back to work | next — all three labels share one line */
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
   gap: clamp(16px, 4vw, 48px);
+}
+.work-pager-back {
+  justify-self: center;
+  /* lay the arrow out like the Previous / Next labels (plain inline text), so
+     all three sit on the same baseline */
+  display: inline-block;
+  padding: 0;
 }
 .work-pager-link {
   display: grid;
@@ -1767,6 +1772,11 @@ h1[tabindex='-1']:focus {
   }
   .work-pager > span:empty {
     display: none;
+  }
+  /* stacked: back to work goes last, under the case-study links */
+  .work-pager-back {
+    order: 1;
+    justify-self: start;
   }
   .work-pager-link--next {
     justify-items: start;
