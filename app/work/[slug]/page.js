@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import StatusLine from '../../components/StatusLine';
 import BrowserMock from '../../components/BrowserMock';
+import Diagram from '../../components/Diagram';
 import ContactCTA from '../../components/ContactCTA';
-import { work, hero, products, explorationProjects } from '../../content';
+import { work, hero, clients, products, explorationProjects } from '../../content';
 import { ed, edHref } from '../../lib/edit';
 
 export function generateStaticParams() {
@@ -29,7 +30,7 @@ const NOTE = /what i.?d do differently/i;
 // Reading order for the prev/next pager: the order the home and explorations
 // pages list the work, so a reviewer can walk the whole set without bouncing
 // back to the index between case studies.
-const ORDER = [hero, ...products, ...explorationProjects]
+const ORDER = [hero, ...clients, ...products, ...explorationProjects]
   .map((p) => p.slug)
   .filter((s) => s && work[s]);
 
@@ -130,6 +131,15 @@ export default async function WorkPage({ params }) {
             </figcaption>
           )}
         </figure>
+      ) : project.leadDiagram ? (
+        <figure className="work-lead reveal" style={{ '--d': '210ms' }}>
+          <Diagram id={project.leadDiagram.id} alt={project.leadDiagram.alt} />
+          {project.leadDiagram.caption && (
+            <figcaption className="mock-cap" {...ed(`${base}.leadDiagram.caption`)}>
+              {project.leadDiagram.caption}
+            </figcaption>
+          )}
+        </figure>
       ) : (
         <div
           className="plate plate--wide work-plate reveal"
@@ -145,10 +155,12 @@ export default async function WorkPage({ params }) {
       <div className="work-body">
         {project.sections.map((s, i) => {
           const isNote = NOTE.test(s.heading);
-          const hasMedia = !!s.media;
+          // a section shows either a screenshot (media) or, for NDA work, a
+          // drawn diagram; both take the same half-row slot
+          const hasMedia = !!(s.media || s.diagram);
           // Portrait shots (phone screens) get a slim device-width column instead
           // of a full half-row, so a tall image doesn't dwarf the copy beside it.
-          const isPortrait = hasMedia && s.media.height > s.media.width;
+          const isPortrait = !!s.media && s.media.height > s.media.width;
           const side = i % 2 === 0 ? 'left' : 'right';
           const cls = [
             'work-section',
@@ -180,7 +192,18 @@ export default async function WorkPage({ params }) {
                 )}
               </div>
 
-              {hasMedia && (
+              {s.diagram && (
+                <figure className="work-media">
+                  <Diagram id={s.diagram.id} alt={s.diagram.alt} />
+                  {s.diagram.caption && (
+                    <figcaption {...ed(`${base}.sections[${i}].diagram.caption`)}>
+                      {s.diagram.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
+
+              {s.media && (
                 <figure className="work-media">
                   <BrowserMock
                     src={s.media.src}

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-// A quiet "presence" signal: the live time where I am (Takoradi, Ghana — UTC+0,
+// A quiet "presence" signal: the live time where I am (Kumasi, Ghana — UTC+0,
 // no DST), and how far that is from wherever the visitor is sitting. Computed
 // entirely client-side, so it reads the *visitor's* zone, not the server's.
 // Renders nothing until mounted, to avoid an SSR/hydration mismatch.

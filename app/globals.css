@@ -2741,3 +2741,101 @@ html.js [data-reveal].is-in {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* ---- schematic diagrams (NDA case studies) ---------------- */
+/* Drawn in the page's own inks so they follow the theme. Status colours are
+   fixed hues, since the diagram is about what those colours do. */
+.diagram {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  padding: clamp(10px, 2vw, 18px);
+  --dg-red: #c8321f;
+  --dg-green: #2e8b57;
+  --dg-blue: #2f6fd6;
+  --dg-yellow: #a87400;
+}
+.diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+.diagram text {
+  font-family: var(--font-archivo), sans-serif;
+  fill: var(--ink-2);
+}
+.diagram .dg-h { font-size: 15px; font-weight: 600; fill: var(--ink); }
+.diagram .dg-t { font-size: 13px; }
+.diagram .dg-s { font-size: 12px; }
+.diagram .dg-mid { text-anchor: middle; }
+.diagram .dg-muted { fill: var(--muted); }
+.diagram .dg-on-colour { fill: #fff; font-weight: 600; }
+.dg-box { fill: var(--paper); stroke: var(--line-strong); stroke-width: 1.2; }
+.dg-box--main { stroke: var(--accent); stroke-width: 2; }
+.dg-solid { stroke: var(--ink); }
+.dg-off { fill: var(--paper-2); }
+.dg-panel { fill: var(--paper-2); }
+.dg-panel-2 { fill: var(--line-strong); }
+.dg-skel { fill: var(--line-strong); }
+.dg-skel-ink { fill: var(--ink-2); }
+.dg-fill-ink { fill: var(--ink); }
+.dg-fill-soft { fill: var(--line-strong); }
+.dg-fill-accent { fill: var(--accent); }
+.dg-fill-accent-soft { fill: color-mix(in srgb, var(--accent) 14%, transparent); }
+.dg-fill-alarm { fill: var(--dg-red); }
+.dg-ink { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.dg-thin { stroke-width: 1; }
+.dg-line { stroke: var(--line); stroke-width: 1; }
+.dg-line-strong { fill: none; stroke: var(--line-strong); stroke-width: 2; }
+.dg-accent-line { stroke: var(--accent); stroke-width: 3; }
+.dg-strike { stroke: var(--muted); stroke-width: 1.5; }
+.dg-retired .dg-box { fill: none; }
+.dg-chart { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
+.dg-spark { fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-linejoin: round; }
+.dg-scrim { fill: var(--ink); opacity: 0.12; }
+.dg-pill { fill: none; stroke: var(--line-strong); }
+.dg-c-red { fill: var(--dg-red); }
+.dg-c-green { fill: var(--dg-green); }
+.dg-c-blue { fill: var(--dg-blue); }
+.dg-c-yellow { fill: var(--dg-yellow); }
+/* "in progress" gets motion and no colour */
+.dg-spin {
+  fill: none;
+  stroke: var(--muted);
+  stroke-width: 2;
+  stroke-dasharray: 60 40;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dg-spin 1.2s linear infinite;
+}
+@keyframes dg-spin {
+  to { transform: rotate(1turn); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dg-spin { animation: none; }
+}
+
+/* NDA card that opens a written case study */
+.nda-card--link {
+  color: inherit;
+  text-decoration: none;
+}
+.nda-card--link .nda-more {
+  align-self: flex-start;
+}
+.nda-card--link:hover .nda-more {
+  color: var(--accent);
+  gap: 10px;
+}
+.nda-card--link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+/* as the lead visual, the diagram sits in the wide frame at a readable size */
+.work-lead .diagram {
+  padding: clamp(14px, 4vw, 48px);
+}
+.work-lead .diagram svg {
+  max-width: 720px;
+  margin-inline: auto;
+}

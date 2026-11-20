@@ -64,6 +64,24 @@ carries the intent instead.
 - Screenshots were captured from the running app (starter living room, light
   theme) at 2400px wide.
 
+## operations-portal (European telecom, NDA)
+
+- Source: Bismark's own write-up of the engagement, with the client, product
+  names, vendors and people already removed. Keep it that way: the client is
+  "European telecommunications company", nothing more specific.
+- No outcome numbers exist; don't add any. The figures in the copy (8 tools,
+  about 10 endpoints per link and 360 in total, 6 to 144 points per view,
+  1,000+ in the old tools, 3 roles, 5 endpoint patterns, pattern reused on 2
+  more modules) all come from the write-up. An unmeasured line about operators
+  spotting problems "from across the room" was left out on purpose.
+- No screenshots. The pictures are schematic SVGs in
+  `app/components/Diagram.js`, keyed by `diagram.id` on a section (or
+  `leadDiagram` for the lead). They use the site's colour variables, so they
+  follow the theme. The interval values in `period-interval` are worked
+  examples for a one-hour period, and the captions say what is a diagram.
+- The EU NDA card links here through its `slug`. The North American card has
+  no case study and stays text-only.
+
 ## Voice
 
 - Copy follows the documented signs of AI writing in reverse
