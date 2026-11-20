@@ -132,7 +132,7 @@ li::before { content:"\\25CF"; position:absolute; left:0; font-family:"Liberatio
     <div class="role">Product Designer &middot; UI/UX</div>
   </div>
   <div class="content contact">
-    Takoradi, Ghana (Remote)
+    Kumasi, Ghana (Remote)
     <span class="sp"></span>
     +233 54 947 7402<br>
     <a href="mailto:bismarkgyau@gmail.com">bismarkgyau@gmail.com</a><br>
@@ -141,7 +141,7 @@ li::before { content:"\\25CF"; position:absolute; left:0; font-family:"Liberatio
   </div>
 </div>
 
-${section('Profile', `<p>Product designer, 4+ years across web, mobile and desktop. Most of my work is design systems
+${section('Profile', `<p>Product designer, 5+ years across web, mobile and desktop. Most of my work is design systems
 and accessibility, and I build working prototypes to test ideas with the people who will use them.</p>`)}
 
 ${section('Skills', `
@@ -153,7 +153,7 @@ ${section('Experience', [
   job('AmaliTech', 'Associate UI/UX Designer', '2024 &ndash; Present', [
     'Co-led the website rebuild, moving from a WordPress template to a CMS the team runs itself. <b>+15% time on site.</b>',
     'Wrote the design system, tone of voice and editorial guidelines. The team now publishes pages without a designer.',
-    '<b>European telecom</b> (ongoing): moving several platforms onto their in-house design system and fixing UX issues.',
+    '<b>European telecom</b> (ongoing): leading UX to bring eight internal operations tools into one portal. Set the object model, status colour rules and filter patterns reused across modules.',
     '<b>North American industrial services firm</b>: redesigned a platform UI in a short engagement.',
   ]),
   job('AmaliTech', 'Junior Associate UI/UX Designer', '2023 &ndash; 2024', [

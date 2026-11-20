@@ -30,7 +30,7 @@
       "selectedWorkCount": "01",
       "clientWorkLabel": "Client work",
       "clientWorkCount": "Under wraps",
-      "clientNote": "Both are under NDA, so there are no screenshots.",
+      "clientNote": "Both are under NDA, so there are no screenshots. The telecom case study uses diagrams instead.",
       "shippedLabel": "Shipped products",
       "shippedCount": "04–06"
     },
@@ -118,9 +118,10 @@
       "client": "European telecommunications company",
       "category": "Enterprise",
       "status": "Ongoing",
-      "description": "I'm moving several of their platforms onto their in-house design system and fixing UX issues along the way.",
+      "description": "Eight internal operations tools brought into one portal, on the client's own design system.",
       "role": "UX / UI designer, partner",
-      "mark": "EU"
+      "mark": "EU",
+      "slug": "operations-portal"
     },
     {
       "index": "03",
@@ -194,7 +195,7 @@
   "explorations": [],
   "about": {
     "eyebrow": "About",
-    "metaDescription": "Product designer in Takoradi, Ghana. Web, mobile and desktop, from first sketches to working prototypes.",
+    "metaDescription": "Product designer in Kumasi, Ghana. Web, mobile and desktop, from first sketches to working prototypes.",
     "lead": "I work with teams at different stages. Some have an idea and nothing else, some have a product that needs rethinking. Either way I start with",
     "leadEm": "the problem.",
     "portrait": {
@@ -211,7 +212,7 @@
       {
         "heading": "Right now",
         "body": [
-          "UI/UX designer at AmaliTech, based in Takoradi, Ghana. I design in Figma and build a working prototype when a static mockup won't answer the question."
+          "UI/UX designer at AmaliTech, based in Kumasi, Ghana. I design in Figma and build a working prototype when a static mockup won't answer the question."
         ]
       },
       {
@@ -304,6 +305,152 @@
     ]
   },
   "work": {
+    "operations-portal": {
+      "index": "02",
+      "category": "Enterprise",
+      "status": "Ongoing",
+      "title": "One portal for eight operations tools",
+      "plateWord": "Portal",
+      "summary": "A European telecommunications company runs eight internal tools for testing, monitoring, incident management and cloud operations. I'm designing the portal that brings them together, with one sign-in, one navigation and one design language. The work is under NDA, so the pictures on this page are diagrams I drew for it.",
+      "meta": [
+        {
+          "label": "Role",
+          "value": "UI/UX designer, via AmaliTech"
+        },
+        {
+          "label": "Client",
+          "value": "European telecommunications company"
+        },
+        {
+          "label": "Scope",
+          "value": "Information architecture, interaction design, prototyping, UX copy"
+        },
+        {
+          "label": "Team",
+          "value": "Client product owners and architects, engineers from several vendors"
+        }
+      ],
+      "highlights": [
+        "Eight tools with their own navigation, words and permissions, moved into one portal.",
+        "Status colour kept for problems. Normal is grey.",
+        "Filter and time-range patterns built once and reused across modules."
+      ],
+      "sections": [
+        {
+          "heading": "Context",
+          "body": "Each of the eight tools was built on its own, so each had its own navigation, its own names for things, its own permissions and its own look. The plan is a single portal shell with each tool as a module inside it, one sign-in, one role model and the client's design system throughout."
+        },
+        {
+          "heading": "My role",
+          "body": "UI/UX designer from AmaliTech, working with the client's product owners and architects and with backend and front-end engineers.",
+          "list": [
+            "Information architecture and the object model.",
+            "Interaction design and clickable prototypes.",
+            "Applying the client's design system, and extending it where a pattern was missing.",
+            "UX copy.",
+            "Getting decisions agreed and written down."
+          ]
+        },
+        {
+          "heading": "What was wrong",
+          "list": [
+            "No shared model. Each tool named and grouped things its own way.",
+            "Dense screens that only experts could read.",
+            "Status colour on almost every row, so a real problem looked like everything else.",
+            "Permissions set per tool, so one person's access changed from tool to tool."
+          ]
+        },
+        {
+          "heading": "Audit first",
+          "body": "Before drawing screens I went through all eight tools and kept a reconciliation document. Every conflict between the tools, the specs and what engineers said the system did went into it, with an owner, and later the decision."
+        },
+        {
+          "heading": "Objects before screens",
+          "body": "Screens came after the objects were agreed. A Project owns capacity. A Campaign owns execution. Test sessions are what people work with every day, so they became the primary object. Legacy pages that didn't fit the model were retired.",
+          "diagram": {
+            "id": "object-model",
+            "alt": "Diagram: Project owns capacity, has many Campaigns which own execution, each has many Test sessions, the primary object. Below, three legacy pages are crossed out.",
+            "caption": "The object model, agreed before any screens."
+          }
+        },
+        {
+          "heading": "Status colour",
+          "body": "I based the status rules on control-room display (HMI) guidance. Normal is neutral grey, in progress gets motion only, and saturated colour is kept for abnormal states. Labels use the backend's values word for word, so the screen and the logs match. Badges are worked out from the number they describe. One screen showed a “problem” icon next to a healthy green line, and that icon was removed.",
+          "diagram": {
+            "id": "status-colour",
+            "alt": "Diagram: before, six rows each with a coloured status pill. After, the same rows in grey with backend labels, a spinner on the running row and red only on the failed row.",
+            "caption": "A list of test runs, before and after."
+          }
+        },
+        {
+          "heading": "Filters that wait for Apply",
+          "body": "On the cloud analytics module, filter changes are staged and run when you press Apply, with Reset beside it. Two lighter controls, environment and anomaly threshold, sit in a separate zone and apply straight away. The page opens empty until the first Apply. Changing a parent filter clears the filters below it. Two other modules now use the same pattern.",
+          "diagram": {
+            "id": "deferred-filters",
+            "alt": "Diagram: a filter bar with Region, Cluster and Service staged until Apply, Reset beside Apply, and an instant zone with Environment and a threshold slider. Below, an empty first state and a chart after Apply.",
+            "caption": "Staged and instant filters on one bar."
+          }
+        },
+        {
+          "heading": "Network: designing for depth",
+          "body": "The connectivity module has about 10 endpoints per link and around 360 in total. The early design was a map with pan, zoom and a minimap. Talking to the people who run the network showed the scale is in depth, per link, more than across the map. So pan, zoom and the minimap went, and the module became a three-level drill-down: map, connection, endpoint. I tried five patterns for the endpoint level and recommended a table with a sparkline on each row. Each level has side links for the usual question: is it the link, the site pair or the cluster?",
+          "diagram": {
+            "id": "drill-down",
+            "alt": "Diagram: three panels. A network map with one link highlighted, then a table of endpoints for that connection with a sparkline per row, then a chart for one endpoint.",
+            "caption": "Map, connection, endpoint."
+          }
+        },
+        {
+          "heading": "Time ranges",
+          "body": "Period and interval are linked. Every view shows between 6 and 144 data points, where the old tools allowed over 1,000 on one chart. Intervals that would fall outside that range are disabled for the chosen period. Custom ranges use a calendar picker.",
+          "diagram": {
+            "id": "period-interval",
+            "alt": "Diagram: period set to one hour. Interval options 1, 5 and 10 minutes are available; 10 seconds (360 points) and 1 hour (1 point) are disabled. A scale marks the allowed band from 6 to 144 points.",
+            "caption": "Interval options for a one-hour period."
+          }
+        },
+        {
+          "heading": "Creating a test",
+          "body": "Creating a test used to happen in a modal. It moved to a full page, with property groups as tabs and an action bar fixed to the bottom, so the save button is always in reach on a long form.",
+          "diagram": {
+            "id": "test-creation",
+            "alt": "Diagram: before, a long form squeezed into a modal with a scrollbar. After, a full page with tabs across the top and an action bar at the bottom.",
+            "caption": "Modal to full page."
+          }
+        },
+        {
+          "heading": "Roles and copy",
+          "list": [
+            "Three roles: system admin, test admin and test operator. Each can do only the actions written down for it.",
+            "A disabled control says why on hover.",
+            "Copy rules: active voice, one sentence per message, verbs over nouns, no filler."
+          ]
+        },
+        {
+          "heading": "How the work is run",
+          "list": [
+            "Clickable HTML prototypes with a role switcher, so reviewers see each role's view of the same screen.",
+            "A comparison page for putting design options side by side.",
+            "Weekly working sessions with the client, and a written decision log.",
+            "Any claim about how the system behaves needs a source or a measurement.",
+            "Handoff in annotated Figma (apply logic, reset rules, empty states, disabled tooltips, character limits) plus a shared TypeScript interface for the data."
+          ]
+        },
+        {
+          "heading": "Where it stands",
+          "body": "The work is ongoing. The eight tools sit under one navigation and one permission model, the filter, time-range and status patterns are shared, and developers build from the handoff. I don't have usage numbers to report."
+        },
+        {
+          "heading": "What I'd do differently",
+          "body": "I'd ask the people who run the system which way it grows before designing for scale. The network map was planned for breadth, and the growth was in depth. Two habits I'd keep: log every conflict between sources, because each one is a finding, and show a clickable prototype early, because it settles arguments faster than a spec."
+        }
+      ],
+      "leadDiagram": {
+        "id": "portal",
+        "alt": "Diagram: eight separate tools, each with a different frame, feed into one portal with a shared header, sign-in and side navigation",
+        "caption": "Eight tools into one shell. Diagram, not the client's UI."
+      }
+    },
     "amalitech": {
       "index": "01",
       "category": "Web platform",
