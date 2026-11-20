@@ -154,8 +154,8 @@ ${section('Experience', [
   job('AmaliTech', 'Associate UI/UX Designer', '2024 &ndash; Present', [
     'Co-led the website rebuild off an outgrown WordPress template onto a CMS the team owns &mdash; <b>+15% time on site</b>.',
     'Built the design system, tone of voice, and editorial guidelines from scratch; the team now publishes on-brand without a designer in the loop.',
-    '<b>Deutsche Telekom</b> (ongoing): redesigning several platforms onto their OneDesign system, tightening UX along the way.',
-    '<b>Brock</b>: modernised the platform UI in a short, focused engagement.',
+    '<b>Major European telecom</b> (ongoing): moving several platforms onto their in-house design system, tightening UX along the way.',
+    '<b>Major North American industrial services firm</b>: modernised the platform UI in a short engagement.',
   ]),
   job('AmaliTech', 'Junior Associate UI/UX Designer', '2023 &ndash; 2024', [
     'Designed user-management and asset-tracking platforms across multiple product teams.',
@@ -192,7 +192,7 @@ const out = process.argv[2] || path.join(ROOT, 'public', 'bismark-gyau-resume.pd
 // rebuild even when nothing changed. Pin them to the résumé's revision date
 // instead (bump it when you revise the content) so `npm run resume` is
 // reproducible and a diff always means a real change.
-const REVISED = process.env.RESUME_DATE || '20260811000000';
+const REVISED = process.env.RESUME_DATE || '20261120000000';
 const PDF_DATE = `D:${REVISED}+00'00'`;
 
 const META = {

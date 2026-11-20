@@ -26,9 +26,14 @@ carries the intent instead.
 
 ## clients (NDA cards)
 
-- Under wraps. NDA cards are text-only — the client name carries the credibility
-  a screenshot would (the witty "no screenshots" bit lives in the section note on
-  the home page). `mark` is a stand-in for the eventual logo.
+- Under wraps. NDA cards are text-only (the witty "no screenshots" bit lives in
+  the section note on the home page).
+- **Clients are never named.** Each is described by industry and region instead
+  ("A major European telecommunications company", "A major North American
+  industrial services company"). The same applies to the home page's "Worked
+  with" strip, the résumé (`tools/resume/build.mjs`) and any future case study.
+  Don't name a client's internal products or design systems either: they
+  identify the client as surely as the name. `mark` is the region's initials.
 
 ## products / work (case-study detail pages)
 
@@ -40,3 +45,16 @@ carries the intent instead.
 - Outbound `links` carry anti-spam attrs in the component
   (`rel=nofollow noopener noreferrer` + `referrerPolicy=no-referrer`).
 - `booking-room` is the only project with real UI screenshots in-repo.
+
+## danmu
+
+- Drawn from github.com/B-ismark/Danmu: its commit history, `PRODUCT.md`,
+  `Design.md` and `docs/START-HERE.md`. Dated decisions in the copy come from
+  there (key wall removed 2026-06-06, render pipeline deleted 2026-07-25,
+  "scanned pieces are approximate" decided 2026-10-03, first-screen redesign
+  in PR #300).
+- "970+ commits" and "5 months" are counted from the repo (974 commits,
+  2026-06-06 to 2026-11-19). "7 to 13 of 19" is the detector benchmark in the
+  commit that added the second model. No usage numbers exist; don't add any.
+- Screenshots were captured from the running app (starter living room, light
+  theme) at 2400px wide.
