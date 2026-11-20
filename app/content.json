@@ -331,8 +331,8 @@
         }
       ],
       "highlights": [
-        "Eight tools with their own navigation, words and permissions, moved into one portal.",
-        "Status colour kept for problems. Normal is grey.",
+        "Eight tools with their own navigation, words and permissions, moving into one portal one at a time.",
+        "An object model agreed before any screens.",
         "Filter and time-range patterns built once and reused across modules."
       ],
       "sections": [
@@ -356,13 +356,12 @@
           "list": [
             "No shared model. Each tool named and grouped things its own way.",
             "Dense screens that only experts could read.",
-            "Status colour on almost every row, so a real problem looked like everything else.",
             "Permissions set per tool, so one person's access changed from tool to tool."
           ]
         },
         {
-          "heading": "Audit first",
-          "body": "Before drawing screens I went through all eight tools and kept a reconciliation document. Every conflict between the tools, the specs and what engineers said the system did went into it, with an owner, and later the decision."
+          "heading": "One tool at a time",
+          "body": "The tools moved into the portal one at a time. Each one started with an audit of that tool and a running reconciliation document: every conflict between the tool, its specs and what engineers said the system did, with an owner and, later, the decision. What we settled on for one tool carried over to the next."
         },
         {
           "heading": "Objects before screens",
@@ -371,15 +370,6 @@
             "id": "object-model",
             "alt": "Diagram: Project owns capacity, has many Campaigns which own execution, each has many Test sessions, the primary object. Below, three legacy pages are crossed out.",
             "caption": "The object model, agreed before any screens."
-          }
-        },
-        {
-          "heading": "Status colour",
-          "body": "I based the status rules on control-room display (HMI) guidance. Normal is neutral grey, in progress gets motion only, and saturated colour is kept for abnormal states. Labels use the backend's values word for word, so the screen and the logs match. Badges are worked out from the number they describe. One screen showed a “problem” icon next to a healthy green line, and that icon was removed.",
-          "diagram": {
-            "id": "status-colour",
-            "alt": "Diagram: before, six rows each with a coloured status pill. After, the same rows in grey with backend labels, a spinner on the running row and red only on the failed row.",
-            "caption": "A list of test runs, before and after."
           }
         },
         {
@@ -438,7 +428,7 @@
         },
         {
           "heading": "Where it stands",
-          "body": "The work is ongoing. The eight tools sit under one navigation and one permission model, the filter, time-range and status patterns are shared, and developers build from the handoff. I don't have usage numbers to report."
+          "body": "The work is ongoing, one tool at a time. The tools that have moved share one navigation and one permission model, the filter and time-range patterns are reused across modules, and developers build from the handoff. I don't have usage numbers to report."
         },
         {
           "heading": "What I'd do differently",

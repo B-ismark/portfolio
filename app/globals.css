@@ -2743,16 +2743,12 @@ html.js [data-reveal].is-in {
 }
 
 /* ---- schematic diagrams (NDA case studies) ---------------- */
-/* Drawn in the page's own inks so they follow the theme. Status colours are
-   fixed hues, since the diagram is about what those colours do. */
+/* Drawn in the page's own inks so they follow the theme. */
 .diagram {
   border: 1px solid var(--line);
   background: var(--paper);
   padding: clamp(10px, 2vw, 18px);
   --dg-red: #c8321f;
-  --dg-green: #2e8b57;
-  --dg-blue: #2f6fd6;
-  --dg-yellow: #a87400;
 }
 .diagram svg {
   display: block;
@@ -2793,27 +2789,6 @@ html.js [data-reveal].is-in {
 .dg-chart { fill: none; stroke: var(--accent); stroke-width: 2; stroke-linejoin: round; }
 .dg-spark { fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-linejoin: round; }
 .dg-scrim { fill: var(--ink); opacity: 0.12; }
-.dg-pill { fill: none; stroke: var(--line-strong); }
-.dg-c-red { fill: var(--dg-red); }
-.dg-c-green { fill: var(--dg-green); }
-.dg-c-blue { fill: var(--dg-blue); }
-.dg-c-yellow { fill: var(--dg-yellow); }
-/* "in progress" gets motion and no colour */
-.dg-spin {
-  fill: none;
-  stroke: var(--muted);
-  stroke-width: 2;
-  stroke-dasharray: 60 40;
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: dg-spin 1.2s linear infinite;
-}
-@keyframes dg-spin {
-  to { transform: rotate(1turn); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .dg-spin { animation: none; }
-}
 
 /* NDA card that opens a written case study */
 .nda-card--link {
