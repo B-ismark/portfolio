@@ -120,6 +120,7 @@ export default async function WorkPage({ params }) {
             caption={project.hero.caption}
             width={project.hero.width}
             height={project.hero.height}
+            lead
             editImg={`${base}.hero.src`}
             editAlt={`${base}.hero.alt`}
           />

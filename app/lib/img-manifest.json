@@ -105,8 +105,8 @@
     ]
   },
   "/work/booking-room/bookings.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -121,14 +121,22 @@
         "path": "/work/booking-room/bookings-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/booking-room/bookings-1440.webp"
+        "w": 1600,
+        "path": "/work/booking-room/bookings-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/booking-room/bookings-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/booking-room/bookings-2880.webp"
       }
     ]
   },
   "/work/booking-room/dashboard.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -143,14 +151,22 @@
         "path": "/work/booking-room/dashboard-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/booking-room/dashboard-1440.webp"
+        "w": 1600,
+        "path": "/work/booking-room/dashboard-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/booking-room/dashboard-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/booking-room/dashboard-2880.webp"
       }
     ]
   },
   "/work/booking-room/room-detail.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -165,14 +181,22 @@
         "path": "/work/booking-room/room-detail-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/booking-room/room-detail-1440.webp"
+        "w": 1600,
+        "path": "/work/booking-room/room-detail-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/booking-room/room-detail-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/booking-room/room-detail-2880.webp"
       }
     ]
   },
   "/work/booking-room/rooms.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -187,8 +211,16 @@
         "path": "/work/booking-room/rooms-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/booking-room/rooms-1440.webp"
+        "w": 1600,
+        "path": "/work/booking-room/rooms-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/booking-room/rooms-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/booking-room/rooms-2880.webp"
       }
     ]
   },
@@ -211,6 +243,10 @@
       {
         "w": 1600,
         "path": "/work/danmu/ideas-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/danmu/ideas-2000.webp"
       },
       {
         "w": 2400,
@@ -239,6 +275,10 @@
         "path": "/work/danmu/plan-1600.webp"
       },
       {
+        "w": 2000,
+        "path": "/work/danmu/plan-2000.webp"
+      },
+      {
         "w": 2400,
         "path": "/work/danmu/plan-2400.webp"
       }
@@ -263,6 +303,10 @@
       {
         "w": 1600,
         "path": "/work/danmu/rooms-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/danmu/rooms-2000.webp"
       },
       {
         "w": 2400,
@@ -291,6 +335,10 @@
         "path": "/work/danmu/studio-1600.webp"
       },
       {
+        "w": 2000,
+        "path": "/work/danmu/studio-2000.webp"
+      },
+      {
         "w": 2400,
         "path": "/work/danmu/studio-2400.webp"
       }
@@ -317,6 +365,10 @@
         "path": "/work/danmu/typical-sizes-1600.webp"
       },
       {
+        "w": 2000,
+        "path": "/work/danmu/typical-sizes-2000.webp"
+      },
+      {
         "w": 2400,
         "path": "/work/danmu/typical-sizes-2400.webp"
       }
@@ -341,6 +393,10 @@
       {
         "w": 1600,
         "path": "/work/trackpad/app-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/trackpad/app-2000.webp"
       },
       {
         "w": 3200,
@@ -383,14 +439,18 @@
         "path": "/work/trackpad/gestures-1600.webp"
       },
       {
+        "w": 2000,
+        "path": "/work/trackpad/gestures-2000.webp"
+      },
+      {
         "w": 3200,
         "path": "/work/trackpad/gestures-3200.webp"
       }
     ]
   },
   "/work/video-conferencing/landing.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -405,14 +465,22 @@
         "path": "/work/video-conferencing/landing-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/video-conferencing/landing-1440.webp"
+        "w": 1600,
+        "path": "/work/video-conferencing/landing-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/video-conferencing/landing-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/video-conferencing/landing-2880.webp"
       }
     ]
   },
   "/work/video-conferencing/lobby.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -427,14 +495,22 @@
         "path": "/work/video-conferencing/lobby-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/video-conferencing/lobby-1440.webp"
+        "w": 1600,
+        "path": "/work/video-conferencing/lobby-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/video-conferencing/lobby-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/video-conferencing/lobby-2880.webp"
       }
     ]
   },
   "/work/video-conferencing/settings.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -449,14 +525,22 @@
         "path": "/work/video-conferencing/settings-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/video-conferencing/settings-1440.webp"
+        "w": 1600,
+        "path": "/work/video-conferencing/settings-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/video-conferencing/settings-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/video-conferencing/settings-2880.webp"
       }
     ]
   },
   "/work/video-conferencing/signin.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -471,14 +555,22 @@
         "path": "/work/video-conferencing/signin-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/video-conferencing/signin-1440.webp"
+        "w": 1600,
+        "path": "/work/video-conferencing/signin-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/video-conferencing/signin-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/video-conferencing/signin-2880.webp"
       }
     ]
   },
   "/work/video-conferencing/theme.png": {
-    "width": 1440,
-    "height": 900,
+    "width": 2880,
+    "height": 1800,
     "variants": [
       {
         "w": 400,
@@ -493,8 +585,16 @@
         "path": "/work/video-conferencing/theme-1200.webp"
       },
       {
-        "w": 1440,
-        "path": "/work/video-conferencing/theme-1440.webp"
+        "w": 1600,
+        "path": "/work/video-conferencing/theme-1600.webp"
+      },
+      {
+        "w": 2000,
+        "path": "/work/video-conferencing/theme-2000.webp"
+      },
+      {
+        "w": 2880,
+        "path": "/work/video-conferencing/theme-2880.webp"
       }
     ]
   },
