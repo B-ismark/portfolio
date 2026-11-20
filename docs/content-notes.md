@@ -74,6 +74,9 @@ carries the intent instead.
   1,000+ in the old tools, 3 roles, 5 endpoint patterns, pattern reused on 2
   more modules) all come from the write-up. An unmeasured line about operators
   spotting problems "from across the room" was left out on purpose.
+- Bismark asked for the status-colour (HMI) decision to be left out; don't
+  bring it back. The tools move into the portal one at a time, each with its
+  own audit, so don't describe it as a single up-front audit of all eight.
 - No screenshots. The pictures are schematic SVGs in
   `app/components/Diagram.js`, keyed by `diagram.id` on a section (or
   `leadDiagram` for the lead). They use the site's colour variables, so they

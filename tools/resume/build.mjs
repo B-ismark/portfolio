@@ -153,7 +153,7 @@ ${section('Experience', [
   job('AmaliTech', 'Associate UI/UX Designer', '2024 &ndash; Present', [
     'Co-led the website rebuild, moving from a WordPress template to a CMS the team runs itself. <b>+15% time on site.</b>',
     'Wrote the design system, tone of voice and editorial guidelines. The team now publishes pages without a designer.',
-    '<b>European telecom</b> (ongoing): leading UX to bring eight internal operations tools into one portal. Set the object model, status colour rules and filter patterns reused across modules.',
+    '<b>European telecom</b> (ongoing): leading UX to move eight internal operations tools into one portal, one tool at a time. Set the object model and filter patterns reused across modules.',
     '<b>North American industrial services firm</b>: redesigned a platform UI in a short engagement.',
   ]),
   job('AmaliTech', 'Junior Associate UI/UX Designer', '2023 &ndash; 2024', [

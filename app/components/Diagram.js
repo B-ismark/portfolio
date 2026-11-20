@@ -120,63 +120,6 @@ function ObjectModel() {
   );
 }
 
-/* ---- status colour, before and after --------------------------------- */
-function StatusColour() {
-  const before = [
-    ['OK', 'dg-c-green'],
-    ['In progress', 'dg-c-blue'],
-    ['Waiting', 'dg-c-yellow'],
-    ['Good', 'dg-c-green'],
-    ['Error', 'dg-c-red'],
-    ['OK', 'dg-c-green'],
-  ];
-  const after = ['PASSED', 'RUNNING', 'QUEUED', 'PASSED', 'FAILED', 'PASSED'];
-  const row = (x, i, children) => (
-    <g key={`${x}-${i}`}>
-      <rect x={x} y={40 + i * 40} width="222" height="32" className="dg-box" />
-      <Skel x={x + 12} y={53 + i * 40} w={64 + ((i * 17) % 30)} />
-      {children}
-    </g>
-  );
-  return (
-    <svg viewBox={`0 0 ${W} 290`}>
-      <text x="10" y="24" className="dg-h">Before</text>
-      <text x="248" y="24" className="dg-h">After</text>
-      {before.map(([label, c], i) =>
-        row(10, i, (
-          <>
-            <rect x="128" y={46 + i * 40} width="94" height="20" rx="10" className={c} />
-            <text x="175" y={60 + i * 40} className="dg-s dg-mid dg-on-colour">{label}</text>
-          </>
-        )),
-      )}
-      {after.map((label, i) => {
-        const failed = label === 'FAILED';
-        const running = label === 'RUNNING';
-        return row(248, i, (
-          <>
-            {failed ? (
-              <rect x="366" y={46 + i * 40} width="94" height="20" rx="10" className="dg-c-red" />
-            ) : (
-              <rect x="366" y={46 + i * 40} width="94" height="20" rx="10" className="dg-pill" />
-            )}
-            {running && (
-              <circle cx="380" cy={56 + i * 40} r="5" className="dg-spin" pathLength="100" />
-            )}
-            <text
-              x={running ? 420 : 413}
-              y={60 + i * 40}
-              className={`dg-s dg-mid ${failed ? 'dg-on-colour' : 'dg-muted'}`}
-            >
-              {label}
-            </text>
-          </>
-        ));
-      })}
-    </svg>
-  );
-}
-
 /* ---- deferred filters --------------------------------------------------- */
 function DeferredFilters() {
   const staged = ['Region', 'Cluster', 'Service'];
@@ -363,7 +306,6 @@ function TestCreation() {
 const DIAGRAMS = {
   portal: Portal,
   'object-model': ObjectModel,
-  'status-colour': StatusColour,
   'deferred-filters': DeferredFilters,
   'drill-down': DrillDown,
   'period-interval': PeriodInterval,
