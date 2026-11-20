@@ -23,7 +23,8 @@ const FILES = ['bismark.jpg'];
 
 // Target widths. A variant is only written when it's smaller than the effective
 // (post-crop) source width, plus one variant clamped to that width itself.
-const WIDTHS = [400, 800, 1200, 1600];
+// 2000 covers the 964px case-study lead on 2x screens without sending the full file.
+const WIDTHS = [400, 800, 1200, 1600, 2000];
 // Skip a candidate width that lands within 15% of the full-size variant — two
 // near-identical files help nobody and just pad the export.
 const NEAR_DUPE = 0.85;

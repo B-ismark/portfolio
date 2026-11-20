@@ -536,8 +536,8 @@
       "hero": {
         "src": "/work/video-conferencing/lobby.png",
         "alt": "The pre-call lobby: a camera preview, device toggles, and a mic level meter",
-        "width": 1440,
-        "height": 900,
+        "width": 2880,
+        "height": 1800,
         "caption": "Pre-call lobby with a device check and live mic meter."
       },
       "sections": [
@@ -546,9 +546,9 @@
           "body": "Joining is where most calling tools are weakest. You aren't sure you're in the right room or that your mic works, and it's hard to tell who is actually there. Small actions during a call, like reacting or stepping away, take too many steps.",
           "media": {
             "src": "/work/video-conferencing/landing.png",
-            "alt": "The landing screen: start a new meeting or join one by name or code",
-            "width": 1440,
-            "height": 900,
+            "alt": "The landing screen: start a new meeting or join one by call name or invite link",
+            "width": 2880,
+            "height": 1800,
             "caption": "Start or join from one screen."
           }
         },
@@ -558,8 +558,8 @@
           "media": {
             "src": "/work/video-conferencing/signin.png",
             "alt": "The passwordless sign-in dialog: continue with Google, or an email sign-in link",
-            "width": 1440,
-            "height": 900,
+            "width": 2880,
+            "height": 1800,
             "caption": "Passwordless sign-in in the standard dialog."
           }
         },
@@ -579,8 +579,8 @@
           "media": {
             "src": "/work/video-conferencing/theme.png",
             "alt": "Appearance settings: theme colour tokens, high-contrast, and vision-assistive colours",
-            "width": 1440,
-            "height": 900,
+            "width": 2880,
+            "height": 1800,
             "caption": "The theme comes from a few named tokens. High-contrast and vision-assistive modes use the same tokens."
           }
         },
@@ -728,8 +728,8 @@
       "hero": {
         "src": "/work/booking-room/dashboard.png",
         "alt": "The Booking-Room dashboard",
-        "width": 1440,
-        "height": 900,
+        "width": 2880,
+        "height": 1800,
         "caption": "Dashboard with today's bookings and rooms."
       },
       "sections": [
@@ -756,10 +756,10 @@
           ],
           "media": {
             "src": "/work/booking-room/bookings.png",
-            "alt": "Calendar with drag-to-create bookings",
-            "width": 1440,
-            "height": 900,
-            "caption": "Day, week and month views."
+            "alt": "My Bookings: upcoming bookings in date order",
+            "width": 2880,
+            "height": 1800,
+            "caption": "My Bookings, upcoming tab."
           }
         },
         {
@@ -777,8 +777,8 @@
           "media": {
             "src": "/work/booking-room/rooms.png",
             "alt": "Rooms grid with search and filters",
-            "width": 1440,
-            "height": 900,
+            "width": 2880,
+            "height": 1800,
             "caption": "Rooms list with filters."
           }
         },
@@ -788,8 +788,8 @@
           "media": {
             "src": "/work/booking-room/room-detail.png",
             "alt": "Room detail with utilisation analytics",
-            "width": 1440,
-            "height": 900,
+            "width": 2880,
+            "height": 1800,
             "focus": "top",
             "zoom": 1.14,
             "caption": "Room detail with utilisation."

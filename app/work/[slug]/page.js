@@ -120,6 +120,7 @@ export default async function WorkPage({ params }) {
             caption={project.hero.caption}
             width={project.hero.width}
             height={project.hero.height}
+            lead
             editImg={`${base}.hero.src`}
             editAlt={`${base}.hero.alt`}
           />
@@ -217,7 +218,11 @@ export default async function WorkPage({ params }) {
         ) : (
           <span />
         )}
-        {next && (
+        {/* sits in the pager row so it lines up with the Previous / Next labels */}
+        <Link className="work-back work-pager-back" href="/">
+          <span aria-hidden="true">←</span> Back to work
+        </Link>
+        {next ? (
           <Link
             className="work-pager-link work-pager-link--next"
             href={`/work/${next}/`}
@@ -228,11 +233,10 @@ export default async function WorkPage({ params }) {
             </span>
             <span className="work-pager-title title-mark">{work[next].title}</span>
           </Link>
+        ) : (
+          <span />
         )}
       </nav>
-      <Link className="work-back work-back--bottom" href="/">
-        <span aria-hidden="true">←</span> Back to work
-      </Link>
 
       <ContactCTA />
     </article>

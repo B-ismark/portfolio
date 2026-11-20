@@ -34,6 +34,9 @@ carries the intent instead.
   with" strip, the résumé (`tools/resume/build.mjs`) and any future case study.
   Don't name a client's internal products or design systems either: they
   identify the client as surely as the name. `mark` is the region's initials.
+- AmaliTech is not anonymised: it's named, and screenshots of its public site
+  stay as they are, including the partner logos on `amalitech/clients.png`.
+  The rule above covers the portfolio's own copy about client work.
 
 ## products / work (case-study detail pages)
 

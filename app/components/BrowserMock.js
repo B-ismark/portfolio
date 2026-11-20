@@ -4,8 +4,14 @@ import { useRef } from 'react';
 import { edImg, edAlt } from '../lib/edit';
 import { imgProps, imgFull } from '../lib/img';
 
-// Case-study shots fill the content column on desktop, near full-width on mobile.
-const MOCK_SIZES = '(max-width: 800px) 92vw, 760px';
+// Rendered widths, measured: below 1024px both the lead shot and section shots
+// span the column (~92vw). From 1024px up the lead is 964px wide and section
+// shots sit in a two-column row at ~500px. `sizes` has to match, or the browser
+// picks a variant smaller than the space it fills and the screenshot goes soft.
+const LEAD_SIZES = '(max-width: 1023px) 92vw, 964px';
+const SECTION_W = 500;
+const sectionSizes = (zoom = 1) =>
+  `(max-width: 1023px) ${Math.round(92 * zoom)}vw, ${Math.round(SECTION_W * zoom)}px`;
 
 // A lightweight browser-chrome frame to ground a screenshot as a real product.
 // `zoom` + `focus` crop into a region to drive a specific point home; `width` /
@@ -23,6 +29,7 @@ export default function BrowserMock({
   focus,
   width,
   height,
+  lead = false,
   editImg: imgPath,
   editAlt: altPath,
 }) {
@@ -73,7 +80,7 @@ export default function BrowserMock({
         <img
           width={width}
           height={height}
-          {...imgProps(src, MOCK_SIZES)}
+          {...imgProps(src, lead ? LEAD_SIZES : sectionSizes(zoom || 1))}
           alt={alt}
           loading="lazy"
           style={imgStyle}
@@ -99,7 +106,9 @@ export default function BrowserMock({
               <span className="lightbox-dot" />
               <span className="lightbox-barlabel">{alt}</span>
             </div>
-            <img className="lightbox-img" src={imgFull(src)} alt={alt} width={width} height={height} />
+            {/* lazy: the dialog is display:none until opened, so the full-size file
+                only downloads when someone actually opens it */}
+            <img className="lightbox-img" src={imgFull(src)} alt={alt} width={width} height={height} loading="lazy" />
             {caption && <figcaption className="lightbox-cap">{caption}</figcaption>}
           </figure>
         </div>
